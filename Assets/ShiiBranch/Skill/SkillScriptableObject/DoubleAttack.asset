@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
+  m_Name: DoubleAttack
+  m_EditorClassIdentifier: 
+  _skillName: "\u4E8C\u6BB5\u653B\u6483"
+  _description: "\u4E00\u5EA6\u306E\u653B\u6483\u3067\u4E8C\u6BB5\u968E\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u304C\u3001\u4E00\u6BB5\u968E\u306E\u30C0\u30E1\u30FC\u30B8\u91CF\u306F0.75\u500D\u306B\u306A\u308B\u3002"
+  _icon: {fileID: 21300000, guid: 62b5a5084ec81ad46a1b9a3a7ee6f712, type: 3}
+  _type: 0
+  _moveSpeedMultiplier: 1
+  _damageMultiplier: 0.75
+  _attackRateMultiplier: 1
+  _extraAttacks: 1
+  _lifestealRatio: 0
+  _effectPrefab: {fileID: 0}
