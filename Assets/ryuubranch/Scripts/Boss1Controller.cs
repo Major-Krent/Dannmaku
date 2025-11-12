@@ -24,6 +24,13 @@ public class Boss1Controller : EnemyBase
     [SerializeField] private float bulletSpeed;              // 现在暂时没用，先留着
     [SerializeField] private AttackPattern[] attackPatterns; // 以后扩展用
 
+    [Header("ダッシュ")]
+    [SerializeField] private float aimDuration = 1.2f;      // 瞄准时长
+    [SerializeField] private float dashSpeed = 10f;          // 冲刺速度
+    [SerializeField] private float dashDuration = 0.8f;      // 冲刺时长
+    [SerializeField] private float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔
+    [SerializeField] private float sideBulletSpeed = 6f;     // 侧向子弹速度
+
     // 是否正在追玩家
     private bool isChasing = false;
 
@@ -59,7 +66,7 @@ public class Boss1Controller : EnemyBase
         {
             // 1. 朝玩家移动3秒
             isChasing = true;
-            float chaseTime = 3f;
+            float chaseTime = 2f;
             float t = 0f;
             while (t < chaseTime)
             {
@@ -80,7 +87,10 @@ public class Boss1Controller : EnemyBase
                     yield return StartCoroutine(FanWaveTowardsPlayer());
                     break;
                 case 2:
-                    yield return StartCoroutine(TwelveWayRotating());
+                    yield return StartCoroutine(TwelveWayRotating(12));
+                    break;
+                case 3:
+                    yield return StartCoroutine(AimThenDashWithSideFire());
                     break;
             }
 
@@ -96,6 +106,7 @@ public class Boss1Controller : EnemyBase
         remainingSkills.Add(0);
         remainingSkills.Add(1);
         remainingSkills.Add(2);
+        remainingSkills.Add(3);
     }
 
     private int GetNextRandomSkill()
@@ -129,9 +140,9 @@ public class Boss1Controller : EnemyBase
         int shots = 60;
         float totalAngle = 360f;
         float step = totalAngle / shots;
-        float delay = 0.05f;
+        float delay = 0.005f;
 
-        float spraySpeed = 4f; // 这一种攻击想用的速度
+        float spraySpeed = 2f; // 这一种攻击想用的速度
 
         for (int i = 0; i < shots; i++)
         {
@@ -174,15 +185,16 @@ public class Boss1Controller : EnemyBase
     }
 
     // ========== 技能3：12方向两轮，第二轮整体偏15度 ==========
-    private IEnumerator TwelveWayRotating()
+    private IEnumerator TwelveWayRotating(int times_)
     {
         int count = 12;
         float baseStep = 30f;
         float offsetBetweenWaves = 15f;
         float delayBetweenWaves = 0.2f;
+        int fireTimes=times_;
 
-        float multiSpeed = 8f; // 这一种攻击用的速度
-        for(int i = 0; i < 12;i++)
+        float multiSpeed = 2f; // 这一种攻击用的速度
+        for(int i = 0; i < fireTimes; i++)
         {
 
         // 第一轮
@@ -193,6 +205,7 @@ public class Boss1Controller : EnemyBase
         FireMultiWay(offsetBetweenWaves, count, baseStep, multiSpeed);
         yield return new WaitForSeconds(delayBetweenWaves);
         }
+        StartCoroutine(Spray360());
     }
 
     private void FireMultiWay(float startAngle, int count, float step, float speed)
@@ -202,6 +215,65 @@ public class Boss1Controller : EnemyBase
             float angle = startAngle + step * i;
             Vector2 dir = AngleToDir(angle);
             SpawnBullet(dir, speed);
+        }
+    }
+
+    // ========== 技能4：冲刺并发射侧向弹幕 ==========
+    private IEnumerator AimThenDashWithSideFire()
+    {
+        if (firePoint == null)
+            yield break;
+
+        // 1) 瞄准阶段：持续面向玩家并更新“最后瞄准方向”
+        Vector2 lastAimDir = Vector2.right; // 默认给个方向，防止玩家为 null
+        float t = 0f;
+        while (t < aimDuration)
+        {
+            t += Time.deltaTime;
+
+            if (player != null)
+                lastAimDir = (player.position - firePoint.position).normalized;
+
+            // 若需要朝向对齐（2D转Z朝向），可加：transform.right = lastAimDir;
+            yield return null;
+        }
+
+        // 2) 冲刺阶段：沿最后瞄准方向位移，同时侧向发弹
+        bool isDashing = true;
+        // 启动一个并行协程进行侧向发弹
+        IEnumerator sideFire = SideFireRoutine(lastAimDir, () => isDashing);
+        StartCoroutine(sideFire);
+
+        float dashTime = 0f;
+        while (dashTime < dashDuration)
+        {
+            dashTime += Time.deltaTime;
+
+            // 用 transform 直接位移（若用刚体可改成 rb.velocity = ...）
+            transform.position += (Vector3)(lastAimDir * dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        // 3) 冲刺结束，停止发弹
+        isDashing = false;
+
+        StartCoroutine(TwelveWayRotating(2));
+    }
+    private IEnumerator SideFireRoutine(Vector2 dashDir, System.Func<bool> isDashingGetter)
+    {
+        // dashDir 的法线向量
+        Vector2 perpRight = new Vector2(-dashDir.y, dashDir.x);
+        Vector2 perpLeft = -perpRight;
+
+        // 按间隔持续发射，直到外部把 isDashing 置为 false
+        while (isDashingGetter())
+        {
+            // 右侧一发
+            SpawnBullet(perpRight, sideBulletSpeed);
+            // 左侧一发
+            SpawnBullet(perpLeft, sideBulletSpeed);
+
+            yield return new WaitForSeconds(sideFireInterval);
         }
     }
 
