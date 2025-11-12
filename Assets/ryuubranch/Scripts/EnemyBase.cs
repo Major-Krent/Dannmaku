@@ -8,7 +8,7 @@ public class EnemyBase : MonoBehaviour
     protected float currentHP;
 
     [Header("PlayeréQè∆")]
-    [SerializeField] private Transform player;
+    [SerializeField] protected Transform player;
 
 
 
