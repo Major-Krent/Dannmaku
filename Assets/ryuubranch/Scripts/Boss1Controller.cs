@@ -13,10 +13,36 @@ public class AttackPattern
     public bool isCircle;
 }
 
+public enum BossPhase
+{
+    Phase1, // 100% ~ 66%
+    Phase2, // 66% ~ 33%
+    Phase3  // 33% ~ 0
+}
+
+
 public class Boss1Controller : EnemyBase
 {
+    [Header("フェーズ")]
+    private float phase2Threshold = 0.66f;
+    private float phase3Threshold = 0.33f;
+    private BossPhase currentPhase = BossPhase.Phase1;
+    private Coroutine bossLoopCoroutine;
+
     [Header("移動関連")]
-    [SerializeField] protected float MoveSpeed = 3f;
+    [SerializeField] protected float MoveSpeed = 0.8f;
+    [SerializeField] private float actionSpeedMultiplier = 1f;
+    private float baseMoveSpeed;
+
+    [Header("フェーズ別移動速度倍率")]
+    [SerializeField] private float phase1MoveMul = 1.0f;
+    [SerializeField] private float phase2MoveMul = 1.7f;
+    [SerializeField] private float phase3MoveMul = 2.4f;
+
+    [Header("フェーズ別行動速度倍率(数值越大越快)")]
+    [SerializeField] private float phase1ActionMul = 1.0f;
+    [SerializeField] private float phase2ActionMul = 1.3f;
+    [SerializeField] private float phase3ActionMul = 1.6f;
 
     [Header("弾幕関連")]
     [SerializeField] private GameObject bulletPrefab;
@@ -29,7 +55,7 @@ public class Boss1Controller : EnemyBase
     [SerializeField] private float dashSpeed = 10f;          // 冲刺速度
     [SerializeField] private float dashDuration = 0.8f;      // 冲刺时长
     [SerializeField] private float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔
-    [SerializeField] private float sideBulletSpeed = 6f;     // 侧向子弹速度
+    [SerializeField] private float sideBulletSpeed = 3f;     // 侧向子弹速度
 
     // 是否正在追玩家
     private bool isChasing = false;
@@ -42,7 +68,11 @@ public class Boss1Controller : EnemyBase
     {
         base.Start();              // 初始化 HP 等
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
-        StartCoroutine(BossLoop()); // 开始主逻辑
+        bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
+        baseMoveSpeed = MoveSpeed;
+        HP = 1000f;
+        currentHP = 1000f;
+
     }
 
     // 不写 Update()，让 EnemyBase.Update() 自己调用 Move()
@@ -55,6 +85,71 @@ public class Boss1Controller : EnemyBase
 
         Vector2 dir = (player.position - transform.position).normalized;
         transform.position += (Vector3)dir * MoveSpeed * Time.deltaTime;
+        UpdatePhaseByHP();
+    }
+
+    // ========== フェーズ判定 ==========
+    public override void TakeDamage(float damage)
+    {
+        // 先用父类处理扣血 + 死亡
+        base.TakeDamage(damage);
+
+        // 死了就不用再切阶段
+        if (currentHP <= 0f) return;
+
+
+    }
+
+    private void UpdatePhaseByHP()
+    {
+        float hpPercent = currentHP / HP; // 0~1
+
+        // 注意顺序：先判断第三阶段，再判断第二阶段
+        if (hpPercent <= phase3Threshold && currentPhase != BossPhase.Phase3)
+        {
+            EnterPhase3();
+        }
+        else if (hpPercent <= phase2Threshold && currentPhase == BossPhase.Phase1)
+        {
+            // 只允许从 1 -> 2（避免 3 再回 2）
+            EnterPhase2();
+        }
+    }
+
+    private void EnterPhase2()
+    {
+        currentPhase = BossPhase.Phase2;
+
+        // 调整移动速度 & 行动加速倍率
+        MoveSpeed = baseMoveSpeed * phase2MoveMul;
+        actionSpeedMultiplier = phase2ActionMul;
+
+        Debug.Log("Enter Phase 2");
+
+        // 如果你想 2 阶段用完全不同的技能循环，可以重启 Loop
+        RestartBossLoop();
+    }
+
+    private void EnterPhase3()
+    {
+        currentPhase = BossPhase.Phase3;
+
+        MoveSpeed = baseMoveSpeed * phase3MoveMul;
+        actionSpeedMultiplier = phase3ActionMul;
+
+        Debug.Log("Enter Phase 3");
+
+        RestartBossLoop();
+    }
+
+    private void RestartBossLoop()
+    {
+        if (bossLoopCoroutine != null)
+        {
+            StopCoroutine(bossLoopCoroutine);
+        }
+        ResetSkillCycle(); // 看你要不要每次阶段重置技能轮回
+        bossLoopCoroutine = StartCoroutine(BossLoop());
     }
 
     // ========== 主循环：追玩家3秒 -> 随机技能（保证一轮三种都用一次） ==========
@@ -66,7 +161,7 @@ public class Boss1Controller : EnemyBase
         {
             // 1. 朝玩家移动3秒
             isChasing = true;
-            float chaseTime = 2f;
+            float chaseTime = 3f / actionSpeedMultiplier;
             float t = 0f;
             while (t < chaseTime)
             {
@@ -75,23 +170,71 @@ public class Boss1Controller : EnemyBase
             }
             isChasing = false;
 
+
+
             // 2. 随机选择一个还没用过的技能
             int skillIndex = GetNextRandomSkill();
 
-            switch (skillIndex)
+            if (currentPhase == BossPhase.Phase1)
             {
-                case 0:
-                    yield return StartCoroutine(Spray360());
-                    break;
-                case 1:
-                    yield return StartCoroutine(FanWaveTowardsPlayer());
-                    break;
-                case 2:
-                    yield return StartCoroutine(TwelveWayRotating(12));
-                    break;
-                case 3:
-                    yield return StartCoroutine(AimThenDashWithSideFire());
-                    break;
+                switch (skillIndex)
+                {
+                    case 0:
+                        yield return StartCoroutine(Spray360());
+                        break;
+                    case 1:
+                        yield return StartCoroutine(FanWaveTowardsPlayer(1,0.9f));
+                        break;
+                    case 2:
+                        yield return StartCoroutine(TwelveWayRotating(12));
+                        break;
+                    case 3:
+                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        break;
+                }
+            }
+            else if (currentPhase == BossPhase.Phase2)
+            {
+                switch (skillIndex)
+                {
+                    case 0:
+                        yield return StartCoroutine(Spray360());
+                        yield return StartCoroutine(FanWaveTowardsPlayer(2, 0.4f));
+                        break;
+                    case 1:
+                        yield return StartCoroutine(FanWaveTowardsPlayer(2,0.4f));
+                        break;
+                    case 2:
+                        yield return StartCoroutine(TwelveWayRotating(12));
+                        break;
+                    case 3:
+                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        break;
+                }
+            }
+            else if (currentPhase == BossPhase.Phase3)
+            {
+                switch (skillIndex)
+                {
+                    case 0:
+                        yield return StartCoroutine(Spray360());
+                        yield return StartCoroutine(FanWaveTowardsPlayer(3, 0.3f));
+                        break;
+                    case 1:
+                        yield return StartCoroutine(FanWaveTowardsPlayer(3,0.3f));
+                        yield return StartCoroutine(Spray360());
+                        break;
+                    case 2:
+                        yield return StartCoroutine(TwelveWayRotating(12));
+                        break;
+                    case 3:
+                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        yield return StartCoroutine(Spray360());
+                        break;
+                }
             }
 
             // 技能放完以后稍微停一下再进入下一轮
@@ -142,7 +285,7 @@ public class Boss1Controller : EnemyBase
         float step = totalAngle / shots;
         float delay = 0.005f;
 
-        float spraySpeed = 2f; // 这一种攻击想用的速度
+        float spraySpeed = 2f* actionSpeedMultiplier; // 这一种攻击想用的速度
 
         for (int i = 0; i < shots; i++)
         {
@@ -154,16 +297,18 @@ public class Boss1Controller : EnemyBase
     }
 
     // ========== 技能2：朝玩家方向的扇形地震波 ==========
-    private IEnumerator FanWaveTowardsPlayer()
+    private IEnumerator FanWaveTowardsPlayer(int rings_,float lag)
     {
         if (player == null || firePoint == null) yield break;
 
-        int rings = 5;
-        int bulletsPerRing = 10;
-        float fanAngle = 60f;
-        float intervalBetweenRing = 0.2f;
+        int rings = rings_;
+        int bulletsPerRing = 6;
+        float fanAngle = 40f;
+        float intervalBetweenRing = lag;
 
-        float fanSpeed = 6f; // 这一种攻击用的速度
+        float fanSpeed = 5f; // 这一种攻击用的速度
+
+        yield return new WaitForSeconds(0.5f);
 
         Vector2 toPlayer = (player.position - firePoint.position).normalized;
         float centerAngle = DirToAngle(toPlayer);
@@ -189,21 +334,21 @@ public class Boss1Controller : EnemyBase
     {
         int count = 12;
         float baseStep = 30f;
-        float offsetBetweenWaves = 15f;
-        float delayBetweenWaves = 0.2f;
-        int fireTimes=times_;
+        float offsetBetweenWaves = 7f;
+        float delayBetweenWaves = 0.5f;
+        int fireTimes = (int)(times_ * actionSpeedMultiplier);
 
         float multiSpeed = 2f; // 这一种攻击用的速度
-        for(int i = 0; i < fireTimes; i++)
+        for (int i = 0; i < fireTimes; i++)
         {
 
-        // 第一轮
-        FireMultiWay(0f, count, baseStep, multiSpeed);
-        yield return new WaitForSeconds(delayBetweenWaves);
+            // 第一轮
+            FireMultiWay(10f * i, count, baseStep, multiSpeed);
+            yield return new WaitForSeconds(delayBetweenWaves / actionSpeedMultiplier);
 
-        // 第二轮（整体偏15度）
-        FireMultiWay(offsetBetweenWaves, count, baseStep, multiSpeed);
-        yield return new WaitForSeconds(delayBetweenWaves);
+            // 第二轮（整体偏15度）
+            //FireMultiWay(offsetBetweenWaves, count, baseStep, multiSpeed);
+            //yield return new WaitForSeconds(delayBetweenWaves);
         }
         StartCoroutine(Spray360());
     }
@@ -257,7 +402,12 @@ public class Boss1Controller : EnemyBase
         // 3) 冲刺结束，停止发弹
         isDashing = false;
 
-        StartCoroutine(TwelveWayRotating(2));
+        // 第一轮
+        FireMultiWay(0, 12, 30, 2);
+        yield return new WaitForSeconds(0.2f);
+        // 第二轮（整体偏15度）
+        FireMultiWay(15f, 12, 30, 2);
+        yield return new WaitForSeconds(0.2f);
     }
     private IEnumerator SideFireRoutine(Vector2 dashDir, System.Func<bool> isDashingGetter)
     {

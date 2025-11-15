@@ -4,8 +4,8 @@ public class EnemyBase : MonoBehaviour
 {
 
     [Header("Boss")]
-    [SerializeField] protected float HP;
-    protected float currentHP;
+    protected float HP;
+    [SerializeField] protected float currentHP;
 
     [Header("PlayeréQè∆")]
     [SerializeField] protected Transform player;
@@ -23,6 +23,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Update()
     {
         Move();
+
     }
 
     protected virtual void Move()
