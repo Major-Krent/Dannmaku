@@ -57,6 +57,11 @@ public class Boss1Controller : EnemyBase
     [SerializeField] private float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔
     [SerializeField] private float sideBulletSpeed = 3f;     // 侧向子弹速度
 
+    private Animator anim;
+    private Rigidbody2D rb;
+    bool isDashing = false;
+
+
     // 是否正在追玩家
     private bool isChasing = false;
 
@@ -66,6 +71,8 @@ public class Boss1Controller : EnemyBase
     // ========== 生命周期 ==========
     protected override void Start()
     {
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         base.Start();              // 初始化 HP 等
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
         bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
@@ -76,6 +83,12 @@ public class Boss1Controller : EnemyBase
     }
 
     // 不写 Update()，让 EnemyBase.Update() 自己调用 Move()
+    protected override void Update()
+    {
+        base.Update();
+        anim.SetBool("isDashing", isDashing);
+        UpdatePhaseByHP();
+    }
 
     // ========== 移动逻辑（从 EnemyBase.Update() 调用） ==========
     protected override void Move()
@@ -85,7 +98,7 @@ public class Boss1Controller : EnemyBase
 
         Vector2 dir = (player.position - transform.position).normalized;
         transform.position += (Vector3)dir * MoveSpeed * Time.deltaTime;
-        UpdatePhaseByHP();
+
     }
 
     // ========== フェーズ判定 ==========
@@ -189,7 +202,7 @@ public class Boss1Controller : EnemyBase
                         yield return StartCoroutine(TwelveWayRotating(12));
                         break;
                     case 3:
-                        yield return StartCoroutine(AimThenDashWithSideFire());
+                        yield return StartCoroutine(FanWaveTowardsPlayer(1, 0.9f));
                         break;
                 }
             }
@@ -208,7 +221,6 @@ public class Boss1Controller : EnemyBase
                         yield return StartCoroutine(TwelveWayRotating(12));
                         break;
                     case 3:
-                        yield return StartCoroutine(AimThenDashWithSideFire());
                         yield return StartCoroutine(AimThenDashWithSideFire());
                         break;
                 }
@@ -303,7 +315,7 @@ public class Boss1Controller : EnemyBase
 
         int rings = rings_;
         int bulletsPerRing = 6;
-        float fanAngle = 40f;
+        float fanAngle = 30f;
         float intervalBetweenRing = lag;
 
         float fanSpeed = 5f; // 这一种攻击用的速度
@@ -384,7 +396,8 @@ public class Boss1Controller : EnemyBase
         }
 
         // 2) 冲刺阶段：沿最后瞄准方向位移，同时侧向发弹
-        bool isDashing = true;
+        isDashing = true;
+        
         // 启动一个并行协程进行侧向发弹
         IEnumerator sideFire = SideFireRoutine(lastAimDir, () => isDashing);
         StartCoroutine(sideFire);
@@ -402,6 +415,8 @@ public class Boss1Controller : EnemyBase
         // 3) 冲刺结束，停止发弹
         isDashing = false;
 
+        anim.SetTrigger("isFall");
+        yield return new WaitForSeconds(0.7f);
         // 第一轮
         FireMultiWay(0, 12, 30, 2);
         yield return new WaitForSeconds(0.2f);
