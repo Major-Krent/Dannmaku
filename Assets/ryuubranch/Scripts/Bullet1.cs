@@ -2,6 +2,8 @@
 
 public class Bullet1 : BulletBase
 {
+
+    public int damage = 1;
     void Start()
     {
         

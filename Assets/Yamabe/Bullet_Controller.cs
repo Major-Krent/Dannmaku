@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
     [Tooltip("’e‚ªÁ‚¦‚é‚Ü‚Å‚ÌŠÔi•bj")]
     public float lifetime = 3.0f;
 
+    public int damage = 1;
+
     void Start()
     {
         // ’e‚ª¶¬‚³‚ê‚Ä‚©‚ç 'lifetime' •bŒã‚É©“®“I‚ÉÁ–Å(Destroy)‚·‚é

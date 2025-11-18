@@ -456,6 +456,18 @@ public class Boss1Controller : EnemyBase
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player_Bullet"))
+        {
+            BulletController bullet=collision.GetComponent<BulletController>();
+            TakeDamage(bullet.damage);
+        }
+        Destroy(collision.gameObject);
+    }
+
+
+
     protected override void Die()
     {
         Debug.Log("Boss1 Died");
