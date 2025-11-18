@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7346046450763038560}
   - component: {fileID: 8140946081152140537}
   - component: {fileID: 8113439794049228557}
+  - component: {fileID: 5131347277241193986}
   m_Layer: 0
   m_Name: Bullet1
   m_TagString: Enemy_Bullet
@@ -104,3 +105,31 @@ MonoBehaviour:
     baseSpeed: 5
     baseDamage: 10
     lifeTime: 5
+  damage: 1
+--- !u!50 &5131347277241193986
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942600575781802857}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
