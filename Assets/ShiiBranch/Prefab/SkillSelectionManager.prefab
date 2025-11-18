@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6061888638968266938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5491436713540120048}
+  - component: {fileID: 5535220422248464213}
+  m_Layer: 0
+  m_Name: SkillSelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5491436713540120048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061888638968266938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5535220422248464213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061888638968266938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a2832cd19f1a94da7e72b6ee2d4b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCardPrefab: {fileID: 3596406053394053492, guid: bf0ebea140bd17c4788c97826fec68ef, type: 3}
+  cardContainer: {fileID: 0}
+  skillSelectionPanel: {fileID: 0}
+  allSkills:
+  - {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
+  - {fileID: 11400000, guid: 1e505a1b068ce1c47815b9074978be44, type: 2}
+  - {fileID: 11400000, guid: 2e79f645906dee042babec49f5fb85a1, type: 2}
+  - {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
+  - {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
+  - {fileID: 11400000, guid: 4001142c46b862648bdda3b191fa771b, type: 2}
+  - {fileID: 11400000, guid: 3e929d0570d8a6e48affa941768accb2, type: 2}
+  animationSpeed: 7
+  offScreenYPosition: -1200

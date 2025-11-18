@@ -119,63 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &104161166
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 104161168}
-  - component: {fileID: 104161167}
-  m_Layer: 0
-  m_Name: SkillSelectionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &104161167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104161166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2832cd19f1a94da7e72b6ee2d4b3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCardPrefab: {fileID: 3596406053394053492, guid: bf0ebea140bd17c4788c97826fec68ef, type: 3}
-  cardContainer: {fileID: 1672883547}
-  skillSelectionPanel: {fileID: 1510813328}
-  allSkills:
-  - {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
-  - {fileID: 11400000, guid: 1e505a1b068ce1c47815b9074978be44, type: 2}
-  - {fileID: 11400000, guid: 2e79f645906dee042babec49f5fb85a1, type: 2}
-  - {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
-  - {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
-  - {fileID: 11400000, guid: 4001142c46b862648bdda3b191fa771b, type: 2}
-  - {fileID: 11400000, guid: 3e929d0570d8a6e48affa941768accb2, type: 2}
-  animationSpeed: 7
-  offScreenYPosition: -1200
---- !u!4 &104161168
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104161166}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &148270126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
@@ -27264,6 +27207,71 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &6566473394825137266
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491436713540120048, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: cardContainer
+      value: 
+      objectReference: {fileID: 1672883547}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: skillSelectionPanel
+      value: 
+      objectReference: {fileID: 1510813328}
+    - target: {fileID: 6061888638968266938, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: m_Name
+      value: SkillSelectionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6091b549ee749f458179e1437147c48, type: 3}
 --- !u!1001 &7405969112660585797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27369,7 +27377,7 @@ SceneRoots:
   - {fileID: 1378088427}
   - {fileID: 7405969112660585797}
   - {fileID: 1174471390}
-  - {fileID: 104161168}
+  - {fileID: 6566473394825137266}
   - {fileID: 683895393}
   - {fileID: 1056782257}
   - {fileID: 1325358098}
