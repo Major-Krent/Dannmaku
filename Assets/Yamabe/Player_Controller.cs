@@ -5,6 +5,7 @@ public class Player_Controller : MonoBehaviour
     [Header("プレイヤー設定")]
     [SerializeField] private float playerSpeed;
     [SerializeField] private float playerHp;
+    [SerializeField] private float playerCurrentHp;
 
     [Header("遠距離攻撃設定")]
     [SerializeField] private GameObject bulletPrefab;
@@ -15,11 +16,10 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float meleeAttackCooldown = 0.5f;
 
     [SerializeField] Transform firePoint;
-    private float playerCurrentHp;
     private Rigidbody2D rb;
     private Collider2D col;
     private float shotTime;
-    private float nextFireTime = 0.0f; 
+    private float nextFireTime = 0.0f;
     private float nextAttackTime = 0.0f;
     private Vector2 moveInput;
     // --- 画面範囲の制限用 ---
@@ -29,6 +29,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerHp = 5;
         playerCurrentHp = playerHp;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
@@ -62,7 +63,7 @@ public class Player_Controller : MonoBehaviour
 
     void ShootBullet()
     {
-        if (Input.GetMouseButton(0)&& Time.time > nextFireTime)
+        if (Input.GetMouseButton(0) && Time.time > nextFireTime)
         {
             nextFireTime = Time.time + playerAttackRate;
 
@@ -105,7 +106,7 @@ public class Player_Controller : MonoBehaviour
 
     void MeleeAttack()
     {
-        if (Input.GetMouseButton(2)&&Time.time>nextAttackTime) 
+        if (Input.GetMouseButton(2) && Time.time > nextAttackTime)
         {
             nextAttackTime = Time.time + meleeAttackCooldown;
 
@@ -117,17 +118,26 @@ public class Player_Controller : MonoBehaviour
     public void TakeDamage(float damage)
     {
         playerCurrentHp -= damage;
-
+        if (playerCurrentHp < 0)
+        {
+            Die();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy_Bullet"))
+        if (collision.CompareTag("Enemy_Bullet"))
         {
-            Bullet1 bullet=collision.GetComponent<Bullet1>();
+            Bullet1 bullet = collision.GetComponent<Bullet1>();
             TakeDamage(bullet.damage);
+            Destroy(collision.gameObject);
         }
-        Destroy(collision.gameObject);
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player die");
+        Destroy(gameObject);
     }
     /* void CalculateMoveBounds()
      {

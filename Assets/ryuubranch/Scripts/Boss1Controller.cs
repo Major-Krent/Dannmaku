@@ -77,8 +77,8 @@ public class Boss1Controller : EnemyBase
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
         bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
         baseMoveSpeed = MoveSpeed;
-        HP = 1000f;
-        currentHP = 1000f;
+        HP = 500f;
+        currentHP = HP;
 
     }
 
@@ -196,7 +196,7 @@ public class Boss1Controller : EnemyBase
                         yield return StartCoroutine(Spray360());
                         break;
                     case 1:
-                        yield return StartCoroutine(FanWaveTowardsPlayer(1,0.9f));
+                        yield return StartCoroutine(FanWaveTowardsPlayer(1, 0.9f));
                         break;
                     case 2:
                         yield return StartCoroutine(TwelveWayRotating(12));
@@ -215,7 +215,7 @@ public class Boss1Controller : EnemyBase
                         yield return StartCoroutine(FanWaveTowardsPlayer(2, 0.4f));
                         break;
                     case 1:
-                        yield return StartCoroutine(FanWaveTowardsPlayer(2,0.4f));
+                        yield return StartCoroutine(FanWaveTowardsPlayer(2, 0.4f));
                         break;
                     case 2:
                         yield return StartCoroutine(TwelveWayRotating(12));
@@ -234,7 +234,7 @@ public class Boss1Controller : EnemyBase
                         yield return StartCoroutine(FanWaveTowardsPlayer(3, 0.3f));
                         break;
                     case 1:
-                        yield return StartCoroutine(FanWaveTowardsPlayer(3,0.3f));
+                        yield return StartCoroutine(FanWaveTowardsPlayer(3, 0.3f));
                         yield return StartCoroutine(Spray360());
                         break;
                     case 2:
@@ -297,7 +297,7 @@ public class Boss1Controller : EnemyBase
         float step = totalAngle / shots;
         float delay = 0.005f;
 
-        float spraySpeed = 2f* actionSpeedMultiplier; // 这一种攻击想用的速度
+        float spraySpeed = 2f * actionSpeedMultiplier; // 这一种攻击想用的速度
 
         for (int i = 0; i < shots; i++)
         {
@@ -309,7 +309,7 @@ public class Boss1Controller : EnemyBase
     }
 
     // ========== 技能2：朝玩家方向的扇形地震波 ==========
-    private IEnumerator FanWaveTowardsPlayer(int rings_,float lag)
+    private IEnumerator FanWaveTowardsPlayer(int rings_, float lag)
     {
         if (player == null || firePoint == null) yield break;
 
@@ -346,7 +346,7 @@ public class Boss1Controller : EnemyBase
     {
         int count = 12;
         float baseStep = 30f;
-        float offsetBetweenWaves = 7f;
+        float offsetBetweenWaves = 6f;
         float delayBetweenWaves = 0.5f;
         int fireTimes = (int)(times_ * actionSpeedMultiplier);
 
@@ -355,12 +355,8 @@ public class Boss1Controller : EnemyBase
         {
 
             // 第一轮
-            FireMultiWay(10f * i, count, baseStep, multiSpeed);
+            FireMultiWay(offsetBetweenWaves * i, count, baseStep, multiSpeed);
             yield return new WaitForSeconds(delayBetweenWaves / actionSpeedMultiplier);
-
-            // 第二轮（整体偏15度）
-            //FireMultiWay(offsetBetweenWaves, count, baseStep, multiSpeed);
-            //yield return new WaitForSeconds(delayBetweenWaves);
         }
         StartCoroutine(Spray360());
     }
@@ -397,7 +393,7 @@ public class Boss1Controller : EnemyBase
 
         // 2) 冲刺阶段：沿最后瞄准方向位移，同时侧向发弹
         isDashing = true;
-        
+
         // 启动一个并行协程进行侧向发弹
         IEnumerator sideFire = SideFireRoutine(lastAimDir, () => isDashing);
         StartCoroutine(sideFire);
@@ -411,12 +407,15 @@ public class Boss1Controller : EnemyBase
             transform.position += (Vector3)(lastAimDir * dashSpeed * Time.deltaTime);
             yield return null;
         }
+        anim.SetTrigger("isFall");
 
         // 3) 冲刺结束，停止发弹
         isDashing = false;
 
-        anim.SetTrigger("isFall");
-        yield return new WaitForSeconds(0.7f);
+    }
+
+    private IEnumerator FireAfterCharge()
+    {
         // 第一轮
         FireMultiWay(0, 12, 30, 2);
         yield return new WaitForSeconds(0.2f);
@@ -460,10 +459,10 @@ public class Boss1Controller : EnemyBase
     {
         if (collision.CompareTag("Player_Bullet"))
         {
-            BulletController bullet=collision.GetComponent<BulletController>();
+            BulletController bullet = collision.GetComponent<BulletController>();
             TakeDamage(bullet.damage);
+            Destroy(collision.gameObject);
         }
-        Destroy(collision.gameObject);
     }
 
 
