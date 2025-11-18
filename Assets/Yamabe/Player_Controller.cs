@@ -2,14 +2,25 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+    [Header("ƒvƒŒƒCƒ„[İ’è")]
     [SerializeField] private float playerSpeed;
+    [SerializeField] private float playerHp;
+
+    [Header("‰“‹——£UŒ‚İ’è")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] float playerAttackRate = 0.1f; // 0.1•b‚É1‰ñ”­Ë
+
+    [Header("‹ß‹——£UŒ‚İ’è")]
+    [SerializeField] GameObject attackPrefab;
+    [SerializeField] float meleeAttackCooldown = 0.5f;
+
     [SerializeField] Transform firePoint;
+    private float playerCurrentHp;
     private Rigidbody2D rb;
     private Collider2D col;
     private float shotTime;
     private float nextFireTime = 0.0f; 
+    private float nextAttackTime = 0.0f;
     private Vector2 moveInput;
     // --- ‰æ–Ê”ÍˆÍ‚Ì§ŒÀ—p ---
     private Camera mainCamera;
@@ -18,6 +29,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerCurrentHp = playerHp;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         mainCamera = Camera.main;
@@ -29,6 +41,7 @@ public class Player_Controller : MonoBehaviour
     {
         MovePlayer();
         ShootBullet();
+        MeleeAttack();
     }
     void LateUpdate()
     {
@@ -88,6 +101,33 @@ public class Player_Controller : MonoBehaviour
             nextFireTime = Time.time + playerAttackRate;
             //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
+    }
+
+    void MeleeAttack()
+    {
+        if (Input.GetMouseButton(2)&&Time.time>nextAttackTime) 
+        {
+            nextAttackTime = Time.time + meleeAttackCooldown;
+
+            GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
+
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        playerCurrentHp -= damage;
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Enemy_Bullet"))
+        {
+            Bullet1 bullet=collision.GetComponent<Bullet1>();
+            TakeDamage(bullet.damage);
+        }
+        Destroy(collision.gameObject);
     }
     /* void CalculateMoveBounds()
      {

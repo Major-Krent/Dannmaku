@@ -322,6 +322,8 @@ MonoBehaviour:
   playerSpeed: 10
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
   playerAttackRate: 0.1
+  attackPrefab: {fileID: 0}
+  meleeAttackCooldown: 0.5
   firePoint: {fileID: 1718504232}
 --- !u!212 &1718504231
 SpriteRenderer:
