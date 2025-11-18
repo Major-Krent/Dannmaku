@@ -76,6 +76,9 @@ public class SkillSelectionManager : MonoBehaviour
     /// <param name="amountToPick">抽出するカードの数</param>
     private IEnumerator ShowPanelAndCards(int amountToPick, bool forceOneAdvanced)
     {
+        isInteractable = false;
+        Time.timeScale = 0f;
+
         skillSelectionPanel.gameObject.SetActive(true);
        
 
@@ -143,12 +146,17 @@ public class SkillSelectionManager : MonoBehaviour
 
         CleanupCards();
         skillSelectionPanel.gameObject.SetActive(false);
+
+        Time.timeScale = 1f;
     }
     private IEnumerator AnimatePanelCoroutine(Vector2 targetPosition)
     {
         while (Vector2.Distance(skillSelectionPanel.anchoredPosition, targetPosition) > 1f)
         {
-            skillSelectionPanel.anchoredPosition = Vector2.Lerp(skillSelectionPanel.anchoredPosition, targetPosition, Time.deltaTime * animationSpeed);
+            skillSelectionPanel.anchoredPosition = Vector2.Lerp(
+            skillSelectionPanel.anchoredPosition,
+            targetPosition,
+            Time.unscaledDeltaTime * animationSpeed);
             yield return null;
         }
         skillSelectionPanel.anchoredPosition = targetPosition;

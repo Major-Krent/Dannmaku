@@ -74,8 +74,11 @@ public class SkillCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         
         while (Vector2.Distance(rect.anchoredPosition, target) > 0.1f)
         {
-            
-            rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, target, Time.deltaTime * animationSpeed);
+
+            rect.anchoredPosition = Vector2.Lerp(
+            rect.anchoredPosition,
+            target,
+            Time.unscaledDeltaTime * animationSpeed);
             yield return null; 
         }
         
