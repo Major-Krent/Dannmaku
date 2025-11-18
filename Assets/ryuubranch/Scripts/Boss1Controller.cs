@@ -98,7 +98,6 @@ public class Boss1Controller : EnemyBase
 
         Vector2 dir = (player.position - transform.position).normalized;
         transform.position += (Vector3)dir * MoveSpeed * Time.deltaTime;
-
     }
 
     // ========== フェーズ判定 ==========
@@ -120,11 +119,13 @@ public class Boss1Controller : EnemyBase
         // 注意顺序：先判断第三阶段，再判断第二阶段
         if (hpPercent <= phase3Threshold && currentPhase != BossPhase.Phase3)
         {
+            SkillSelectionManager.Instance.TriggerSkillSelection(3);
             EnterPhase3();
         }
         else if (hpPercent <= phase2Threshold && currentPhase == BossPhase.Phase1)
         {
             // 只允许从 1 -> 2（避免 3 再回 2）
+            SkillSelectionManager.Instance.TriggerSkillSelection(3);
             EnterPhase2();
         }
     }
@@ -469,7 +470,9 @@ public class Boss1Controller : EnemyBase
 
     protected override void Die()
     {
+        SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
         Debug.Log("Boss1 Died");
+        GetComponent<Boss1Controller>().enabled = false;
         base.Die();
     }
 }
