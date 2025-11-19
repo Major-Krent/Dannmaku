@@ -18,7 +18,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float meleeAttackCooldown = 0.5f;
 
     [Header("É_ÉbÉVÉÖê›íË")]
-    public float dashSpeed = 20.0f;      
+    public float dashSpeed = 15.0f;      
     public float dashDuration = 0.2f;   
     public float dashCooltime = 1.0f;    
     [SerializeField] private bool _isDashing = false; 
@@ -165,7 +165,7 @@ void ShootBullet()
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy_Bullet"))
+        if (collision.CompareTag("Enemy_Bullet")&&!_isDashing)
         {
             Bullet1 bullet = collision.GetComponent<Bullet1>();
             TakeDamage(bullet.damage);
