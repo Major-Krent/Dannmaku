@@ -106,11 +106,11 @@ public class Player_Controller : MonoBehaviour
 
     void MeleeAttack()
     {
-        if (Input.GetMouseButton(2) && Time.time > nextAttackTime)
+        if (Input.GetMouseButton(1) && Time.time > nextAttackTime)
         {
             nextAttackTime = Time.time + meleeAttackCooldown;
 
-            GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation);
+            GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
 
         }
     }
