@@ -56,17 +56,17 @@ public class SkillSelectionManager : MonoBehaviour
         Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
     }
     //-------------------------テスト用--------------------------
-    private void Update()
-    {
+    //private void Update()
+    //{
  
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (cardContainer.childCount == 0)
-            {
-                TriggerSkillSelection(3);
-            }
-        }
-    }
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        if (cardContainer.childCount == 0)
+    //        {
+    //            TriggerSkillSelection(3);
+    //        }
+    //    }
+    //}
     //----------------------------------------------------------
     private void OnEnable()
     {
