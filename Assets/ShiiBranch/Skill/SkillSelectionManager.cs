@@ -11,9 +11,13 @@ public class SkillSelectionManager : MonoBehaviour
     [SerializeField] private Transform cardContainer;
     [SerializeField] private RectTransform skillSelectionPanel;
     [Header("スキル")]
-    [SerializeField] private List<SkillData> allSkills;
+    //[SerializeField] private List<SkillData> allSkills;
+    [SerializeField, Tooltip("ゲームに登場する全てのスキル（マスターリスト）")]
+    private List<SkillData> masterSkillList;
 
-    
+    private List<SkillData> availableSkillPool;
+
+
     [Header("アニメーション")]
     [SerializeField] private float animationSpeed = 15f;
     [SerializeField] private float offScreenYPosition = -1200f;
@@ -40,8 +44,17 @@ public class SkillSelectionManager : MonoBehaviour
 
         skillSelectionPanel.anchoredPosition = offScreenPosition;
         skillSelectionPanel.gameObject.SetActive(false);
-    }
 
+        InitializeSkillPool();
+    }
+    /// <summary>
+    /// スキルプールを初期化・リセットする
+    /// </summary>
+    public void InitializeSkillPool()
+    {
+        availableSkillPool = new List<SkillData>(masterSkillList);
+        Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
+    }
     //-------------------------テスト用--------------------------
     private void Update()
     {
@@ -89,8 +102,8 @@ public class SkillSelectionManager : MonoBehaviour
             //ボス戦
 
             //普通スキルと高級スキルを分ける
-            List<SkillData> normalPool = allSkills.Where(skill => skill.Tier == SkillTier.Normal).ToList();
-            List<SkillData> advancedPool = allSkills.Where(skill => skill.Tier == SkillTier.Advanced).ToList();
+            List<SkillData> normalPool = availableSkillPool.Where(skill => skill.Tier == SkillTier.Normal).ToList();
+            List<SkillData> advancedPool = availableSkillPool.Where(skill => skill.Tier == SkillTier.Advanced).ToList();
 
             if (advancedPool.Count == 0)
             {
@@ -117,7 +130,7 @@ public class SkillSelectionManager : MonoBehaviour
         else
         {
             //普通スキル
-            List<SkillData> normalPool = allSkills.Where(skill => skill.Tier == SkillTier.Normal).ToList();
+            List<SkillData> normalPool = availableSkillPool.Where(skill => skill.Tier == SkillTier.Normal).ToList();
             SelectFromPool(normalPool, amountToPick, ref finalPicks);
         }
 
@@ -137,6 +150,11 @@ public class SkillSelectionManager : MonoBehaviour
     {
         if (!isInteractable) return;
         isInteractable = false;
+        if (availableSkillPool.Contains(chosenSkill))
+        {
+            availableSkillPool.Remove(chosenSkill);
+            Debug.Log($"スキル「{chosenSkill.SkillName}」を選択。プールから削除しました。残りスキル数: {availableSkillPool.Count}");
+        }
         StartCoroutine(HideAndCleanupPanel());
     }
 
