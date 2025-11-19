@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
@@ -6,14 +7,21 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float playerSpeed;
     [SerializeField] private float playerHp;
     [SerializeField] private float playerCurrentHp;
+    [SerializeField] private bool isMelee;
 
     [Header("遠距離攻撃設定")]
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] float playerAttackRate = 0.1f; // 0.1秒に1回発射
+    [SerializeField] float playerAttackRate = 0.1f; 
 
     [Header("近距離攻撃設定")]
     [SerializeField] GameObject attackPrefab;
     [SerializeField] float meleeAttackCooldown = 0.5f;
+
+    [Header("ダッシュ設定")]
+    public float dashSpeed = 20.0f;      
+    public float dashDuration = 0.2f;   
+    public float dashCooltime = 1.0f;    
+    [SerializeField] private bool _isDashing = false; 
 
     [SerializeField] Transform firePoint;
     private Rigidbody2D rb;
@@ -21,12 +29,9 @@ public class Player_Controller : MonoBehaviour
     private float shotTime;
     private float nextFireTime = 0.0f;
     private float nextAttackTime = 0.0f;
+    private float _nextDashTime = 0.0f; 
     private Vector2 moveInput;
-    // --- 画面範囲の制限用 ---
     private Camera mainCamera;
-    /*private Vector2 minBounds; // 移動可能な左下の座標
-    private Vector2 maxBounds; // 移動可能な右上の座標/*/
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerHp = 5;
@@ -41,8 +46,16 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        ShootBullet();
-        MeleeAttack();
+        Dash();
+        if (isMelee)
+        {
+            MeleeAttack();
+        }
+        else
+        {
+            ShootBullet();
+        }
+        
     }
     void LateUpdate()
     {
@@ -61,7 +74,33 @@ public class Player_Controller : MonoBehaviour
         rb.linearVelocity = moveInput * playerSpeed;
     }
 
-    void ShootBullet()
+    private void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextDashTime)
+        {
+            StartCoroutine(PerformDash());
+        }
+    }
+
+    private IEnumerator PerformDash()
+    {
+        _isDashing = true;
+        _nextDashTime = Time.time + dashCooltime; 
+
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashDuration)
+        {
+
+            transform.Translate(moveInput * dashSpeed * Time.deltaTime, Space.World);
+
+            yield return null;
+        }
+
+        _isDashing = false;
+    }
+
+void ShootBullet()
     {
         if (Input.GetMouseButton(0) && Time.time > nextFireTime)
         {
@@ -106,7 +145,7 @@ public class Player_Controller : MonoBehaviour
 
     void MeleeAttack()
     {
-        if (Input.GetMouseButton(1) && Time.time > nextAttackTime)
+        if (Input.GetMouseButton(0) && Time.time > nextAttackTime)
         {
             nextAttackTime = Time.time + meleeAttackCooldown;
 
@@ -139,20 +178,4 @@ public class Player_Controller : MonoBehaviour
         Debug.Log("Player die");
         Destroy(gameObject);
     }
-    /* void CalculateMoveBounds()
-     {
-         if (mainCamera == null)
-         {
-             Debug.LogError("Main Camera is not found. Please set a MainCamera tag.");
-             return;
-         }
-
-         Vector2 playerHalfSize = col.bounds.extents;
-
-         Vector2 screenMin = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
-         Vector2 screenMax = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
-
-         minBounds = new Vector2(screenMin.x + playerHalfSize.x, screenMin.y + playerHalfSize.y);
-         maxBounds = new Vector2(screenMax.x - playerHalfSize.x, screenMax.y - playerHalfSize.y);
-     }*/
 }
