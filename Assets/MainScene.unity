@@ -12859,6 +12859,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1514450752787568336, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514450752787568336, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514450752787568336, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.3333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514450752787568336, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4977875
       objectReference: {fileID: 0}
@@ -12897,6 +12909,10 @@ PrefabInstance:
     - target: {fileID: 1514450752787568336, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514450752787568336, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2919528313599320862, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: player
@@ -13103,6 +13119,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7219322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.7747145
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.8569746
       objectReference: {fileID: 0}
@@ -13141,6 +13169,10 @@ PrefabInstance:
     - target: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3406813368008597579, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
       propertyPath: m_Name
@@ -27389,6 +27421,38 @@ PrefabInstance:
       propertyPath: skillSelectionPanel
       value: 
       objectReference: {fileID: 1510813328}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: masterSkillList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e505a1b068ce1c47815b9074978be44, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3e929d0570d8a6e48affa941768accb2, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4001142c46b862648bdda3b191fa771b, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e79f645906dee042babec49f5fb85a1, type: 2}
     - target: {fileID: 6061888638968266938, guid: b6091b549ee749f458179e1437147c48, type: 3}
       propertyPath: m_Name
       value: SkillSelectionManager
