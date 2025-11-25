@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -60,6 +61,7 @@ public class Boss1Controller : EnemyBase
     private Animator anim;
     private Rigidbody2D rb;
     bool isDashing = false;
+    public Slider healthSlider;
 
 
     // 是否正在追玩家
@@ -79,6 +81,8 @@ public class Boss1Controller : EnemyBase
         baseMoveSpeed = MoveSpeed;
         HP = 500f;
         currentHP = HP;
+        healthSlider.maxValue = HP;
+        healthSlider.value = currentHP;
 
     }
 
@@ -105,7 +109,7 @@ public class Boss1Controller : EnemyBase
     {
         // 先用父类处理扣血 + 死亡
         base.TakeDamage(damage);
-
+        healthSlider.value = currentHP;
         // 死了就不用再切阶段
         if (currentHP <= 0f) return;
 
@@ -472,7 +476,7 @@ public class Boss1Controller : EnemyBase
     {
         SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
         Debug.Log("Boss1 Died");
-        GetComponent<Boss1Controller>().enabled = false;
+        Destroy(gameObject);
         base.Die();
     }
 }
