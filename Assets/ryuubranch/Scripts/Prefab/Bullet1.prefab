@@ -105,7 +105,7 @@ MonoBehaviour:
   config:
     baseSpeed: 5
     baseDamage: 10
-    lifeTime: 5
+    lifeTime: 10
   damage: 1
 --- !u!50 &5131347277241193986
 Rigidbody2D:

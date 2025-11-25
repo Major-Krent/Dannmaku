@@ -122,6 +122,7 @@ MonoBehaviour:
   dashDuration: 0.8
   sideFireInterval: 0.08
   sideBulletSpeed: 3
+  healthSlider: {fileID: 0}
 --- !u!50 &6450726960717636928
 Rigidbody2D:
   serializedVersion: 5
