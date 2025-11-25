@@ -6,7 +6,7 @@ public class BulletConfig
 {
     public float baseSpeed = 5f;   // 默认速度
     public float baseDamage = 10f; // 默认伤害（以后用得上）
-    public float lifeTime = 5f;    // 子弹最长存在时间
+    public float lifeTime = 10f;    // 子弹最长存在时间
 }
 public abstract class BulletBase : MonoBehaviour
 {

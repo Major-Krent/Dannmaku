@@ -56,7 +56,7 @@ public class Boss1Controller : EnemyBase
     [SerializeField] private float dashSpeed = 10f;          // 冲刺速度
     [SerializeField] private float dashDuration = 0.8f;      // 冲刺时长
     [SerializeField] private float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔
-    [SerializeField] private float sideBulletSpeed = 3f;     // 侧向子弹速度
+    [SerializeField] private float sideBulletSpeed = 5f;     // 侧向子弹速度
 
     private Animator anim;
     private Rigidbody2D rb;
@@ -302,7 +302,7 @@ public class Boss1Controller : EnemyBase
         float step = totalAngle / shots;
         float delay = 0.005f;
 
-        float spraySpeed = 2f * actionSpeedMultiplier; // 这一种攻击想用的速度
+        float spraySpeed = 3f * actionSpeedMultiplier; // 这一种攻击想用的速度
 
         for (int i = 0; i < shots; i++)
         {
@@ -323,7 +323,7 @@ public class Boss1Controller : EnemyBase
         float fanAngle = 30f;
         float intervalBetweenRing = lag;
 
-        float fanSpeed = 5f; // 这一种攻击用的速度
+        float fanSpeed = 6f; // 这一种攻击用的速度
 
         yield return new WaitForSeconds(0.5f);
 
@@ -355,7 +355,7 @@ public class Boss1Controller : EnemyBase
         float delayBetweenWaves = 0.5f;
         int fireTimes = (int)(times_ * actionSpeedMultiplier);
 
-        float multiSpeed = 2f; // 这一种攻击用的速度
+        float multiSpeed = 4f; // 这一种攻击用的速度
         for (int i = 0; i < fireTimes; i++)
         {
 
