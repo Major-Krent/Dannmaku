@@ -614,10 +614,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u5263\u58EB"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c1ab3943320d80418a0be7928727dc8, type: 2}
+  m_sharedMaterial: {fileID: 4922817641790013781, guid: 7c1ab3943320d80418a0be7928727dc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -956,10 +956,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u9B54\u6CD5\u4F7F\u3044"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c1ab3943320d80418a0be7928727dc8, type: 2}
+  m_sharedMaterial: {fileID: 4922817641790013781, guid: 7c1ab3943320d80418a0be7928727dc8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1035,6 +1035,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452663525}
   m_CullTransparentMesh: 1
+--- !u!1001 &1547981967
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3994967697432196756, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_Name
+      value: EndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.6079862
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.84501946
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.20493796
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6780575937893696825, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72ab6770f9615a44584e5e185fab2460, type: 3}
 --- !u!1 &1619548944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeCanvasGroup: {fileID: 907118152}
   fadeDuration: 1
-  gameSceneName: ShiiScene
+  gameSceneName: MainScene
 --- !u!4 &2022403979
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,3 +1453,4 @@ SceneRoots:
   - {fileID: 1619548948}
   - {fileID: 73761771}
   - {fileID: 2022403979}
+  - {fileID: 1547981967}

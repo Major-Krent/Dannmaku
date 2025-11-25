@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/ShiiBranch/Scene/CharSelect.unity
     guid: c6aff03c37f39244bada8c12f91d7ea3
   - enabled: 1
-    path: Assets/ShiiBranch/Scene/ShiiScene.unity
-    guid: d83f1e6eb82495e4895ece289480c484
+    path: Assets/MainScene.unity
+    guid: 4b2b4bf5004e6f549a878a07887192cc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
