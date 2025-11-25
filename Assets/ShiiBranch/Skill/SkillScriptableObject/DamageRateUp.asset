@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: DamageRateUp
   m_EditorClassIdentifier: 
   _skillName: "\u653B\u6483\u983B\u5EA6UP"
-  _description: "\u653B\u6483\u529B\u30921.25\u500D\u306B\u3059\u308B"
+  _description: "\u653B\u6483\u983B\u5EA6\u30921.25\u500D\u306B\u3059\u308B"
   _icon: {fileID: 21300000, guid: d7f3a3038018e054b85084f37594ad53, type: 3}
   _type: 0
+  _tier: 0
   _moveSpeedMultiplier: 1
   _damageMultiplier: 1
   _attackRateMultiplier: 1.25
   _extraAttacks: 0
   _lifestealRatio: 0
   _effectPrefab: {fileID: 0}
+  _cooldownDuration: 0
