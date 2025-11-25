@@ -105,10 +105,15 @@ MonoBehaviour:
   playerSpeed: 5
   playerHp: 0
   playerCurrentHp: 0
+  isMelee: 0
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
   playerAttackRate: 0.1
   attackPrefab: {fileID: 0}
   meleeAttackCooldown: 0.5
+  dashSpeed: 15
+  dashDuration: 0.2
+  dashCooltime: 1
+  _isDashing: 0
   firePoint: {fileID: 2763011798816177928}
 --- !u!50 &3587777079396309036
 Rigidbody2D:
