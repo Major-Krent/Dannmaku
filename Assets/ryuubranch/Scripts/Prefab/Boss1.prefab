@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 15
   m_Sprite: {fileID: -2090365298, guid: 504830370215f84488ba4b6e127860ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -117,11 +117,6 @@ MonoBehaviour:
   firePoint: {fileID: 1514450752787568336}
   bulletSpeed: 0
   attackPatterns: []
-  aimDuration: 1.2
-  dashSpeed: 10
-  dashDuration: 0.8
-  sideFireInterval: 0.08
-  sideBulletSpeed: 3
   healthSlider: {fileID: 0}
 --- !u!50 &6450726960717636928
 Rigidbody2D:
