@@ -1,16 +1,140 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SkillManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private List<SkillData> skillData=new List<SkillData>();
+
+    private Dictionary<SkillData,float> cooldownTime=new Dictionary<SkillData,float>();
+    
+    //ˆÚ“®‘¬“x”{—¦
+    public float TotalMoveSpeedMultiplier
     {
-        
+        get
+        {
+            float multiplier = 1f;
+            foreach(var skill in skillData)
+            {
+                if (skill.Type == SkillType.StatAdjustment)
+                    multiplier *= skill.MoveSpeedMultiplier;
+            }
+            return multiplier;
+        }
     }
 
-    // Update is called once per frame
+    //UŒ‚—Í”{—¦
+    public float TotalDamageMultiplier
+    {
+        get
+        {
+            float multiplier = 1f;
+            foreach (var skill in skillData)
+            {
+                if(skill.Type== SkillType.StatAdjustment)
+                    multiplier *= skill.DamageMultiplier;
+            }
+            return multiplier;
+        }
+    }
+
+    //UŒ‚‘¬“x”{—¦
+    public float TotalAttackARateMultiplier
+    {
+        get
+        {
+            float multiplier = 1f;
+            foreach( var skill in skillData)
+            {
+                if (skill.Type == SkillType.StatAdjustment)
+                    multiplier *= skill.AttackRateMultiplier;
+            }
+            return multiplier;
+        }
+    }
+
+    //UŒ‚‰ñ”
+    public float TotalExtraAttack
+    {
+        get
+        {
+            int count = 0;
+            foreach( var skill in skillData)
+            {
+                if (skill.Type == SkillType.StatAdjustment)
+                    count += skill.ExtraAttacks;
+            }
+            return count;
+        }
+    }
+
+    //ƒ‰ƒCƒtƒXƒeƒB[ƒ‹‚Ì‰ñ•œ”{—¦
+    public float TotalLifestealRatio
+    {
+        get
+        {
+            float ratio = 0f;
+            foreach (var skill in skillData)
+            {
+                if (skill.Type == SkillType.StatAdjustment)
+                    ratio += skill.LifestealRatio; 
+            }
+            return ratio;
+        }
+    }
+
     void Update()
     {
-        
+        HandleActiveSkills();
+    }
+
+    private void HandleActiveSkills()
+    {
+        foreach( var skill in skillData)
+        {
+            if(!cooldownTime.ContainsKey(skill))
+            {
+                cooldownTime[skill] = 0f;
+            }
+
+            if (Time.time < cooldownTime[skill])
+            {
+                continue;
+            }
+
+            bool shouldActivtate = false;
+
+            if(skill.Type==SkillType.AutomaticAttack)
+            {
+                shouldActivtate = true;
+            }
+            else if(skill.Type==SkillType.TriggeredAbility)
+            {
+                if(Input.GetKeyDown("Q"))
+                {
+                    shouldActivtate = true;
+                }
+            }
+
+            //”­“®ˆ—
+            if(shouldActivtate)
+            {
+                ActivateSkillEffect(skill);
+                cooldownTime[skill] = Time.time + skill.CooldownDuration;
+            }
+        }
+    }
+
+    private void ActivateSkillEffect(SkillData skill)
+    {
+        if(skill.EffectPrefab!=null)
+        {
+            Instantiate(skill.EffectPrefab,transform.position,transform.rotation);
+
+        }
+    }
+
+    public void AddSkill(SkillData newSkill)
+    {
+        skillData.Add(newSkill);
     }
 }
