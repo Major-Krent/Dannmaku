@@ -51,12 +51,8 @@ public class Boss1Controller : EnemyBase
     [SerializeField] private float bulletSpeed;              // 现在暂时没用，先留着
     [SerializeField] private AttackPattern[] attackPatterns; // 以后扩展用
 
-    [Header("ダッシュ")]
-    [SerializeField] private float aimDuration = 1.2f;      // 瞄准时长
-    [SerializeField] private float dashSpeed = 10f;          // 冲刺速度
-    [SerializeField] private float dashDuration = 0.8f;      // 冲刺时长
-    [SerializeField] private float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔
-    [SerializeField] private float sideBulletSpeed = 5f;     // 侧向子弹速度
+
+
 
     private Animator anim;
     private Rigidbody2D rb;
@@ -379,6 +375,10 @@ public class Boss1Controller : EnemyBase
     // ========== 技能4：冲刺并发射侧向弹幕 ==========
     private IEnumerator AimThenDashWithSideFire()
     {
+        float aimDuration = 1.2f;      // 瞄准时长
+        float dashSpeed = 10f;          // 冲刺速度
+        float dashDuration = 0.8f;      // 冲刺时长
+
         if (firePoint == null)
             yield break;
 
@@ -422,14 +422,16 @@ public class Boss1Controller : EnemyBase
     private IEnumerator FireAfterCharge()
     {
         // 第一轮
-        FireMultiWay(0, 12, 30, 2);
+        FireMultiWay(0, 12, 30, 5);
         yield return new WaitForSeconds(0.2f);
         // 第二轮（整体偏15度）
-        FireMultiWay(15f, 12, 30, 2);
+        FireMultiWay(15f, 12, 30, 5);
         yield return new WaitForSeconds(0.2f);
     }
     private IEnumerator SideFireRoutine(Vector2 dashDir, System.Func<bool> isDashingGetter)
     {
+        float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔
+        float sideBulletSpeed = 6f;     // 侧向子弹速度
         // dashDir 的法线向量
         Vector2 perpRight = new Vector2(-dashDir.y, dashDir.x);
         Vector2 perpLeft = -perpRight;
