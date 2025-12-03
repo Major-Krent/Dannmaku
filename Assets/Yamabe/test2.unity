@@ -13080,6 +13080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss1
       objectReference: {fileID: 0}
+    - target: {fileID: 3695890772703385360, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7898166531097456553, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: m_SortingOrder
       value: 12
@@ -27556,9 +27560,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: skillData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
     - target: {fileID: 443995243185174230, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: isMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: playerAttackRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926539313647924718, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7526107158735107950, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: m_LocalScale.x

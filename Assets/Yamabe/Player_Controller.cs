@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float currentSpeed;
     [SerializeField] private float playerHp;
     [SerializeField] private float playerCurrentHp;
+    [SerializeField] float currentFireRate;
 
     [SerializeField] private bool isMelee;
 
@@ -111,10 +112,10 @@ public class Player_Controller : MonoBehaviour
 
     void ShootBullet()
     {
-        float currentFireRate = playerAttackRate * Mathf.Max(skillManager.TotalAttackARateMultiplier);
+        currentFireRate = playerAttackRate / Mathf.Max(skillManager.TotalAttackARateMultiplier);
         if (Input.GetMouseButton(0) && Time.time > nextFireTime)
         {
-            nextFireTime = Time.time + playerAttackRate;
+            nextFireTime = Time.time + currentFireRate;
             StartCoroutine(PerformAttack());
 
         }

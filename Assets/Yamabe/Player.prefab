@@ -120,6 +120,7 @@ MonoBehaviour:
   currentSpeed: 0
   playerHp: 20000
   playerCurrentHp: 0
+  currentFireRate: 0
   isMelee: 1
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
   playerAttackRate: 0.1
@@ -139,7 +140,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443995243185174230}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
