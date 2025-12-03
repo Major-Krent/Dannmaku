@@ -119,11 +119,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &144234316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3406813368008597579, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
+  m_PrefabInstance: {fileID: 1535688500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &148270126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2763011798816177928, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
   m_PrefabInstance: {fileID: 1535688500}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &148270131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144234316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1eeaa6d50597f4591153461cc01260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: []
 --- !u!1 &168780758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1519,7 @@ Transform:
   m_GameObject: {fileID: 1248447619}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13438,7 +13456,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3406813368008597579, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 148270131}
   m_SourcePrefab: {fileID: 100100000, guid: 70114717233bd414fb45e5a2bcbbc9ea, type: 3}
 --- !u!114 &1638438276 stripped
 MonoBehaviour:

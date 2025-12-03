@@ -284,7 +284,6 @@ public class Boss1Controller : EnemyBase
         float rad = angle * Mathf.Deg2Rad;
         return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
     }
-
     private float DirToAngle(Vector2 dir)
     {
         return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -419,15 +418,6 @@ public class Boss1Controller : EnemyBase
 
     }
 
-    private IEnumerator FireAfterCharge()
-    {
-        // 第一轮
-        FireMultiWay(0, 12, 30, 5);
-        yield return new WaitForSeconds(0.2f);
-        // 第二轮（整体偏15度）
-        FireMultiWay(15f, 12, 30, 5);
-        yield return new WaitForSeconds(0.2f);
-    }
     private IEnumerator SideFireRoutine(Vector2 dashDir, System.Func<bool> isDashingGetter)
     {
         float sideFireInterval = 0.08f; // 冲刺中侧向发弹的间隔

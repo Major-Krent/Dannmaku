@@ -103,11 +103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  currentSpeed: 0
   playerHp: 0
   playerCurrentHp: 0
   isMelee: 0
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
   playerAttackRate: 0.1
+  totalShots: 0
   attackPrefab: {fileID: 0}
   meleeAttackCooldown: 0.5
   dashSpeed: 15
