@@ -8,6 +8,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private float currentSpeed;
     [SerializeField] private float playerHp;
     [SerializeField] private float playerCurrentHp;
+    [SerializeField] float currentFireRate;
 
     [SerializeField] private bool isMelee;
 
@@ -50,7 +51,10 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if (!_isDashing)
+        {
+            MovePlayer();
+        }
         Dash();
         if (isMelee)
         {
@@ -108,10 +112,10 @@ public class Player_Controller : MonoBehaviour
 
     void ShootBullet()
     {
-        float currentFireRate = playerAttackRate * Mathf.Max(skillManager.TotalAttackARateMultiplier);
+        currentFireRate = playerAttackRate / Mathf.Max(skillManager.TotalAttackARateMultiplier);
         if (Input.GetMouseButton(0) && Time.time > nextFireTime)
         {
-            nextFireTime = Time.time + playerAttackRate;
+            nextFireTime = Time.time + currentFireRate;
             StartCoroutine(PerformAttack());
 
         }
@@ -121,6 +125,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time > nextAttackTime)
         {
+            Debug.Log("çÈã ÅIÅI");
             nextAttackTime = Time.time + meleeAttackCooldown;
 
             GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
