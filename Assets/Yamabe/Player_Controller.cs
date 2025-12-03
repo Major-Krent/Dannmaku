@@ -50,7 +50,10 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if (!_isDashing)
+        {
+            MovePlayer();
+        }
         Dash();
         if (isMelee)
         {
@@ -121,6 +124,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time > nextAttackTime)
         {
+            Debug.Log("çÈã ÅIÅI");
             nextAttackTime = Time.time + meleeAttackCooldown;
 
             GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
