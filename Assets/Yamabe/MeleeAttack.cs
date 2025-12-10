@@ -15,7 +15,8 @@ public class MeleeAttack : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
-
+            Boss1Controller boss1Controller = collision.GetComponent<Boss1Controller>();
+            boss1Controller.TakeDamage(attackDamage);
         }
     }
 }

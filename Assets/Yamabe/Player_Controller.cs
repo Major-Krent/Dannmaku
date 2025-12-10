@@ -21,6 +21,8 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] GameObject attackPrefab;
     [SerializeField] float meleeAttackCooldown = 0.5f;
 
+    [Header("‹¤’ÊUŒ‚İ’è")]
+
     [Header("ƒ_ƒbƒVƒ…İ’è")]
     public float dashSpeed = 15.0f;
     public float dashDuration = 0.2f;

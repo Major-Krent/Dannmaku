@@ -1248,8 +1248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df353afb1f07ed42a3666ffa2594def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipPanel: {fileID: 1195818250}
-  descriptionText: {fileID: 1638438276}
+  tooltipPanel: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!4 &683895393
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,11 +1464,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1195818250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3096574045226828988, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
-  m_PrefabInstance: {fileID: 7405969112660585797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248447619
 GameObject:
   m_ObjectHideFlags: 0
@@ -13082,7 +13077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3695890772703385360, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7898166531097456553, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: m_SortingOrder
@@ -13330,17 +13325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510813327}
   m_CullTransparentMesh: 1
---- !u!114 &1638438276 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6903069080451897408, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
-  m_PrefabInstance: {fileID: 7405969112660585797}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1672883546
 GameObject:
   m_ObjectHideFlags: 0
