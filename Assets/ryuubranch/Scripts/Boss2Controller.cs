@@ -30,6 +30,24 @@ public class Boss2Controller : EnemyBase
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
 
+    [Header("レーザーPrefab")]
+    [SerializeField] private GameObject warningLaserPrefab;  // 预警用
+    [SerializeField] private GameObject damageLaserPrefab;   // 伤害用
+
+    [Header("画面カバー用パラメータ")]
+    [SerializeField] private int screenRayCount = 10;        // 全屏斜线条数
+    [SerializeField] private float screenHalfWidthWorld = 9f;  // 视野半宽(世界坐标)
+    [SerializeField] private float screenHalfHeightWorld = 5f; // 视野半高(世界坐标)
+
+    [Header("レーザー時間設定")]
+    [SerializeField] private float laserWarningDuration = 0.8f; // 预警存在时间
+    [SerializeField] private float laserDamageDuration = 1.2f;  // 伤害存在时间
+    [SerializeField] private float radialSpinDuration = 2.5f;   // 环形激光旋转时间
+    [SerializeField] private float radialSpinSpeed = 60f;       // 每秒旋转角速度（度）
+
+    [Header("狙撃レーザー設定")]
+    [SerializeField] private float aimTime = 1.0f;              // 瞄准时间
+
     private Animator anim;
     private Rigidbody2D rb;
     bool isDashing = false;
@@ -169,16 +187,16 @@ public class Boss2Controller : EnemyBase
                 switch (skillIndex)
                 {
                     case 0:
-
+                        yield return StartCoroutine(Skill_SlantLasers(45f));
                         break;
                     case 1:
-
+                        yield return StartCoroutine(Skill_SlantLasers(-45f));
                         break;
                     case 2:
-
+                        yield return StartCoroutine(Skill_RadialSpinLaser());
                         break;
                     case 3:
-
+                        yield return StartCoroutine(Skill_TargetLaser());
                         break;
                 }
             }
@@ -222,6 +240,146 @@ public class Boss2Controller : EnemyBase
             // 技能放完以后稍微停一下再进入下一轮
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    /// <summary>
+    /// 技能0/1：全屏斜向激光（angleDeg = 45 或 -45）
+    /// </summary>
+    private IEnumerator Skill_SlantLasers(float angleDeg)
+    {
+        // 射线方向（用来确定旋转角度）
+        float rad = angleDeg * Mathf.Deg2Rad;
+        Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+        // 垂直方向（用来沿着这个方向平移，铺满整个屏幕）
+        Vector2 perp = new Vector2(-dir.y, dir.x).normalized;
+
+        // 覆盖范围粗略估算：半宽 + 半高
+        float halfLen = screenHalfWidthWorld + screenHalfHeightWorld;
+        float totalLen = halfLen * 2f;
+        float step = totalLen / (screenRayCount - 1);
+
+        List<GameObject> warningList = new List<GameObject>();
+        List<GameObject> damageList = new List<GameObject>();
+
+        // 以 Boss 为中心铺满（也可以用摄像机中心）
+        Vector2 center = transform.position;
+
+        // 生成预警线
+        for (int i = 0; i < screenRayCount; i++)
+        {
+            float offset = -halfLen + step * i;
+            Vector2 pos = center + perp * offset;
+            Quaternion rot = Quaternion.AngleAxis(angleDeg, Vector3.forward);
+            GameObject warn = Instantiate(warningLaserPrefab, pos, rot);
+            warningList.Add(warn);
+        }
+
+        // 预警时间
+        yield return new WaitForSeconds(laserWarningDuration / actionSpeedMultiplier);
+
+        // 替换成伤害激光
+        foreach (GameObject warn in warningList)
+        {
+            if (warn == null) continue;
+            Vector3 pos = warn.transform.position;
+            Quaternion rot = warn.transform.rotation;
+            Destroy(warn);
+            GameObject dmg = Instantiate(damageLaserPrefab, pos, rot);
+            damageList.Add(dmg);
+        }
+        warningList.Clear();
+
+        // 伤害存在时间
+        yield return new WaitForSeconds(laserDamageDuration / actionSpeedMultiplier);
+
+        foreach (GameObject dmg in damageList)
+        {
+            if (dmg != null) Destroy(dmg);
+        }
+        damageList.Clear();
+    }
+
+    /// <summary>
+    /// 技能2：中心向外 360° 激光 + 旋转
+    /// 每 30° 一道激光
+    /// </summary>
+    private IEnumerator Skill_RadialSpinLaser()
+    {
+        const int angleStep = 30;
+        int count = 360 / angleStep;
+        List<GameObject> beams = new List<GameObject>();
+
+        // 先生成伤害激光（也可以先用 warningLaserPrefab 再替换）
+        for (int i = 0; i < count; i++)
+        {
+            float angle = i * angleStep;
+            Quaternion rot = Quaternion.Euler(0, 0, angle);
+            GameObject beam = Instantiate(damageLaserPrefab, transform.position, rot);
+            beams.Add(beam);
+        }
+
+        float time = 0f;
+        float duration = radialSpinDuration / actionSpeedMultiplier;
+
+        while (time < duration)
+        {
+            float deltaAngle = radialSpinSpeed * Time.deltaTime * actionSpeedMultiplier;
+            foreach (GameObject b in beams)
+            {
+                if (b != null)
+                {
+                    b.transform.Rotate(0, 0, deltaAngle);
+                }
+            }
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        foreach (GameObject b in beams)
+        {
+            if (b != null) Destroy(b);
+        }
+        beams.Clear();
+    }
+
+    /// <summary>
+    /// 技能3：瞄准玩家一秒，然后发射激光
+    /// </summary>
+    private IEnumerator Skill_TargetLaser()
+    {
+        // 预警线，从 Boss 中心出发，朝玩家方向
+        GameObject warn = Instantiate(warningLaserPrefab, transform.position, Quaternion.identity);
+
+        float t = 0f;
+        float aimDuration = aimTime / actionSpeedMultiplier;
+
+        while (t < aimDuration)
+        {
+            if (player != null && warn != null)
+            {
+                Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                warn.transform.position = transform.position;
+                warn.transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        // 替换成伤害激光
+        GameObject dmg = null;
+        if (warn != null)
+        {
+            Vector3 pos = warn.transform.position;
+            Quaternion rot = warn.transform.rotation;
+            Destroy(warn);
+            dmg = Instantiate(damageLaserPrefab, pos, rot);
+        }
+
+        yield return new WaitForSeconds(laserDamageDuration / actionSpeedMultiplier);
+
+        if (dmg != null) Destroy(dmg);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
