@@ -1,15 +1,11 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField]private CanvasGroup fadeCanvasGroup;
-    [SerializeField]private float fadeDuration = 1.0f;
-
-    [SerializeField] private string gameSceneName = "GameScene";
-
+    [SerializeField] private int nextSceneIndex = 2;
     private bool isTransitioning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnCharacterSelected(CharacterCard selectedCard)
@@ -18,35 +14,20 @@ public class SelectionManager : MonoBehaviour
         isTransitioning = true;
 
         selectedCard.LockCard();
+        //ÈÅ∏Êäû„Åï„Çå„Åüenum„Çí‰øùÂ≠ò
+        GameContext.SelectedCharacter = selectedCard.characterType;
+        Debug.Log($"{selectedCard.characterType}");
 
-        StartCoroutine(SelectionSequence(selectedCard));
-    }
-    IEnumerator SelectionSequence(CharacterCard card)
-    {
-        //ÉAÉjÉÅÅ[ÉVÉáÉì
-        if (card.charAnimator != null)
+        SceneMana sceneMana = FindFirstObjectByType<SceneMana>();
+
+        if (sceneMana != null)
         {
-           // card.charAnimator.SetTrigger("Attack"); 
-
-           //yield return null;
-
-           //float animLength = card.charAnimator.GetCurrentAnimatorStateInfo(0).length;
-
-           //yield return new WaitForSeconds(animLength);
+            sceneMana.LoadLevelByIndex(nextSceneIndex);
         }
-        //FadeOut
-        fadeCanvasGroup.blocksRaycasts = true;
-        float timer = 0;
-        while (timer < fadeDuration)
+        else
         {
-            timer += Time.deltaTime;
-            fadeCanvasGroup.alpha = Mathf.Lerp(0, 1, timer / fadeDuration);
-            yield return null;
+            SceneManager.LoadScene(nextSceneIndex);
         }
-        fadeCanvasGroup.alpha = 1;
-
-        //ëIëÇ≥ÇÍÇΩenumÇï€ë∂
-        GameContext.SelectedCharacter = card.characterType;
-        SceneManager.LoadScene(gameSceneName);
     }
+    
 }

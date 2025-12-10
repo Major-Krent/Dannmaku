@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/ShiiBranch/Scene/Title.unity
+    guid: 3f915467756e2dc42b448220634b0b0a
+  - enabled: 1
     path: Assets/ShiiBranch/Scene/CharSelect.unity
     guid: c6aff03c37f39244bada8c12f91d7ea3
   - enabled: 1
-    path: Assets/MainScene.unity
-    guid: 4b2b4bf5004e6f549a878a07887192cc
+    path: Assets/ShiiBranch/Scene/Tutorial.unity
+    guid: 01a644d977337bd4a9dbf0845041ec39
   - enabled: 1
     path: Assets/ShiiBranch/Scene/MainScene_Shii.unity
     guid: d75b2816ba80edc4b8cd16f9f4800ef0
+  - enabled: 1
+    path: Assets/MainScene.unity
+    guid: 4b2b4bf5004e6f549a878a07887192cc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
