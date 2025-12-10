@@ -7,6 +7,14 @@ using UnityEngine;
         Ranged //‰“
     }
 
-        public static CharacterType SelectedCharacter;
+    public static CharacterType SelectedCharacter;
+
+    public static float[] LevelTimes = new float[3];
+
+
+    public static void ResetData()
+    {
+        LevelTimes = new float[3]; 
     }
+}
 
