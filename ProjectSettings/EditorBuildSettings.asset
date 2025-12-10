@@ -15,9 +15,18 @@ EditorBuildSettings:
     path: Assets/ShiiBranch/Scene/Tutorial.unity
     guid: 01a644d977337bd4a9dbf0845041ec39
   - enabled: 1
-    path: Assets/ShiiBranch/Scene/MainScene_Shii.unity
+    path: Assets/ShiiBranch/Scene/Level1.unity
     guid: d75b2816ba80edc4b8cd16f9f4800ef0
   - enabled: 1
+    path: Assets/ShiiBranch/Scene/Level2.unity
+    guid: 4c1cb48badb6a2b44854abb9c9c6b12f
+  - enabled: 1
+    path: Assets/ShiiBranch/Scene/Level3.unity
+    guid: 882b7f8fefa7d514ebab41fba480e965
+  - enabled: 1
+    path: Assets/ShiiBranch/Scene/Result.unity
+    guid: 9347c1d39d7039d419910c8e326701ec
+  - enabled: 0
     path: Assets/MainScene.unity
     guid: 4b2b4bf5004e6f549a878a07887192cc
   m_configObjects:

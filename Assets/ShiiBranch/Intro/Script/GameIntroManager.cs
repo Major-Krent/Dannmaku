@@ -3,19 +3,20 @@ using System.Collections;
 
 public class GameIntroManager : MonoBehaviour
 {
-    [SerializeField] private float animDuration = 3.0f;
+    public float animDuration = 3.0f;
     [SerializeField] private GameObject introUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        StartCoroutine(PlayIntroSequence());
+        if (introUI != null) introUI.SetActive(false);
     }
-
-    // Update is called once per frame
-    IEnumerator PlayIntroSequence()
+    public void ShowIntro()
     {
-
-        yield return new WaitForSeconds(animDuration);
-
+        if (introUI != null) introUI.SetActive(true);
+    }
+    // Update is called once per frame
+    public void HideIntro()
+    {
+        if (introUI != null) introUI.SetActive(false);
     }
 }
