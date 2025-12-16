@@ -82,6 +82,24 @@ public class Boss1Controller : EnemyBase
 
     }
 
+    protected void OnEnable()
+    {
+        // 确保状态重置
+        isChasing = false;
+        isDashing = false;
+
+        // 初始化移动速度
+        baseMoveSpeed = MoveSpeed;
+
+        // 重置技能循环
+        ResetSkillCycle();
+
+        // 启动主循环（防止重复启动，先停一下）
+        if (bossLoopCoroutine != null) StopCoroutine(bossLoopCoroutine);
+        bossLoopCoroutine = StartCoroutine(BossLoop());
+    }
+
+
     // 不写 Update()，让 EnemyBase.Update() 自己调用 Move()
     protected override void Update()
     {
@@ -469,7 +487,7 @@ public class Boss1Controller : EnemyBase
         SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
         Debug.Log("Boss1 Died");
         Destroy(healthSlider.gameObject);
-        Destroy(gameObject);
         base.Die();
+        Destroy(gameObject);
     }
 }

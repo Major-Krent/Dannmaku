@@ -48,5 +48,10 @@ public class EnemyBase : MonoBehaviour
         {
             timer.StopAndRecord();
         }
+        LevelEnvironment env = FindFirstObjectByType<LevelEnvironment>();
+        if (env != null)
+        {
+            env.OpenPath();
+        }
     }
 }

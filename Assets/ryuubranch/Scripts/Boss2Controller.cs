@@ -81,12 +81,6 @@ public class Boss2Controller : EnemyBase
         rb = GetComponent<Rigidbody2D>();
         base.Start();              // 初始化 HP 等
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
-        bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
-        baseMoveSpeed = MoveSpeed;
-        HP = 500f;
-        currentHP = HP;
-        healthSlider.maxValue = HP;
-        healthSlider.value = currentHP;
 
         screenRayCount = 16;        // 全屏斜线条数
         screenHalfWidthWorld = 9f;  // 视野半宽(世界坐标)
@@ -98,7 +92,16 @@ public class Boss2Controller : EnemyBase
         radialSpinSpeed = 60f;       // 每秒旋转角速度（度）
 
         aimTime = 1.0f;
+    }
 
+    protected void OnEnable()
+    {
+        bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
+        baseMoveSpeed = MoveSpeed;
+        HP = 500f;
+        currentHP = HP;
+        healthSlider.maxValue = HP;
+        healthSlider.value = currentHP;
     }
 
     // Update is called once per frame
