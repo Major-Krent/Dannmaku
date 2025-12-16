@@ -12,8 +12,8 @@ public class ResultUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalText;
     [SerializeField] private GameObject backButtonObject;
     [Header("Timer")]
-    [SerializeField] private float startDelay = 0.5f;
-    [SerializeField] private float interval = 0.8f; 
+    [SerializeField] private float startDelay = 4f;
+    [SerializeField] private float interval = 2f; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,10 +34,10 @@ public class ResultUI : MonoBehaviour
         float time3 = GameContext.LevelTimes[2]; 
         float totalTime = time1 + time2 + time3;
   
-        level1Text.text = $"Level 1: <color=yellow>{FormatTime(time1)}</color>";
-        level2Text.text = $"Level 2: <color=yellow>{FormatTime(time2)}</color>";
-        level3Text.text = $"Level 3: <color=yellow>{FormatTime(time3)}</color>";
-        totalText.text = $"TOTAL:   <color=red>{FormatTime(totalTime)}</color>";
+        level1Text.text = $"Level 1: <color=#5A2222>{FormatTime(time1)}</color>";
+        level2Text.text = $"Level 2: <color=#5A2222>{FormatTime(time2)}</color>";
+        level3Text.text = $"Level 3: <color=#5A2222>{FormatTime(time3)}</color>";
+        totalText.text = $"TOTAL:   <color=#5A2222>{FormatTime(totalTime)}</color>";
 
         yield return new WaitForSeconds(startDelay);
 
