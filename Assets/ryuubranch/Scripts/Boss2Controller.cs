@@ -35,18 +35,26 @@ public class Boss2Controller : EnemyBase
     [SerializeField] private GameObject damageLaserPrefab;   // 伤害用
 
     [Header("画面カバー用パラメータ")]
-    [SerializeField] private int screenRayCount = 10;        // 全屏斜线条数
-    [SerializeField] private float screenHalfWidthWorld = 9f;  // 视野半宽(世界坐标)
-    [SerializeField] private float screenHalfHeightWorld = 5f; // 视野半高(世界坐标)
+    [SerializeField] private int screenRayCount;        // 全屏斜线条数
+    [SerializeField] private float screenHalfWidthWorld;  // 视野半宽(世界坐标)
+    [SerializeField] private float screenHalfHeightWorld; // 视野半高(世界坐标)
 
     [Header("レーザー時間設定")]
-    [SerializeField] private float laserWarningDuration = 0.8f; // 预警存在时间
-    [SerializeField] private float laserDamageDuration = 1.2f;  // 伤害存在时间
-    [SerializeField] private float radialSpinDuration = 2.5f;   // 环形激光旋转时间
-    [SerializeField] private float radialSpinSpeed = 60f;       // 每秒旋转角速度（度）
+    [SerializeField] private float laserWarningDuration; // 预警存在时间
+    [SerializeField] private float laserDamageDuration;  // 伤害存在时间
+    [SerializeField] private float radialSpinDuration;   // 环形激光旋转时间
+    [SerializeField] private float radialSpinSpeed;       // 每秒旋转角速度（度）
 
     [Header("狙撃レーザー設定")]
-    [SerializeField] private float aimTime = 1.0f;              // 瞄准时间
+    [SerializeField] private float aimTime;              // 瞄准时间
+
+    // ===== 刀围成圆的沟壑技能（只在代码里调参）=====
+    private float knifeSpacing = 0.6f;       // 相邻刀“沿圆周”的间隔（世界坐标弧长）
+    private float craterWarningTime = 0.6f;  // 预警时间
+    private float craterDamageTime = 1.2f;   // 伤害持续时间
+    private bool knivesFollowBoss = false;   // true=刀环跟着Boss移动，false=生成后固定在原地
+
+    [SerializeField] private GameObject craterKnifePrefab;
 
     private Animator anim;
     private Rigidbody2D rb;
@@ -79,6 +87,17 @@ public class Boss2Controller : EnemyBase
         currentHP = HP;
         healthSlider.maxValue = HP;
         healthSlider.value = currentHP;
+
+        screenRayCount = 16;        // 全屏斜线条数
+        screenHalfWidthWorld = 9f;  // 视野半宽(世界坐标)
+        screenHalfHeightWorld = 5f; // 视野半高(世界坐标)
+
+        laserWarningDuration = 0.8f; // 预警存在时间
+        laserDamageDuration = 1.2f;  // 伤害存在时间
+        radialSpinDuration = 2.5f;   // 环形激光旋转时间
+        radialSpinSpeed = 60f;       // 每秒旋转角速度（度）
+
+        aimTime = 1.0f;
 
     }
 
@@ -188,9 +207,12 @@ public class Boss2Controller : EnemyBase
                 {
                     case 0:
                         yield return StartCoroutine(Skill_SlantLasers(45f));
+                        yield return StartCoroutine(Skill_SlantLasers(90f));
+                        yield return StartCoroutine(Skill_SlantLasers(135f));
+                        yield return StartCoroutine(Skill_SlantLasers(180f));
                         break;
                     case 1:
-                        yield return StartCoroutine(Skill_SlantLasers(-45f));
+                        yield return StartCoroutine(Skill_CraterKnifeRing(5));
                         break;
                     case 2:
                         yield return StartCoroutine(Skill_RadialSpinLaser());
@@ -205,16 +227,19 @@ public class Boss2Controller : EnemyBase
                 switch (skillIndex)
                 {
                     case 0:
-
+                        yield return StartCoroutine(Skill_SlantLasers(45f));
+                        yield return StartCoroutine(Skill_SlantLasers(135f));
                         break;
                     case 1:
-
+                        yield return StartCoroutine(Skill_CraterKnifeRing(3));
+                        yield return StartCoroutine(Skill_CraterKnifeRing(6));
                         break;
                     case 2:
 
                         break;
                     case 3:
-
+                        yield return StartCoroutine(Skill_TargetLaser());
+                        yield return StartCoroutine(Skill_TargetLaser());
                         break;
                 }
             }
@@ -223,7 +248,10 @@ public class Boss2Controller : EnemyBase
                 switch (skillIndex)
                 {
                     case 0:
-
+                        yield return StartCoroutine(Skill_SlantLasers(45f));
+                        yield return StartCoroutine(Skill_SlantLasers(90f));
+                        yield return StartCoroutine(Skill_SlantLasers(135f));
+                        yield return StartCoroutine(Skill_SlantLasers(180f));
                         break;
                     case 1:
 
@@ -380,6 +408,64 @@ public class Boss2Controller : EnemyBase
         yield return new WaitForSeconds(laserDamageDuration / actionSpeedMultiplier);
 
         if (dmg != null) Destroy(dmg);
+    }
+
+    private IEnumerator Skill_CraterKnifeRing(float radius)
+    {
+        if (craterKnifePrefab == null)
+        {
+            Debug.LogWarning("craterKnifePrefab is null.");
+            yield break;
+        }
+
+        Vector2 center = transform.position;
+
+        // 根据半径算周长 → 算刀数量
+        float circumference = 2f * Mathf.PI * radius;
+        int count = Mathf.Max(6, Mathf.RoundToInt(circumference / knifeSpacing));
+        float angleStep = 360f / count;
+
+        GameObject ringRoot = new GameObject("CraterKnifeRing");
+        ringRoot.transform.position = center;
+        if (knivesFollowBoss)
+            ringRoot.transform.SetParent(transform);
+
+        List<CraterKnife> knives = new List<CraterKnife>(count);
+
+        for (int i = 0; i < count; i++)
+        {
+            float angleDeg = i * angleStep;
+            float rad = angleDeg * Mathf.Deg2Rad;
+
+            Vector2 pos = center + new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * radius;
+
+            // 刀朝向圆心
+            float lookToCenterAngle = angleDeg + 180f;
+            Quaternion rot = Quaternion.Euler(0, 0, lookToCenterAngle);
+
+            GameObject knifeObj = Instantiate(craterKnifePrefab, pos, rot, ringRoot.transform);
+
+            var ck = knifeObj.GetComponent<CraterKnife>();
+            if (ck != null)
+            {
+                ck.SetDamageEnabled(false); // 预警阶段不开伤害
+                knives.Add(ck);
+            }
+        }
+
+        // 预警
+        yield return new WaitForSeconds(craterWarningTime / actionSpeedMultiplier);
+
+        // 开伤害
+        foreach (var k in knives)
+        {
+            if (k != null) k.SetDamageEnabled(true);
+        }
+
+        // 伤害持续
+        yield return new WaitForSeconds(craterDamageTime / actionSpeedMultiplier);
+
+        Destroy(ringRoot);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

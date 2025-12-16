@@ -43,5 +43,10 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log("BossDied");
+        LevelTimer timer = FindFirstObjectByType<LevelTimer>();
+        if (timer != null)
+        {
+            timer.StopAndRecord();
+        }
     }
 }

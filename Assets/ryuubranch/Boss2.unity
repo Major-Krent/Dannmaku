@@ -478,7 +478,7 @@ MonoBehaviour:
   firePoint: {fileID: 1893518571}
   warningLaserPrefab: {fileID: 883234656562039791, guid: 3c50a0d7114c7aa4eb922170e3621075, type: 3}
   damageLaserPrefab: {fileID: 485667579629523408, guid: 6b490c0bbb485434b8a49950e482f25b, type: 3}
-  screenRayCount: 10
+  screenRayCount: 16
   screenHalfWidthWorld: 9
   screenHalfHeightWorld: 5
   laserWarningDuration: 0.8
