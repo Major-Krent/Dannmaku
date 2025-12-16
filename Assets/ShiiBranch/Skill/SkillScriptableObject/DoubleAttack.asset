@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillName: "\u4E8C\u6BB5\u653B\u6483"
   _description: "\u4E00\u5EA6\u306E\u653B\u6483\u3067\u4E8C\u6BB5\u968E\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B\u304C\u3001\u4E00\u6BB5\u968E\u306E\u30C0\u30E1\u30FC\u30B8\u91CF\u306F0.75\u500D\u306B\u306A\u308B\u3002"
-  _icon: {fileID: 21300000, guid: 62b5a5084ec81ad46a1b9a3a7ee6f712, type: 3}
+  _icon: {fileID: -2783245508818007376, guid: d75e80ef8e9d9844fbdf0812c875ce92, type: 3}
   _type: 0
+  _tier: 0
   _moveSpeedMultiplier: 1
   _damageMultiplier: 0.75
   _attackRateMultiplier: 1
   _extraAttacks: 1
   _lifestealRatio: 0
   _effectPrefab: {fileID: 0}
+  _cooldownDuration: 0

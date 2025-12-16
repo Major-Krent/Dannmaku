@@ -1619,6 +1619,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1274874209 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7526107158735107950, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+  m_PrefabInstance: {fileID: 711867572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1283457940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1770,7 +1775,7 @@ PrefabInstance:
     - target: {fileID: 2919528313599320862, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1274874209}
     - target: {fileID: 2919528313599320862, guid: 7a821388031b5fb459f7c933409fbe13, type: 3}
       propertyPath: healthSlider
       value: 
