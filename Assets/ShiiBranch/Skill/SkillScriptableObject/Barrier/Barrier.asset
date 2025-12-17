@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
-  m_Name: DamageRateUp
+  m_Name: Barrier
   m_EditorClassIdentifier: 
-  _skillName: "\u653B\u6483\u983B\u5EA6UP"
-  _description: "\u653B\u6483\u983B\u5EA6\u30921.25\u500D\u306B\u3059\u308B"
-  _icon: {fileID: 9013656592470760534, guid: 5849055211b6ed64db70ec4831d7931e, type: 3}
-  _type: 0
+  _skillName: "\u30D0\u30EA\u30A2"
+  _description: "\u81EA\u5206\u306B\u30D0\u30EA\u30A2\u3092\u4ED8\u4E0E\u3057\u3001\u4E00\u5B9A\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u5438\u53CE\u3057\u305F\u5F8C\u306B\u7834\u58CA\u3055\u308C\u308B\u3002"
+  _icon: {fileID: -2783245508818007376, guid: d75e80ef8e9d9844fbdf0812c875ce92, type: 3}
+  _type: 1
   _tier: 0
   _moveSpeedMultiplier: 1
   _damageMultiplier: 1
-  _attackRateMultiplier: 1.25
+  _attackRateMultiplier: 1
   _extraAttacks: 0
   _lifestealRatio: 0
   _effectPrefab: {fileID: 0}
   _cooldownDuration: 0
+  _nextLevelSkill: {fileID: 0}

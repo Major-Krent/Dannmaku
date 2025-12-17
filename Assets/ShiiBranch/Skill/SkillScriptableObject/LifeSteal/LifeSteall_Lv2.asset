@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
-  m_Name: LifeSteal
+  m_Name: LifeSteall_Lv2
   m_EditorClassIdentifier: 
-  _skillName: "\u5438\u8840"
-  _description: "\u6575\u306B\u4E0E\u3048\u305F\u30C0\u30E1\u30FC\u30B8\u306E10\uFF05\u3092\u81EA\u5206\u306EHP\u306B\u3059\u308B"
+  _skillName: "\u5438\u8840Lv.2"
+  _description: "\u6575\u306B\u4E0E\u3048\u305F\u30C0\u30E1\u30FC\u30B8\u306E15\uFF05\u3092\u81EA\u5206\u306EHP\u306B\u3059\u308B"
   _icon: {fileID: -2783245508818007376, guid: d75e80ef8e9d9844fbdf0812c875ce92, type: 3}
   _type: 1
   _tier: 0
@@ -21,6 +21,7 @@ MonoBehaviour:
   _damageMultiplier: 1
   _attackRateMultiplier: 1
   _extraAttacks: 0
-  _lifestealRatio: 0.1
+  _lifestealRatio: 0.15
   _effectPrefab: {fileID: 0}
   _cooldownDuration: 0
+  _nextLevelSkill: {fileID: 0}

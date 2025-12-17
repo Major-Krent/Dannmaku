@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
+  m_Name: DamageRateUp_Lv2
+  m_EditorClassIdentifier: 
+  _skillName: "\u653B\u6483\u983B\u5EA6UPLv.2"
+  _description: "\u653B\u6483\u983B\u5EA6\u30921.5\u500D\u306B\u3059\u308B"
+  _icon: {fileID: 9013656592470760534, guid: 5849055211b6ed64db70ec4831d7931e, type: 3}
+  _type: 0
+  _tier: 0
+  _moveSpeedMultiplier: 1
+  _damageMultiplier: 1
+  _attackRateMultiplier: 1.5
+  _extraAttacks: 0
+  _lifestealRatio: 0
+  _effectPrefab: {fileID: 0}
+  _cooldownDuration: 0
+  _nextLevelSkill: {fileID: 11400000, guid: 390275d00bee92f4884d996286cce88d, type: 2}

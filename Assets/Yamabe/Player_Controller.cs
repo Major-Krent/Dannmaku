@@ -100,15 +100,19 @@ public class Player_Controller : MonoBehaviour
         _nextDashTime = Time.time + dashCooltime;
 
         float startTime = Time.time;
-
+        Vector2 dashDirection = moveInput;
+        if (dashDirection == Vector2.zero)
+        {
+            dashDirection = Vector2.zero;
+        }
         while (Time.time < startTime + dashDuration)
         {
 
-            transform.Translate(moveInput * dashSpeed * Time.deltaTime, Space.World);
+            rb.linearVelocity = dashDirection.normalized * dashSpeed;
 
             yield return null;
         }
-
+        rb.linearVelocity = Vector2.zero;
         _isDashing = false;
     }
 

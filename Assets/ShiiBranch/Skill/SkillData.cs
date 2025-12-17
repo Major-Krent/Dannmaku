@@ -48,6 +48,10 @@ public class SkillData : ScriptableObject
     [SerializeField, Tooltip("クールダウン時間（秒),0の場合はクールダウンなし。")]
     private float _cooldownDuration;//-= Time.deltaTime
 
+    [Header("進化・アップグレード")]
+    [SerializeField, Tooltip("このスキルを取得した後に、プールに追加される上位スキル。ない場合はNone。")]
+    private SkillData _nextLevelSkill;
+
     public string SkillName => _skillName;
     public string Description => _description;
     public Sprite Icon => _icon;
@@ -60,4 +64,5 @@ public class SkillData : ScriptableObject
     public float LifestealRatio => _lifestealRatio;
     public SkillTier Tier => _tier;
     public float CooldownDuration => _cooldownDuration;
+    public SkillData NextLevelSkill => _nextLevelSkill;
 }

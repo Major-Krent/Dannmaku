@@ -31,11 +31,13 @@ public class SkillSelectionManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject);
+            return;
         }
         else
         {
             Instance = this;
+            DontDestroyOnLoad(transform.root.gameObject);
         }
 
         cardLayout = cardContainer.GetComponent<CardFanLayout>();
@@ -154,6 +156,12 @@ public class SkillSelectionManager : MonoBehaviour
         {
             availableSkillPool.Remove(chosenSkill);
             Debug.Log($"スキル「{chosenSkill.SkillName}」を選択。プールから削除しました。残りスキル数: {availableSkillPool.Count}");
+        }
+        //上位スキルがあるかどうかをチェックする
+        if (chosenSkill.NextLevelSkill != null)
+        {
+            availableSkillPool.Add(chosenSkill.NextLevelSkill);
+            Debug.Log($"上位スキル「{chosenSkill.NextLevelSkill.SkillName}」がプールに追加されました！");
         }
         StartCoroutine(HideAndCleanupPanel());
     }

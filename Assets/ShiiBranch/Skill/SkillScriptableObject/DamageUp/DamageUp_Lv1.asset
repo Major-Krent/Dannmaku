@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
-  m_Name: MoveSpeedUp
+  m_Name: DamageUp_Lv1
   m_EditorClassIdentifier: 
-  _skillName: "\u79FB\u52D5\u901F\u5EA6UP"
-  _description: "\u79FB\u52D5\u901F\u5EA6\u30921.25\u500D\u306B\u3059\u308B"
+  _skillName: "\u653B\u6483\u529BUPLv.1"
+  _description: "\u653B\u6483\u529B\u30921.25\u500D\u306B\u3059\u308B"
   _icon: {fileID: 9013656592470760534, guid: 5849055211b6ed64db70ec4831d7931e, type: 3}
   _type: 0
   _tier: 0
-  _moveSpeedMultiplier: 1.25
-  _damageMultiplier: 1
+  _moveSpeedMultiplier: 1
+  _damageMultiplier: 1.25
   _attackRateMultiplier: 1
   _extraAttacks: 0
   _lifestealRatio: 0
   _effectPrefab: {fileID: 0}
   _cooldownDuration: 0
+  _nextLevelSkill: {fileID: 11400000, guid: 599268c26be637f44aa41d9cbf3a9e64, type: 2}
