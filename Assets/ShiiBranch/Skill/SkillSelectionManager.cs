@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
@@ -18,9 +19,12 @@ public class SkillSelectionManager : MonoBehaviour
     private List<SkillData> availableSkillPool;
 
 
-    [Header("アニメーション")]
+    [Header("Animation")]
     [SerializeField] private float animationSpeed = 15f;
     [SerializeField] private float offScreenYPosition = -1200f;
+    [Header("Audio")]
+    [SerializeField] private AudioClip popupSound;
+    private AudioSource audioSource;
 
     private CardFanLayout cardLayout;
     private Vector2 onScreenPosition = Vector2.zero;
@@ -47,7 +51,14 @@ public class SkillSelectionManager : MonoBehaviour
         skillSelectionPanel.anchoredPosition = offScreenPosition;
         skillSelectionPanel.gameObject.SetActive(false);
 
+        audioSource = GetComponent<AudioSource>();
+
         InitializeSkillPool();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     /// <summary>
     /// スキルプールを初期化・リセットする
@@ -80,7 +91,14 @@ public class SkillSelectionManager : MonoBehaviour
     {
         SkillCard.OnSkillSelected -= OnSkillChosen;
     }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
 
+        if (scene.name == "Tutorial")
+        {
+            InitializeSkillPool();
+        }
+    }
     public void TriggerSkillSelection(int amountToPick, bool forceOneAdvanced = false)
     {
         StartCoroutine(ShowPanelAndCards(amountToPick, forceOneAdvanced));
@@ -145,6 +163,12 @@ public class SkillSelectionManager : MonoBehaviour
         }
         //レイアウト
         ArrangeAndFinalizeLayout();
+
+        if (popupSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(popupSound);
+        }
+
         yield return StartCoroutine(AnimatePanelCoroutine(onScreenPosition));
         isInteractable = true;
     }

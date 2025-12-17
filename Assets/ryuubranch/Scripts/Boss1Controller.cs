@@ -486,6 +486,10 @@ public class Boss1Controller : EnemyBase
     {
         SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
         Debug.Log("Boss1 Died");
+        if (BossBattleManager.Instance != null)
+        {
+            BossBattleManager.Instance.OnBossDefeated();
+        }
         Destroy(healthSlider.gameObject);
         base.Die();
         Destroy(gameObject);
