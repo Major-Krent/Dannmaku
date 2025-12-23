@@ -56,7 +56,9 @@ public class Boss1Controller : EnemyBase
 
     private Animator anim;
     private Rigidbody2D rb;
-    bool isDashing = false;
+    private bool isDashing = false;
+    private bool isDie = false;
+    private bool isDead = false;
     public Slider healthSlider;
 
 
@@ -103,6 +105,7 @@ public class Boss1Controller : EnemyBase
     // 不写 Update()，让 EnemyBase.Update() 自己调用 Move()
     protected override void Update()
     {
+        if (isDead) return;
         base.Update();
         anim.SetBool("isDashing", isDashing);
         UpdatePhaseByHP();
@@ -122,6 +125,7 @@ public class Boss1Controller : EnemyBase
     public override void TakeDamage(float damage)
     {
         // 先用父类处理扣血 + 死亡
+        if (isDie) return;
         base.TakeDamage(damage);
         healthSlider.value = currentHP;
         // 死了就不用再切阶段
@@ -137,13 +141,11 @@ public class Boss1Controller : EnemyBase
         // 注意顺序：先判断第三阶段，再判断第二阶段
         if (hpPercent <= phase3Threshold && currentPhase != BossPhase.Phase3)
         {
-            SkillSelectionManager.Instance.TriggerSkillSelection(3);
             EnterPhase3();
         }
         else if (hpPercent <= phase2Threshold && currentPhase == BossPhase.Phase1)
         {
             // 只允许从 1 -> 2（避免 3 再回 2）
-            SkillSelectionManager.Instance.TriggerSkillSelection(3);
             EnterPhase2();
         }
     }
@@ -176,13 +178,28 @@ public class Boss1Controller : EnemyBase
 
     private void RestartBossLoop()
     {
+        isChasing = false;
+        StartCoroutine(Wait());
+        ResetSkillCycle(); // 看你要不要每次阶段重置技能轮回
+    }
+
+    // ========== 待つ ==========
+    private IEnumerator Wait()
+    {
+        anim.SetTrigger("isDie");
+        isDie = true;
         if (bossLoopCoroutine != null)
         {
             StopCoroutine(bossLoopCoroutine);
         }
-        ResetSkillCycle(); // 看你要不要每次阶段重置技能轮回
+        yield return new WaitForSeconds(2f);
+        SkillSelectionManager.Instance.TriggerSkillSelection(3);
+        yield return new WaitForSeconds(1f);
+        anim.SetTrigger("isFall");
         bossLoopCoroutine = StartCoroutine(BossLoop());
+        isDie = false;
     }
+
 
     // ========== 主循环：追玩家3秒 -> 随机技能（保证一轮三种都用一次） ==========
     private IEnumerator BossLoop()
@@ -484,14 +501,19 @@ public class Boss1Controller : EnemyBase
 
     protected override void Die()
     {
-        SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
-        Debug.Log("Boss1 Died");
+        if (!isDead)
+        {
+            SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
+        }
         if (BossBattleManager.Instance != null)
         {
             BossBattleManager.Instance.OnBossDefeated();
         }
+        isDead = true;
         Destroy(healthSlider.gameObject);
         base.Die();
-        Destroy(gameObject);
+        anim.SetTrigger("isDie");
+        StopAllCoroutines();
+        isChasing = false;
     }
 }
