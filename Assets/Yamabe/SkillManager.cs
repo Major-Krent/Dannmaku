@@ -1,12 +1,49 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SkillManager : MonoBehaviour
 {
-    [SerializeField] private List<SkillData> skillData=new List<SkillData>();
+    public static SkillManager Instance { get; private set; }
+    [SerializeField] public List<SkillData> skillData=new List<SkillData>();
 
     private Dictionary<SkillData,float> cooldownTime=new Dictionary<SkillData,float>();
-    
+
+    private void Awake()
+    {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    private void OnEnable()
+    {
+        SkillCard.OnSkillSelected += AddSkill;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SkillCard.OnSkillSelected -= AddSkill;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        GameObject spawnPoint = GameObject.Find("SpawnPoint");
+
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.transform.position;
+        }
+    }
     //ˆÚ“®‘¬“x”{—¦
     public float TotalMoveSpeedMultiplier
     {

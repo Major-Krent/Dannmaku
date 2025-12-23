@@ -50,8 +50,8 @@ MonoBehaviour:
   bossHealthUI: {fileID: 0}
   EntryDoor: {fileID: 0}
   introManager: {fileID: 0}
-  bgmSource: {fileID: 0}
-  seSource: {fileID: 0}
+  bgmSource: {fileID: 3763900725437640180}
+  seSource: {fileID: 1855884040918489547}
   oceanBGM: {fileID: 8300000, guid: 2a978ca9b9464644c9f1d2242650c56b, type: 3}
   summonSE: {fileID: 8300000, guid: ac5ed4eba1a889c4692bca83778a3197, type: 3}
   battleBGM: {fileID: 8300000, guid: 588b81f5c0f550944a359487f638c053, type: 3}
