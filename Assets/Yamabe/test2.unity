@@ -27546,7 +27546,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: skillData.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: 'skillData.Array.data[0]'
@@ -27566,7 +27566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: isMelee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: playerAttackRate
@@ -27825,6 +27825,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5631220581811277260, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875202555434044053, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875202555434044053, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875202555434044053, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875202555434044053, guid: cf89289a22c4d61499f6b057dea4ff99, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -136,6 +136,21 @@ public class SkillManager : MonoBehaviour
                 continue;
             }
 
+            bool alreadyActive = false;
+
+            foreach (Transform child in transform)
+            {
+
+                if (child.name.StartsWith(skill.EffectPrefab.name))
+                {
+                    alreadyActive = true;
+                    break;
+                }
+            }
+
+            if (alreadyActive) continue;
+
+
             bool shouldActivtate = false;
 
             if(skill.Type==SkillType.AutomaticAttack)
@@ -163,7 +178,7 @@ public class SkillManager : MonoBehaviour
     {
         if(skill.EffectPrefab!=null)
         {
-            Instantiate(skill.EffectPrefab,transform.position,transform.rotation);
+            Instantiate(skill.EffectPrefab,transform.position,transform.rotation,transform);
 
         }
     }
