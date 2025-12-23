@@ -170,6 +170,12 @@ public class SkillManager : MonoBehaviour
 
     public void AddSkill(SkillData newSkill)
     {
+        SkillData oldSkill = skillData.Find(s => s.NextLevelSkill == newSkill);
+        if (oldSkill != null)
+        {
+            skillData.Remove(oldSkill);
+            Debug.Log($" {oldSkill.SkillName}がレベルアップ");
+        }
         skillData.Add(newSkill);
     }
 }
