@@ -1,0 +1,566 @@
+fileFormatVersion: 2
+guid: 0a1ae0a3099161545bf3426e5b1ac415
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6998044614473345364
+    second: Relic Guardian 3 Export Ready-Death_0
+  - first:
+      213: 7456329420031051823
+    second: Relic Guardian 3 Export Ready-Death_1
+  - first:
+      213: -7706384125008892023
+    second: Relic Guardian 3 Export Ready-Death_2
+  - first:
+      213: 1736222561480284246
+    second: Relic Guardian 3 Export Ready-Death_3
+  - first:
+      213: -8199673450656599749
+    second: Relic Guardian 3 Export Ready-Death_4
+  - first:
+      213: 765849954700586040
+    second: Relic Guardian 3 Export Ready-Death_5
+  - first:
+      213: -1965316079468850870
+    second: Relic Guardian 3 Export Ready-Death_6
+  - first:
+      213: 2241374695976971155
+    second: Relic Guardian 3 Export Ready-Death_7
+  - first:
+      213: -3626326774531382652
+    second: Relic Guardian 3 Export Ready-Death_8
+  - first:
+      213: -173815140609804160
+    second: Relic Guardian 3 Export Ready-Death_9
+  - first:
+      213: 3423723408364398949
+    second: Relic Guardian 3 Export Ready-Death_10
+  - first:
+      213: -5428677030834864873
+    second: Relic Guardian 3 Export Ready-Death_11
+  - first:
+      213: 8187161325486701899
+    second: Relic Guardian 3 Export Ready-Death_12
+  - first:
+      213: 8289948377825935537
+    second: Relic Guardian 3 Export Ready-Death_13
+  - first:
+      213: -7431351879726516206
+    second: Relic Guardian 3 Export Ready-Death_14
+  - first:
+      213: -1144919794553437386
+    second: Relic Guardian 3 Export Ready-Death_15
+  - first:
+      213: -3737779979563489470
+    second: Relic Guardian 3 Export Ready-Death_16
+  - first:
+      213: 8216267865208457456
+    second: Relic Guardian 3 Export Ready-Death_17
+  - first:
+      213: -7993506178427122650
+    second: Relic Guardian 3 Export Ready-Death_18
+  - first:
+      213: -1948416916170365380
+    second: Relic Guardian 3 Export Ready-Death_19
+  - first:
+      213: -874353474696844598
+    second: Relic Guardian 3 Export Ready-Death_20
+  - first:
+      213: 4038179115377637592
+    second: Relic Guardian 3 Export Ready-Death_21
+  - first:
+      213: -3869449335532955256
+    second: Relic Guardian 3 Export Ready-Death_22
+  - first:
+      213: -6990589034033275405
+    second: Relic Guardian 3 Export Ready-Death_23
+  - first:
+      213: 5891833382590335816
+    second: Relic Guardian 3 Export Ready-Death_24
+  - first:
+      213: -3824083845737944346
+    second: Relic Guardian 3 Export Ready-Death_25
+  - first:
+      213: -8980710536427577170
+    second: Relic Guardian 3 Export Ready-Death_26
+  - first:
+      213: -7983180031353909572
+    second: Relic Guardian 3 Export Ready-Death_27
+  - first:
+      213: 7453220103757152255
+    second: Relic Guardian 3 Export Ready-Death_28
+  - first:
+      213: -5316711058898733615
+    second: Relic Guardian 3 Export Ready-Death_29
+  - first:
+      213: 1561919451660247347
+    second: Relic Guardian 3 Export Ready-Death_30
+  - first:
+      213: -449996610808969618
+    second: Relic Guardian 3 Export Ready-Death_31
+  - first:
+      213: 4048672238562205926
+    second: Relic Guardian 3 Export Ready-Death_32
+  - first:
+      213: 2425016435674777973
+    second: Relic Guardian 3 Export Ready-Death_33
+  - first:
+      213: 1249719884241583412
+    second: Relic Guardian 3 Export Ready-Death_34
+  - first:
+      213: -2017736095717176678
+    second: Relic Guardian 3 Export Ready-Death_35
+  - first:
+      213: 5913528318952578958
+    second: Relic Guardian 3 Export Ready-Death_36
+  - first:
+      213: 4071001941637774861
+    second: Relic Guardian 3 Export Ready-Death_37
+  - first:
+      213: 2166924398970946899
+    second: Relic Guardian 3 Export Ready-Death_38
+  - first:
+      213: 7572116464398858838
+    second: Relic Guardian 3 Export Ready-Death_39
+  - first:
+      213: -7521447181840194791
+    second: Relic Guardian 3 Export Ready-Death_40
+  - first:
+      213: -8743850353447601159
+    second: Relic Guardian 3 Export Ready-Death_41
+  - first:
+      213: 4062716654129579775
+    second: Relic Guardian 3 Export Ready-Death_42
+  - first:
+      213: -577922295782425102
+    second: Relic Guardian 3 Export Ready-Death_43
+  - first:
+      213: -9104506591933923884
+    second: Relic Guardian 3 Export Ready-Death_44
+  - first:
+      213: -7052112647851472871
+    second: Relic Guardian 3 Export Ready-Death_45
+  - first:
+      213: 8801590236306659760
+    second: Relic Guardian 3 Export Ready-Death_46
+  - first:
+      213: 6914641737075222312
+    second: Relic Guardian 3 Export Ready-Death_47
+  - first:
+      213: 3434358575600078719
+    second: Relic Guardian 3 Export Ready-Death_48
+  - first:
+      213: -7389536394205198521
+    second: Relic Guardian 3 Export Ready-Death_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca61bf71083f1ee90800000000000000
+      internalID: -6998044614473345364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f28ce392a143a7760800000000000000
+      internalID: 7456329420031051823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fa22ee77c6d0590800000000000000
+      internalID: -7706384125008892023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6581d04883d481810800000000000000
+      internalID: 1736222561480284246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31796bb078e43e80800000000000000
+      internalID: -8199673450656599749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c6d25e978d0aa00800000000000000
+      internalID: 765849954700586040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_6
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4155eb307bc9b4e0800000000000000
+      internalID: -1965316079468850870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_7
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ba1422966fa1f10800000000000000
+      internalID: 2241374695976971155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_8
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482a19cf203bcadc0800000000000000
+      internalID: -3626326774531382652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_9
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0883e5fec0c769df0800000000000000
+      internalID: -173815140609804160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_10
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569efbcdc42838f20800000000000000
+      internalID: 3423723408364398949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_11
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71df3c8b00779a4b0800000000000000
+      internalID: -5428677030834864873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Death_12
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d737c19d3ae9170800000000000000
+      internalID: 8187161325486701899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 520291357dc96ff4aa3c71d5888b80d1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Relic Guardian 3 Export Ready-Death_0: -6998044614473345364
+      Relic Guardian 3 Export Ready-Death_1: 7456329420031051823
+      Relic Guardian 3 Export Ready-Death_10: 3423723408364398949
+      Relic Guardian 3 Export Ready-Death_11: -5428677030834864873
+      Relic Guardian 3 Export Ready-Death_12: 8187161325486701899
+      Relic Guardian 3 Export Ready-Death_2: -7706384125008892023
+      Relic Guardian 3 Export Ready-Death_3: 1736222561480284246
+      Relic Guardian 3 Export Ready-Death_4: -8199673450656599749
+      Relic Guardian 3 Export Ready-Death_5: 765849954700586040
+      Relic Guardian 3 Export Ready-Death_6: -1965316079468850870
+      Relic Guardian 3 Export Ready-Death_7: 2241374695976971155
+      Relic Guardian 3 Export Ready-Death_8: -3626326774531382652
+      Relic Guardian 3 Export Ready-Death_9: -173815140609804160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

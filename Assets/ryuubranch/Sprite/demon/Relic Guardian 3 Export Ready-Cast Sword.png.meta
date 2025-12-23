@@ -1,0 +1,876 @@
+fileFormatVersion: 2
+guid: 3f7378787eacf0e45930ac0a7c621892
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5175833913847627306
+    second: Relic Guardian 3 Export Ready-Cast Sword_0
+  - first:
+      213: 6265908662050058912
+    second: Relic Guardian 3 Export Ready-Cast Sword_1
+  - first:
+      213: 9016570198077631568
+    second: Relic Guardian 3 Export Ready-Cast Sword_2
+  - first:
+      213: -7051268021463337802
+    second: Relic Guardian 3 Export Ready-Cast Sword_3
+  - first:
+      213: -6540084271927023196
+    second: Relic Guardian 3 Export Ready-Cast Sword_4
+  - first:
+      213: 2650968470311503744
+    second: Relic Guardian 3 Export Ready-Cast Sword_5
+  - first:
+      213: 4465695223454699865
+    second: Relic Guardian 3 Export Ready-Cast Sword_6
+  - first:
+      213: -242393816383451467
+    second: Relic Guardian 3 Export Ready-Cast Sword_7
+  - first:
+      213: 6848173561052916238
+    second: Relic Guardian 3 Export Ready-Cast Sword_8
+  - first:
+      213: -809359423610646126
+    second: Relic Guardian 3 Export Ready-Cast Sword_9
+  - first:
+      213: -1912430794795475242
+    second: Relic Guardian 3 Export Ready-Cast Sword_10
+  - first:
+      213: -1667784176758169357
+    second: Relic Guardian 3 Export Ready-Cast Sword_11
+  - first:
+      213: 4827562094589189920
+    second: Relic Guardian 3 Export Ready-Cast Sword_12
+  - first:
+      213: 2158248071913408903
+    second: Relic Guardian 3 Export Ready-Cast Sword_13
+  - first:
+      213: -4820733271122321849
+    second: Relic Guardian 3 Export Ready-Cast Sword_14
+  - first:
+      213: -1912847256238737584
+    second: Relic Guardian 3 Export Ready-Cast Sword_15
+  - first:
+      213: 6153245782464347347
+    second: Relic Guardian 3 Export Ready-Cast Sword_16
+  - first:
+      213: -5054241995094130048
+    second: Relic Guardian 3 Export Ready-Cast Sword_17
+  - first:
+      213: 5736500496142450860
+    second: Relic Guardian 3 Export Ready-Cast Sword_18
+  - first:
+      213: 1354536090961697112
+    second: Relic Guardian 3 Export Ready-Cast Sword_19
+  - first:
+      213: 291753503056567944
+    second: Relic Guardian 3 Export Ready-Cast Sword_20
+  - first:
+      213: 1499551137412524286
+    second: Relic Guardian 3 Export Ready-Cast Sword_21
+  - first:
+      213: -5806151655901300760
+    second: Relic Guardian 3 Export Ready-Cast Sword_22
+  - first:
+      213: -6590232859797111325
+    second: Relic Guardian 3 Export Ready-Cast Sword_23
+  - first:
+      213: -6735020179985110476
+    second: Relic Guardian 3 Export Ready-Cast Sword_24
+  - first:
+      213: -2618854348942048027
+    second: Relic Guardian 3 Export Ready-Cast Sword_25
+  - first:
+      213: 2952842457083632482
+    second: Relic Guardian 3 Export Ready-Cast Sword_26
+  - first:
+      213: -1961554156492052228
+    second: Relic Guardian 3 Export Ready-Cast Sword_27
+  - first:
+      213: 631260248974254198
+    second: Relic Guardian 3 Export Ready-Cast Sword_28
+  - first:
+      213: -6448385904715445311
+    second: Relic Guardian 3 Export Ready-Cast Sword_29
+  - first:
+      213: 2687423505182777382
+    second: Relic Guardian 3 Export Ready-Cast Sword_30
+  - first:
+      213: -8818877418503363442
+    second: Relic Guardian 3 Export Ready-Cast Sword_31
+  - first:
+      213: 8803369892936643792
+    second: Relic Guardian 3 Export Ready-Cast Sword_32
+  - first:
+      213: 491042560431582710
+    second: Relic Guardian 3 Export Ready-Cast Sword_33
+  - first:
+      213: -7286316813392208356
+    second: Relic Guardian 3 Export Ready-Cast Sword_34
+  - first:
+      213: 7312017988460717805
+    second: Relic Guardian 3 Export Ready-Cast Sword_35
+  - first:
+      213: -7217600650867262698
+    second: Relic Guardian 3 Export Ready-Cast Sword_36
+  - first:
+      213: 8020468036231120027
+    second: Relic Guardian 3 Export Ready-Cast Sword_37
+  - first:
+      213: 8362039949577499460
+    second: Relic Guardian 3 Export Ready-Cast Sword_38
+  - first:
+      213: 4547169186821901911
+    second: Relic Guardian 3 Export Ready-Cast Sword_39
+  - first:
+      213: 7646269213612831136
+    second: Relic Guardian 3 Export Ready-Cast Sword_40
+  - first:
+      213: 8976107191071511461
+    second: Relic Guardian 3 Export Ready-Cast Sword_41
+  - first:
+      213: -4940378227775082769
+    second: Relic Guardian 3 Export Ready-Cast Sword_42
+  - first:
+      213: -3147082641939872011
+    second: Relic Guardian 3 Export Ready-Cast Sword_43
+  - first:
+      213: -5104081044329904119
+    second: Relic Guardian 3 Export Ready-Cast Sword_44
+  - first:
+      213: 7974054422529760170
+    second: Relic Guardian 3 Export Ready-Cast Sword_45
+  - first:
+      213: -72233385453229619
+    second: Relic Guardian 3 Export Ready-Cast Sword_46
+  - first:
+      213: 522261402074049340
+    second: Relic Guardian 3 Export Ready-Cast Sword_47
+  - first:
+      213: 2351787548373355735
+    second: Relic Guardian 3 Export Ready-Cast Sword_48
+  - first:
+      213: -6567979142867004109
+    second: Relic Guardian 3 Export Ready-Cast Sword_49
+  - first:
+      213: 7212647642448272530
+    second: Relic Guardian 3 Export Ready-Cast Sword_50
+  - first:
+      213: 8483118546091624090
+    second: Relic Guardian 3 Export Ready-Cast Sword_51
+  - first:
+      213: 4916520669467774423
+    second: Relic Guardian 3 Export Ready-Cast Sword_52
+  - first:
+      213: -5470573097427443249
+    second: Relic Guardian 3 Export Ready-Cast Sword_53
+  - first:
+      213: 8022753853496383384
+    second: Relic Guardian 3 Export Ready-Cast Sword_54
+  - first:
+      213: -7658520755206712178
+    second: Relic Guardian 3 Export Ready-Cast Sword_55
+  - first:
+      213: -3903639124990960419
+    second: Relic Guardian 3 Export Ready-Cast Sword_56
+  - first:
+      213: -4157371589925892264
+    second: Relic Guardian 3 Export Ready-Cast Sword_57
+  - first:
+      213: -4025085611555167667
+    second: Relic Guardian 3 Export Ready-Cast Sword_58
+  - first:
+      213: 3907643420838718333
+    second: Relic Guardian 3 Export Ready-Cast Sword_59
+  - first:
+      213: -1009582204092598840
+    second: Relic Guardian 3 Export Ready-Cast Sword_60
+  - first:
+      213: -6406672331178833479
+    second: Relic Guardian 3 Export Ready-Cast Sword_61
+  - first:
+      213: -332399951438092673
+    second: Relic Guardian 3 Export Ready-Cast Sword_62
+  - first:
+      213: -3880692458275707929
+    second: Relic Guardian 3 Export Ready-Cast Sword_63
+  - first:
+      213: -5104460562057290079
+    second: Relic Guardian 3 Export Ready-Cast Sword_64
+  - first:
+      213: 7081010179476752121
+    second: Relic Guardian 3 Export Ready-Cast Sword_65
+  - first:
+      213: -7275947950589731718
+    second: Relic Guardian 3 Export Ready-Cast Sword_66
+  - first:
+      213: 2529366769491540763
+    second: Relic Guardian 3 Export Ready-Cast Sword_67
+  - first:
+      213: 7808257850459635492
+    second: Relic Guardian 3 Export Ready-Cast Sword_68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ebe4b958144d740800000000000000
+      internalID: 5175833913847627306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a2798cdabaf4f650800000000000000
+      internalID: 6265908662050058912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c6ac4c2da412d70800000000000000
+      internalID: 9016570198077631568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b43b9cf71dd42e90800000000000000
+      internalID: -7051268021463337802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a9abaa6104fc35a0800000000000000
+      internalID: -6540084271927023196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0878daf37c12ac420800000000000000
+      internalID: 2650968470311503744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_6
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9511d2d352659fd30800000000000000
+      internalID: 4465695223454699865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_7
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be86b6bb18d2acf0800000000000000
+      internalID: -242393816383451467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_8
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0ae7c21299990f50800000000000000
+      internalID: 6848173561052916238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_9
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291921474e394c4f0800000000000000
+      internalID: -809359423610646126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_10
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6de92ba135ea575e0800000000000000
+      internalID: -1912430794795475242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_11
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0ef46a027dad8e0800000000000000
+      internalID: -1667784176758169357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_12
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f1123c522fef240800000000000000
+      internalID: 4827562094589189920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_13
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 789029fbf23a3fd10800000000000000
+      internalID: 2158248071913408903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_14
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ed8d991a0591db0800000000000000
+      internalID: -4820733271122321849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_15
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0573f4e1e833475e0800000000000000
+      internalID: -1912847256238737584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_16
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc35771078b46550800000000000000
+      internalID: 6153245782464347347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_17
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0828d891fa9bbd9b0800000000000000
+      internalID: -5054241995094130048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_18
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca04c66dec42c9f40800000000000000
+      internalID: 5736500496142450860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_19
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859d739e5674cc210800000000000000
+      internalID: 1354536090961697112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_20
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e99a7e3448c0400800000000000000
+      internalID: 291753503056567944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_21
+      rect:
+        serializedVersion: 2
+        x: 1995
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef8a10480d97fc410800000000000000
+      internalID: 1499551137412524286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_22
+      rect:
+        serializedVersion: 2
+        x: 2090
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7f4fdc4d76c6fa0800000000000000
+      internalID: -5806151655901300760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Cast Sword_23
+      rect:
+        serializedVersion: 2
+        x: 2185
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edbfac612aca84a0800000000000000
+      internalID: -6590232859797111325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7e66627c4a913e64bb6c5e269b38f852
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Relic Guardian 3 Export Ready-Cast Sword_0: 5175833913847627306
+      Relic Guardian 3 Export Ready-Cast Sword_1: 6265908662050058912
+      Relic Guardian 3 Export Ready-Cast Sword_10: -1912430794795475242
+      Relic Guardian 3 Export Ready-Cast Sword_11: -1667784176758169357
+      Relic Guardian 3 Export Ready-Cast Sword_12: 4827562094589189920
+      Relic Guardian 3 Export Ready-Cast Sword_13: 2158248071913408903
+      Relic Guardian 3 Export Ready-Cast Sword_14: -4820733271122321849
+      Relic Guardian 3 Export Ready-Cast Sword_15: -1912847256238737584
+      Relic Guardian 3 Export Ready-Cast Sword_16: 6153245782464347347
+      Relic Guardian 3 Export Ready-Cast Sword_17: -5054241995094130048
+      Relic Guardian 3 Export Ready-Cast Sword_18: 5736500496142450860
+      Relic Guardian 3 Export Ready-Cast Sword_19: 1354536090961697112
+      Relic Guardian 3 Export Ready-Cast Sword_2: 9016570198077631568
+      Relic Guardian 3 Export Ready-Cast Sword_20: 291753503056567944
+      Relic Guardian 3 Export Ready-Cast Sword_21: 1499551137412524286
+      Relic Guardian 3 Export Ready-Cast Sword_22: -5806151655901300760
+      Relic Guardian 3 Export Ready-Cast Sword_23: -6590232859797111325
+      Relic Guardian 3 Export Ready-Cast Sword_3: -7051268021463337802
+      Relic Guardian 3 Export Ready-Cast Sword_4: -6540084271927023196
+      Relic Guardian 3 Export Ready-Cast Sword_5: 2650968470311503744
+      Relic Guardian 3 Export Ready-Cast Sword_6: 4465695223454699865
+      Relic Guardian 3 Export Ready-Cast Sword_7: -242393816383451467
+      Relic Guardian 3 Export Ready-Cast Sword_8: 6848173561052916238
+      Relic Guardian 3 Export Ready-Cast Sword_9: -809359423610646126
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -58,7 +58,8 @@ public class Boss2Controller : EnemyBase
 
     private Animator anim;
     private Rigidbody2D rb;
-    bool isDashing = false;
+    private bool isDie = false;
+    private bool isDead = false;
     public Slider healthSlider;
 
 
@@ -105,9 +106,13 @@ public class Boss2Controller : EnemyBase
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        if (isDead) return;
+        base.Update();
+        anim.SetBool("isChasing", isChasing);
         UpdatePhaseByHP();
+        UpdateFacing();
     }
 
     private void UpdatePhaseByHP()
@@ -128,7 +133,40 @@ public class Boss2Controller : EnemyBase
         }
     }
 
-    private void EnterPhase2()
+    protected override void Move()
+    {
+        if (!isChasing) return;
+        if (player == null) return;
+
+        Vector2 dir = (player.position - transform.position).normalized;
+        transform.position += (Vector3)dir * MoveSpeed * Time.deltaTime;
+    }
+
+    private void UpdateFacing()
+    {
+        if (player == null) return;
+
+        float dirX = player.position.x - transform.position.x;
+
+        if (dirX > 0.01f)
+        {
+            transform.localScale = new Vector3(
+                Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
+        }
+        else if (dirX < -0.01f)
+        {
+            transform.localScale = new Vector3(
+                -Mathf.Abs(transform.localScale.x),
+                transform.localScale.y,
+                transform.localScale.z
+            );
+        }
+    }
+
+        private void EnterPhase2()
     {
         currentPhase = BossPhase.Phase2;
 
@@ -413,8 +451,12 @@ public class Boss2Controller : EnemyBase
         if (dmg != null) Destroy(dmg);
     }
 
+    /// <summary>
+    /// 技能4：cast一秒，然后knife ring
+    /// </summary>
     private IEnumerator Skill_CraterKnifeRing(float radius)
     {
+        yield return new WaitForSeconds(0.5f);
         if (craterKnifePrefab == null)
         {
             Debug.LogWarning("craterKnifePrefab is null.");
