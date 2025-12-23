@@ -30,7 +30,8 @@ public class SkillSelectionManager : MonoBehaviour
     private Vector2 onScreenPosition = Vector2.zero;
     private Vector2 offScreenPosition;
 
-    private bool isInteractable = false;
+    private bool _isInteractable = false;
+    public bool IsInteractable => _isInteractable;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -45,13 +46,11 @@ public class SkillSelectionManager : MonoBehaviour
         }
 
         cardLayout = cardContainer.GetComponent<CardFanLayout>();
+        audioSource = GetComponent<AudioSource>();
 
         offScreenPosition = new Vector2(0, offScreenYPosition);
-
         skillSelectionPanel.anchoredPosition = offScreenPosition;
         skillSelectionPanel.gameObject.SetActive(false);
-
-        audioSource = GetComponent<AudioSource>();
 
         InitializeSkillPool();
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -67,29 +66,6 @@ public class SkillSelectionManager : MonoBehaviour
     {
         availableSkillPool = new List<SkillData>(masterSkillList);
         Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
-    }
-    //-------------------------テスト用--------------------------
-    //private void Update()
-    //{
- 
-    //    if (Input.GetKeyDown(KeyCode.Space))
-    //    {
-    //        if (cardContainer.childCount == 0)
-    //        {
-    //            TriggerSkillSelection(3);
-    //        }
-    //    }
-    //}
-    //----------------------------------------------------------
-    private void OnEnable()
-    {
-
-        SkillCard.OnSkillSelected += OnSkillChosen;
-    }
-
-    private void OnDisable()
-    {
-        SkillCard.OnSkillSelected -= OnSkillChosen;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -109,7 +85,7 @@ public class SkillSelectionManager : MonoBehaviour
     /// <param name="amountToPick">抽出するカードの数</param>
     private IEnumerator ShowPanelAndCards(int amountToPick, bool forceOneAdvanced)
     {
-        isInteractable = false;
+        _isInteractable = false;
         Time.timeScale = 0f;
 
         skillSelectionPanel.gameObject.SetActive(true);
@@ -170,12 +146,12 @@ public class SkillSelectionManager : MonoBehaviour
         }
 
         yield return StartCoroutine(AnimatePanelCoroutine(onScreenPosition));
-        isInteractable = true;
+        _isInteractable = true;
     }
-    private void OnSkillChosen(SkillData chosenSkill)
+    public void SelectSkill(SkillData chosenSkill)
     {
-        if (!isInteractable) return;
-        isInteractable = false;
+        if (!_isInteractable) return;
+        _isInteractable = false;
         if (availableSkillPool.Contains(chosenSkill))
         {
             availableSkillPool.Remove(chosenSkill);
@@ -186,6 +162,10 @@ public class SkillSelectionManager : MonoBehaviour
         {
             availableSkillPool.Add(chosenSkill.NextLevelSkill);
             Debug.Log($"上位スキル「{chosenSkill.NextLevelSkill.SkillName}」がプールに追加されました！");
+        }
+        if (SkillManager.Instance != null)
+        {
+            SkillManager.Instance.AddSkill(chosenSkill);
         }
         StartCoroutine(HideAndCleanupPanel());
     }

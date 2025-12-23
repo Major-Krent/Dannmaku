@@ -12,10 +12,6 @@ public class SkillCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public TextMeshProUGUI skillNameText;
     public TextMeshProUGUI skillDescriptionText;
 
-    //デリゲートとイベント
-    public delegate void SkillSelectedAction(SkillData skillData);
-    public static event SkillSelectedAction OnSkillSelected;
-
     [Header("アニメーション")]
     [Tooltip("選択すると上に抽出距離")]
     public float hoverRiseAmount = 50f;
@@ -24,6 +20,7 @@ public class SkillCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     private Vector2 originalPosition;
     private Coroutine currentAnimation;
+    private bool hasBeenClicked = false;
     void Awake()
     {
         //元の座標を記録
@@ -86,15 +83,18 @@ public class SkillCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameObject player = GameObject.Find("Player");
-      SkillManager skillManager = player.GetComponent<SkillManager>();
+        if (hasBeenClicked) return;
+        if (SkillSelectionManager.Instance != null && !SkillSelectionManager.Instance.IsInteractable)
+        {
+            return;
+        }
+        hasBeenClicked = true;
         //TooltipManager.Instance.HideTooltip();
         // 選択されたスキル
-        if (OnSkillSelected != null)
-        {
-            OnSkillSelected(currentSkill);
-        }
-        skillManager.AddSkill(currentSkill);
         Debug.Log( currentSkill.SkillName+ "を選択された");
+        if (SkillSelectionManager.Instance != null)
+        {
+            SkillSelectionManager.Instance.SelectSkill(currentSkill);
+        }
     }
 }

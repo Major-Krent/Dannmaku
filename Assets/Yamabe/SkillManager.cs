@@ -24,13 +24,11 @@ public class SkillManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        SkillCard.OnSkillSelected += AddSkill;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        SkillCard.OnSkillSelected -= AddSkill;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 

@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -48,8 +50,30 @@ public class Player_Controller : MonoBehaviour
         col = GetComponent<Collider2D>();
         mainCamera = Camera.main;
         //CalculateMoveBounds();
+        //---------------------------------------------
+        BindCamera();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        //---------------------------------------------
     }
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        BindCamera();
+    }
+    private void BindCamera()
+    {
+        mainCamera = Camera.main;
 
+        var vcam = FindFirstObjectByType<CinemachineCamera>();
+        if (vcam != null)
+        {
+            vcam.Follow = this.transform;
+            Debug.Log("Cinemachine Camera re-bound to Player.");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -167,8 +191,15 @@ public class Player_Controller : MonoBehaviour
     private IEnumerator PerformAttack()
     {
         totalShots = 1 + skillManager.TotalExtraAttack;
+
         for (int i = 0; i < totalShots; i++)
         {
+            if (mainCamera == null)
+            {
+                mainCamera = Camera.main;
+            }
+            if (mainCamera == null) yield break;
+
             Vector3 mouseScreenPos = Input.mousePosition;
             mouseScreenPos.z = mainCamera.nearClipPlane;
             Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
@@ -183,6 +214,7 @@ public class Player_Controller : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 0, angle - 90f);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
+
             if (totalShots > 1)
             {
                 yield return new WaitForSeconds(0.05f);
