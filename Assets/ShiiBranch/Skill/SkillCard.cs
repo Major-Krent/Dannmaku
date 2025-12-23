@@ -86,12 +86,15 @@ public class SkillCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        GameObject player = GameObject.Find("Player");
+      SkillManager skillManager = player.GetComponent<SkillManager>();
         //TooltipManager.Instance.HideTooltip();
         // 選択されたスキル
         if (OnSkillSelected != null)
         {
             OnSkillSelected(currentSkill);
         }
+        skillManager.AddSkill(currentSkill);
         Debug.Log( currentSkill.SkillName+ "を選択された");
     }
 }
