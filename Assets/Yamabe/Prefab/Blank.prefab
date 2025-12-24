@@ -100,5 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3901efd84d26da64d98a5db01d0e7177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 2.5
   bulletTag: Enemy_Bullet

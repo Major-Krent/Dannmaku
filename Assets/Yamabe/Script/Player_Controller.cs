@@ -157,10 +157,11 @@ public class Player_Controller : MonoBehaviour
 
     void MeleeAttack()
     {
+        currentFireRate = meleeAttackCooldown / Mathf.Max(skillManager.TotalAttackARateMultiplier);
         if (Input.GetMouseButton(0) && Time.time > nextAttackTime)
         {
             Debug.Log("çÈã ÅIÅI");
-            nextAttackTime = Time.time + meleeAttackCooldown;
+            nextAttackTime = Time.time + currentFireRate;
             StartCoroutine(PerformMeleeAttack());
         }
     }
