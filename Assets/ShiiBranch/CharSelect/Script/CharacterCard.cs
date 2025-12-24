@@ -15,11 +15,17 @@ public class CharacterCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private Vector3 originalScale;
     private Coroutine scaleCoroutine;
-    private bool isLocked = false; 
+    private bool isLocked = false;
+
+    [Header("Animation States")]
+    [SerializeField] private string idleStateName = "Idle";
+    [SerializeField] private string attackStateName = "Attack";
+    [SerializeField] private string staticStateName = "Static";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         originalScale = transform.localScale;
+        if (charAnimator != null) charAnimator.Play(staticStateName);
     }
 
     // Update is called once per frame
@@ -30,6 +36,11 @@ public class CharacterCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         scaleCoroutine = StartCoroutine(ScaleTo(originalScale * hoverScale));
 
         transform.SetAsLastSibling();
+
+        if (charAnimator != null)
+        {
+            charAnimator.Play(idleStateName);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -37,12 +48,20 @@ public class CharacterCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (isLocked) return;
         if (scaleCoroutine != null) StopCoroutine(scaleCoroutine);
         scaleCoroutine = StartCoroutine(ScaleTo(originalScale));
+
+        if (charAnimator != null)
+        {
+            charAnimator.Play(staticStateName);
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isLocked) return;
-
+        if (charAnimator != null)
+        {
+            charAnimator.Play(attackStateName);
+        }
         manager.OnCharacterSelected(this);
     }
     public void LockCard()

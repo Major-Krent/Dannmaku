@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 1145510993}
   - component: {fileID: 1145510995}
   - component: {fileID: 1145510994}
+  - component: {fileID: 1145510996}
   m_Layer: 5
   m_Name: Char1Image
   m_TagString: Untagged
@@ -773,15 +774,15 @@ RectTransform:
   m_GameObject: {fileID: 1145510992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1315388331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 67}
-  m_SizeDelta: {x: 300, y: 350}
+  m_AnchoredPosition: {x: 31, y: 113}
+  m_SizeDelta: {x: 19, y: 23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145510994
 MonoBehaviour:
@@ -796,16 +797,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -5908238798454654921, guid: a2901ac366ed03b49b62b5a60392bc98, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -821,6 +822,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145510992}
   m_CullTransparentMesh: 1
+--- !u!95 &1145510996
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145510992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c0e6f8787a3a10428f836a8c594fc23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1173492700
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +930,7 @@ GameObject:
   - component: {fileID: 1271223655}
   - component: {fileID: 1271223657}
   - component: {fileID: 1271223656}
+  - component: {fileID: 1271223658}
   m_Layer: 5
   m_Name: Char1Image
   m_TagString: Untagged
@@ -923,15 +947,15 @@ RectTransform:
   m_GameObject: {fileID: 1271223654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2108900183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 67}
-  m_SizeDelta: {x: 300, y: 350}
+  m_AnchoredPosition: {x: 84, y: 113}
+  m_SizeDelta: {x: 28, y: 23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271223656
 MonoBehaviour:
@@ -953,7 +977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2875184811977189179, guid: e81ad7114d71f5d4295004891df493c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -971,6 +995,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271223654}
   m_CullTransparentMesh: 1
+--- !u!95 &1271223658
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271223654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 146dba8898e42b945b75c80467656abd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1315388330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,8 +1074,11 @@ MonoBehaviour:
   hoverScale: 1.1
   smoothTime: 0.1
   characterType: 1
-  charAnimator: {fileID: 0}
+  charAnimator: {fileID: 1145510996}
   manager: {fileID: 2022403978}
+  idleStateName: Wizard_PointerIn
+  attackStateName: Wizard_PointerClick
+  staticStateName: Wizard_Common
 --- !u!114 &1315388333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,9 +1248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mage
-
-'
+  m_text: Wizard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40fbbc4e1efb8484d9a93f49f1c7ca38, type: 2}
   m_sharedMaterial: {fileID: 3142857572852093890, guid: 40fbbc4e1efb8484d9a93f49f1c7ca38, type: 2}
@@ -1266,7 +1313,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -15.656982, y: 0, z: -19.57129, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2090,8 +2137,11 @@ MonoBehaviour:
   hoverScale: 1.1
   smoothTime: 0.1
   characterType: 0
-  charAnimator: {fileID: 0}
+  charAnimator: {fileID: 1271223658}
   manager: {fileID: 2022403978}
+  idleStateName: Swordman_PointerIn
+  attackStateName: Swordman_PointerClick
+  staticStateName: Swordman_Common
 --- !u!82 &2108900185
 AudioSource:
   m_ObjectHideFlags: 0
