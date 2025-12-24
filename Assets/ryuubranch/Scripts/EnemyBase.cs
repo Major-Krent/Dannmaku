@@ -20,10 +20,27 @@ public class EnemyBase : MonoBehaviour
         currentHP = HP;
     }
 
+    private void OnEnable()
+    {
+        FindPlayer();
+    }
+
     protected virtual void Update()
     {
         Move();
         UpdateFacing();
+        if (player == null)
+        {
+            FindPlayer();
+            return;
+        }
+    }
+
+    private void FindPlayer()   
+    {
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null)
+            player = p.transform;
     }
 
     private void UpdateFacing()

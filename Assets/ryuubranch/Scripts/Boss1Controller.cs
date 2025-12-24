@@ -392,13 +392,23 @@ public class Boss1Controller : EnemyBase
         StartCoroutine(Spray360());
     }
 
-    private void FireMultiWay(float startAngle, int count, float step, float speed)
+    public void FireMultiWay(float startAngle, int count, float step, float speed)
     {
         for (int i = 0; i < count; i++)
         {
             float angle = startAngle + step * i;
             Vector2 dir = AngleToDir(angle);
             SpawnBullet(dir, speed);
+        }
+    }
+
+    public void FireMultiWay2()
+    {
+        for (int i = 0; i < 12; i++)
+        {
+            float angle = 6 + 30 * i;
+            Vector2 dir = AngleToDir(angle);
+            SpawnBullet(dir, 6);
         }
     }
 
