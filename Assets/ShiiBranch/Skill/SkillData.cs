@@ -7,6 +7,12 @@ public enum SkillTier
     Normal,   
     Advanced //操作できるスキル
 }
+public enum SkillCompatibility
+{
+    Universal, 
+    MeleeOnly, 
+    RangedOnly
+}
 //スキル種類
 public enum SkillType
 {
@@ -27,6 +33,10 @@ public class SkillData : ScriptableObject
     [SerializeField] private SkillType _type;           //スキル種類
     [SerializeField, Tooltip("スキルのレベル")]
     private SkillTier _tier;
+
+    [Header("使用条件")]
+    [SerializeField, Tooltip("このスキルは誰が使えるか")]
+    private SkillCompatibility _compatibility = SkillCompatibility.Universal;
 
     [Header("数値調整(StatAdjustment)")]
     [SerializeField, Tooltip("乗算値。1.2にすると120%、0.8にすると80%。")]
@@ -65,4 +75,5 @@ public class SkillData : ScriptableObject
     public SkillTier Tier => _tier;
     public float CooldownDuration => _cooldownDuration;
     public SkillData NextLevelSkill => _nextLevelSkill;
+    public SkillCompatibility Compatibility => _compatibility;
 }
