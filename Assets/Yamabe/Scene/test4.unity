@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: 'skillData.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
+      objectReference: {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
     - target: {fileID: 443995243185174230, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: m_Name
       value: Player

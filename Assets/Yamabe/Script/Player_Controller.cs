@@ -32,10 +32,13 @@ public class Player_Controller : MonoBehaviour
     [Header("ã§í çUåÇê›íË")]
 
     [Header("É_ÉbÉVÉÖê›íË")]
-    public float dashSpeed = 15.0f;
-    public float dashDuration = 0.2f;
-    public float dashCooltime = 1.0f;
+    [SerializeField] float dashSpeed = 15.0f;
+    [SerializeField] float dashDuration = 0.2f;
+    [SerializeField] float dashCooltime = 1.0f;
     [SerializeField] private bool _isDashing = false;
+    [Header("ñ≥ìGéûä‘ê›íË")]
+    [SerializeField] float damageInvincibleTime = 1.5f;
+    private bool _isInvincible = false;
 
     [SerializeField] Transform firePoint;
     private SkillManager skillManager;
@@ -179,12 +182,14 @@ public class Player_Controller : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (_isInvincible) return;
         playerCurrentHp -= damage;
         UpdateHealthUI();
         if (playerCurrentHp < 0)
         {
             Die();
         }
+        StartCoroutine(BecomeInvincible(damageInvincibleTime));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -244,7 +249,7 @@ public class Player_Controller : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
             BulletController bulletScript = bullet.GetComponent<BulletController>();
-            if(bulletScript != null)
+            if (bulletScript != null)
             {
                 bulletScript.Initialize(currentRangedDamage);
             }
@@ -253,7 +258,7 @@ public class Player_Controller : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
         }
-    } 
+    }
 
     private IEnumerator PerformMeleeAttack()
     {
@@ -264,8 +269,8 @@ public class Player_Controller : MonoBehaviour
         for (int i = 0; i < totalShots; i++)
         {
             GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
-            MeleeAttack meleeScript=  meleeAttack.GetComponent<MeleeAttack>();
-            if(meleeScript != null)
+            MeleeAttack meleeScript = meleeAttack.GetComponent<MeleeAttack>();
+            if (meleeScript != null)
             {
                 meleeScript.Initialize(currentMeleeDamage, 0);
             }
@@ -274,5 +279,12 @@ public class Player_Controller : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
         }
+    }
+
+    private IEnumerator BecomeInvincible(float duration)
+    {
+        _isInvincible = true;
+        yield return new WaitForSeconds(duration);
+        _isInvincible = false;
     }
 }
