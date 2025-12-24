@@ -64,7 +64,38 @@ public class SkillSelectionManager : MonoBehaviour
     /// </summary>
     public void InitializeSkillPool()
     {
-        availableSkillPool = new List<SkillData>(masterSkillList);
+        Player_Controller player = FindFirstObjectByType<Player_Controller>();
+        if (player == null)
+        {
+            Debug.LogWarning("Player not found! Adding all skills to pool.");
+            availableSkillPool = new List<SkillData>(masterSkillList);
+            return;
+        }
+        foreach (var skill in masterSkillList)
+        {
+            bool isCompatible = false;
+
+            switch (skill.Compatibility)
+            {
+                case SkillCompatibility.Universal:
+                    isCompatible = true;
+                    break;
+
+                case SkillCompatibility.MeleeOnly:
+                    if (player.IsMelee) isCompatible = true;
+                    break;
+
+                case SkillCompatibility.RangedOnly:
+                    if (!player.IsMelee) isCompatible = true;
+                    break;
+            }
+
+            if (isCompatible)
+            {
+                availableSkillPool.Add(skill);
+            }
+        }
+        availableSkillPool = new List<SkillData>();
         Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

@@ -17,6 +17,7 @@ MonoBehaviour:
   _icon: {fileID: -2783245508818007376, guid: d75e80ef8e9d9844fbdf0812c875ce92, type: 3}
   _type: 1
   _tier: 0
+  _compatibility: 1
   _moveSpeedMultiplier: 1
   _damageMultiplier: 1
   _attackRateMultiplier: 1

@@ -13,6 +13,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float currentFireRate;
 
     [SerializeField] private bool isMelee;
+    public bool IsMelee => isMelee;
 
     [Header("‰“‹——£UŒ‚İ’è")]
     [SerializeField] private GameObject bulletPrefab;
