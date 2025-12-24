@@ -164,13 +164,11 @@ public class Boss2Controller : EnemyBase
         // 注意顺序：先判断第三阶段，再判断第二阶段
         if (hpPercent <= phase3Threshold && currentPhase != BossPhase.Phase3)
         {
-            SkillSelectionManager.Instance.TriggerSkillSelection(3);
             EnterPhase3();
         }
         else if (hpPercent <= phase2Threshold && currentPhase == BossPhase.Phase1)
         {
             // 只允许从 1 -> 2（避免 3 再回 2）
-            SkillSelectionManager.Instance.TriggerSkillSelection(3);
             EnterPhase2();
         }
     }
