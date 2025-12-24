@@ -159,7 +159,7 @@ public class SkillManager : MonoBehaviour
             }
             else if(skill.Type==SkillType.TriggeredAbility)
             {
-                if(Input.GetKeyDown("Q"))
+                if(Input.GetKeyDown("q"))
                 {
                     shouldActivtate = true;
                 }

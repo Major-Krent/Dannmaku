@@ -1,36 +1,34 @@
 ﻿using UnityEngine;
 
-public class HomingBulletController : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     [Header("弾の基本設定")]
-    public float speed = 10.0f;
-    public float lifetime = 3.0f;
+    [SerializeField] float speed = 10.0f;
+    [SerializeField] float lifetime = 3.0f;
+    public float damage = 5;
 
     [Header("誘導設定")]
-    public bool enableHoming = true;
+    [SerializeField] bool enableHoming = true;
 
     [Tooltip("旋回性能")]
-    public float rotateSpeed = 200.0f;
+    [SerializeField] float rotateSpeed = 200.0f;
 
     [Tooltip("敵を探知する半径")]
-    public float detectionRadius = 10.0f;
+    [SerializeField] float detectionRadius = 10.0f;
 
     [Tooltip("誘導する視野角")]
     [Range(0, 360)]
-    public float homingAngle = 90.0f;
+    [SerializeField] float homingAngle = 90.0f;
 
     // 内部変数
     private Transform target;
     private Vector2 _moveDirection;
-    private float _damage;
     private float _lifestealRatio;
 
-    public void Initialize(Vector2 dir, float damage, float lifesteal)
+    public void Initialize(float _damage)
     {
-        _moveDirection = dir;
-        _damage = damage;
-        _lifestealRatio = lifesteal;
-        if (_moveDirection == Vector2.zero) _moveDirection = transform.up;
+        this.damage = _damage;
+        _moveDirection = transform.up;
     }
 
     void Start()
@@ -50,9 +48,6 @@ public class HomingBulletController : MonoBehaviour
             if (IsTargetInSight(target))
             {
                 HomingMovement();
-            }
-            else
-            {
             }
         }
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class OldBulletController : MonoBehaviour
 {
     [Tooltip("’e‚ÌˆÚ“®‘¬“x")]
     public float speed = 10.0f;

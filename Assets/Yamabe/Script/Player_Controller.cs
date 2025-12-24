@@ -18,10 +18,14 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] float playerAttackRate = 0.1f;
     [SerializeField] private float totalShots;
+    [SerializeField] private float rangedDamage;
+    [SerializeField] private float currentRangedDamage;
 
     [Header("ãﬂãóó£çUåÇê›íË")]
     [SerializeField] GameObject attackPrefab;
     [SerializeField] float meleeAttackCooldown = 0.5f;
+    [SerializeField] float meleeDamage;
+    [SerializeField] float currentMeleeDamage;
 
     [Header("ã§í çUåÇê›íË")]
 
@@ -146,7 +150,7 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetMouseButton(0) && Time.time > nextFireTime)
         {
             nextFireTime = Time.time + currentFireRate;
-            StartCoroutine(PerformAttack());
+            StartCoroutine(PerformRangedAttack());
 
         }
     }
@@ -157,9 +161,7 @@ public class Player_Controller : MonoBehaviour
         {
             Debug.Log("çÈã ÅIÅI");
             nextAttackTime = Time.time + meleeAttackCooldown;
-
-            GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
-
+            StartCoroutine(PerformMeleeAttack());
         }
     }
 
@@ -188,8 +190,9 @@ public class Player_Controller : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator PerformAttack()
+    private IEnumerator PerformRangedAttack()
     {
+        currentRangedDamage = rangedDamage * skillManager.TotalDamageMultiplier;
         totalShots = 1 + skillManager.TotalExtraAttack;
 
         for (int i = 0; i < totalShots; i++)
@@ -214,11 +217,36 @@ public class Player_Controller : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 0, angle - 90f);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
-
+            BulletController bulletScript = bullet.GetComponent<BulletController>();
+            if(bulletScript != null)
+            {
+                bulletScript.Initialize(currentRangedDamage);
+            }
             if (totalShots > 1)
             {
                 yield return new WaitForSeconds(0.05f);
             }
         }
     } 
+
+    private IEnumerator PerformMeleeAttack()
+    {
+        float lifeSteel;
+        currentMeleeDamage = meleeDamage * skillManager.TotalDamageMultiplier;
+        totalShots = 1 + skillManager.TotalExtraAttack;
+
+        for (int i = 0; i < totalShots; i++)
+        {
+            GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
+            MeleeAttack meleeScript=  meleeAttack.GetComponent<MeleeAttack>();
+            if(meleeScript != null)
+            {
+                meleeScript.Initialize(currentMeleeDamage, 0);
+            }
+            if (totalShots > 1)
+            {
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+    }
 }

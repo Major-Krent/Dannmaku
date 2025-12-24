@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7953935572655248309}
   - component: {fileID: -6266655470080452352}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: MeleeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,8 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a96ade18a7487d43b95858dd270ad90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
-  attackLifetime: 0.4
+  damage: 10
+  attackLifetime: 0.2
+  lifestealRatio: 0
 --- !u!58 &-7953935572655248309
 CircleCollider2D:
   m_ObjectHideFlags: 0
