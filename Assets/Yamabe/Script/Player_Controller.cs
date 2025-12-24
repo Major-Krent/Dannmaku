@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
@@ -46,10 +47,11 @@ public class Player_Controller : MonoBehaviour
     private float _nextDashTime = 0.0f;
     private Vector2 moveInput;
     private Camera mainCamera;
+    [SerializeField] private Image hpBarFill;
     void Start()
     {
-        playerHp = 5;
         playerCurrentHp = playerHp;
+        UpdateHealthUI();
         skillManager = GetComponent<SkillManager>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
@@ -68,6 +70,7 @@ public class Player_Controller : MonoBehaviour
     {
         BindCamera();
     }
+
     private void BindCamera()
     {
         mainCamera = Camera.main;
@@ -77,6 +80,13 @@ public class Player_Controller : MonoBehaviour
         {
             vcam.Follow = this.transform;
             Debug.Log("Cinemachine Camera re-bound to Player.");
+        }
+    }
+    private void UpdateHealthUI()
+    {
+        if (hpBarFill != null)
+        {
+            hpBarFill.fillAmount = Mathf.Clamp01(playerCurrentHp / playerHp);
         }
     }
     // Update is called once per frame
@@ -170,6 +180,7 @@ public class Player_Controller : MonoBehaviour
     public void TakeDamage(float damage)
     {
         playerCurrentHp -= damage;
+        UpdateHealthUI();
         if (playerCurrentHp < 0)
         {
             Die();
