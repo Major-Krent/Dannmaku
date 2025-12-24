@@ -22,5 +22,6 @@ MonoBehaviour:
   _attackRateMultiplier: 1
   _extraAttacks: 0
   _lifestealRatio: 0
-  _effectPrefab: {fileID: 0}
+  _effectPrefab: {fileID: 2577789196174559159, guid: 4d42228c0e1d5ea498070e2195d13008, type: 3}
   _cooldownDuration: 10
+  _nextLevelSkill: {fileID: 0}
