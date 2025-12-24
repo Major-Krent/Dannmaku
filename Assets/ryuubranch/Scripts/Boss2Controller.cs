@@ -146,6 +146,17 @@ public class Boss2Controller : EnemyBase
         anim.SetBool("isCasting", isCasting);
     }
 
+    public override void TakeDamage(float damage)
+    {
+        // 先用父类处理扣血 + 死亡
+        if (isDie) return;
+        base.TakeDamage(damage);
+        healthSlider.value = currentHP;
+        // 死了就不用再切阶段
+        if (currentHP <= 0f) return;
+    }
+
+
     private void UpdatePhaseByHP()
     {
         float hpPercent = currentHP / HP; // 0~1
@@ -163,9 +174,7 @@ public class Boss2Controller : EnemyBase
             EnterPhase2();
         }
     }
-
-
-        private void EnterPhase2()
+    private void EnterPhase2()
     {
         currentPhase = BossPhase.Phase2;
 
@@ -192,12 +201,24 @@ public class Boss2Controller : EnemyBase
 
     private void RestartBossLoop()
     {
+        isChasing = false;
+        StartCoroutine(Wait());
+        ResetSkillCycle(); // 看你要不要每次阶段重置技能轮回
+    }
+    private IEnumerator Wait()
+    {
+        anim.SetTrigger("isDie");
+        isDie = true;
         if (bossLoopCoroutine != null)
         {
             StopCoroutine(bossLoopCoroutine);
         }
-        ResetSkillCycle(); // 看你要不要每次阶段重置技能轮回
+        yield return new WaitForSeconds(2f);
+        SkillSelectionManager.Instance.TriggerSkillSelection(3);
+        yield return new WaitForSeconds(1f);
+        anim.SetTrigger("isFall");
         bossLoopCoroutine = StartCoroutine(BossLoop());
+        isDie = false;
     }
     private void ResetSkillCycle()
     {
@@ -542,7 +563,7 @@ public class Boss2Controller : EnemyBase
         }
 
         // 预警
-        yield return new WaitForSeconds(craterWarningTime / actionSpeedMultiplier);
+        yield return new WaitForSeconds(craterWarningTime);
 
         // 开伤害
         foreach (var k in knives)
@@ -551,7 +572,7 @@ public class Boss2Controller : EnemyBase
         }
 
         // 伤害持续
-        yield return new WaitForSeconds(craterDamageTime / actionSpeedMultiplier);
+        yield return new WaitForSeconds(craterDamageTime);
 
         Destroy(ringRoot);
     }
@@ -568,11 +589,20 @@ public class Boss2Controller : EnemyBase
 
     protected override void Die()
     {
-        SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
-        Debug.Log("Boss1 Died");
+        if (!isDead)
+        {
+            SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
+        }
+        if (BossBattleManager.Instance != null)
+        {
+            BossBattleManager.Instance.OnBossDefeated();
+        }
+        isDead = true;
         Destroy(healthSlider.gameObject);
-        Destroy(gameObject);
         base.Die();
+        anim.SetTrigger("isDie");
+        StopAllCoroutines();
+        isChasing = false;
     }
 
 

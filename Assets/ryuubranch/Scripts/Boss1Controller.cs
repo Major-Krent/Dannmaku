@@ -130,8 +130,6 @@ public class Boss1Controller : EnemyBase
         healthSlider.value = currentHP;
         // 死了就不用再切阶段
         if (currentHP <= 0f) return;
-
-
     }
 
     private void UpdatePhaseByHP()
@@ -149,8 +147,6 @@ public class Boss1Controller : EnemyBase
             EnterPhase2();
         }
     }
-
-
     private void EnterPhase2()
     {
         currentPhase = BossPhase.Phase2;
@@ -164,7 +160,6 @@ public class Boss1Controller : EnemyBase
         // 如果你想 2 阶段用完全不同的技能循环，可以重启 Loop
         RestartBossLoop();
     }
-
     private void EnterPhase3()
     {
         currentPhase = BossPhase.Phase3;
