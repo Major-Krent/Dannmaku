@@ -60,6 +60,8 @@ public class Boss2Controller : EnemyBase
     private Rigidbody2D rb;
     private bool isDie = false;
     private bool isDead = false;
+    private bool isCasting=false;
+
     public Slider healthSlider;
 
 
@@ -93,6 +95,7 @@ public class Boss2Controller : EnemyBase
         radialSpinSpeed = 60f;       // 每秒旋转角速度（度）
 
         aimTime = 1.0f;
+
     }
 
     protected void OnEnable()
@@ -103,6 +106,20 @@ public class Boss2Controller : EnemyBase
         currentHP = HP;
         healthSlider.maxValue = HP;
         healthSlider.value = currentHP;
+
+        // 确保状态重置
+        isChasing = false;
+        isCasting = false;
+
+        // 初始化移动速度
+        baseMoveSpeed = MoveSpeed;
+
+        // 重置技能循环
+        ResetSkillCycle();
+
+        // 启动主循环（防止重复启动，先停一下）
+        if (bossLoopCoroutine != null) StopCoroutine(bossLoopCoroutine);
+        bossLoopCoroutine = StartCoroutine(BossLoop());
     }
 
     // Update is called once per frame
@@ -110,9 +127,23 @@ public class Boss2Controller : EnemyBase
     {
         if (isDead) return;
         base.Update();
-        anim.SetBool("isChasing", isChasing);
         UpdatePhaseByHP();
-        UpdateFacing();
+
+        Animation_Control();
+    }
+    protected override void Move()
+    {
+        if (!isChasing) return;
+        if (player == null) return;
+
+        Vector2 dir = (player.position - transform.position).normalized;
+        transform.position += (Vector3)dir * MoveSpeed * Time.deltaTime;
+    }
+
+    private void Animation_Control()
+    {
+        anim.SetBool("isChasing", isChasing);
+        anim.SetBool("isCasting", isCasting);
     }
 
     private void UpdatePhaseByHP()
@@ -133,38 +164,6 @@ public class Boss2Controller : EnemyBase
         }
     }
 
-    protected override void Move()
-    {
-        if (!isChasing) return;
-        if (player == null) return;
-
-        Vector2 dir = (player.position - transform.position).normalized;
-        transform.position += (Vector3)dir * MoveSpeed * Time.deltaTime;
-    }
-
-    private void UpdateFacing()
-    {
-        if (player == null) return;
-
-        float dirX = player.position.x - transform.position.x;
-
-        if (dirX > 0.01f)
-        {
-            transform.localScale = new Vector3(
-                Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
-        else if (dirX < -0.01f)
-        {
-            transform.localScale = new Vector3(
-                -Mathf.Abs(transform.localScale.x),
-                transform.localScale.y,
-                transform.localScale.z
-            );
-        }
-    }
 
         private void EnterPhase2()
     {
@@ -248,9 +247,6 @@ public class Boss2Controller : EnemyBase
                 {
                     case 0:
                         yield return StartCoroutine(Skill_SlantLasers(45f));
-                        yield return StartCoroutine(Skill_SlantLasers(90f));
-                        yield return StartCoroutine(Skill_SlantLasers(135f));
-                        yield return StartCoroutine(Skill_SlantLasers(180f));
                         break;
                     case 1:
                         yield return StartCoroutine(Skill_CraterKnifeRing(5));
@@ -268,18 +264,21 @@ public class Boss2Controller : EnemyBase
                 switch (skillIndex)
                 {
                     case 0:
-                        yield return StartCoroutine(Skill_SlantLasers(45f));
+                        StartCoroutine(Skill_SlantLasers(45f));
+                        yield return new WaitForSeconds(0.8f);
                         yield return StartCoroutine(Skill_SlantLasers(135f));
                         break;
                     case 1:
-                        yield return StartCoroutine(Skill_CraterKnifeRing(3));
+                        StartCoroutine(Skill_CraterKnifeRing(3));
+                        yield return new WaitForSeconds(1f);
                         yield return StartCoroutine(Skill_CraterKnifeRing(6));
                         break;
                     case 2:
-
+                        yield return StartCoroutine(Skill_RadialSpinLaser());
                         break;
                     case 3:
-                        yield return StartCoroutine(Skill_TargetLaser());
+                        StartCoroutine(Skill_TargetLaser());
+                        yield return new WaitForSeconds(0.8f);
                         yield return StartCoroutine(Skill_TargetLaser());
                         break;
                 }
@@ -289,19 +288,30 @@ public class Boss2Controller : EnemyBase
                 switch (skillIndex)
                 {
                     case 0:
-                        yield return StartCoroutine(Skill_SlantLasers(45f));
-                        yield return StartCoroutine(Skill_SlantLasers(90f));
-                        yield return StartCoroutine(Skill_SlantLasers(135f));
+                        StartCoroutine(Skill_SlantLasers(45f));
+                        yield return new WaitForSeconds(0.8f);
+                        StartCoroutine(Skill_SlantLasers(90f));
+                        yield return new WaitForSeconds(0.8f);
+                        StartCoroutine(Skill_SlantLasers(135f));
+                        yield return new WaitForSeconds(0.8f);
                         yield return StartCoroutine(Skill_SlantLasers(180f));
                         break;
                     case 1:
-
+                        StartCoroutine(Skill_CraterKnifeRing(2));
+                        yield return new WaitForSeconds(1f);
+                        StartCoroutine(Skill_CraterKnifeRing(5));
+                        yield return new WaitForSeconds(1f);
+                        yield return StartCoroutine(Skill_CraterKnifeRing(8));
                         break;
                     case 2:
-
+                        StartCoroutine(Skill_RadialSpinLaser());
+                        yield return new WaitForSeconds(0.8f);
+                        yield return StartCoroutine(Skill_RadialSpinLaser());
                         break;
                     case 3:
-
+                        StartCoroutine(Skill_TargetLaser());
+                        yield return new WaitForSeconds(0.4f);
+                        yield return StartCoroutine(Skill_TargetLaser());
                         break;
                 }
             }
@@ -316,6 +326,8 @@ public class Boss2Controller : EnemyBase
     /// </summary>
     private IEnumerator Skill_SlantLasers(float angleDeg)
     {
+        isCasting=true;
+        anim.SetTrigger("isCast1");
         // 射线方向（用来确定旋转角度）
         float rad = angleDeg * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
@@ -366,6 +378,7 @@ public class Boss2Controller : EnemyBase
             if (dmg != null) Destroy(dmg);
         }
         damageList.Clear();
+        isCasting = false;
     }
 
     /// <summary>
@@ -376,39 +389,66 @@ public class Boss2Controller : EnemyBase
     {
         const int angleStep = 30;
         int count = 360 / angleStep;
-        List<GameObject> beams = new List<GameObject>();
 
-        // 先生成伤害激光（也可以先用 warningLaserPrefab 再替换）
+        List<GameObject> warningList = new List<GameObject>();
+        List<GameObject> damageList = new List<GameObject>();
+
+        // ===== 1. 生成预警线 =====
         for (int i = 0; i < count; i++)
         {
             float angle = i * angleStep;
             Quaternion rot = Quaternion.Euler(0, 0, angle);
-            GameObject beam = Instantiate(damageLaserPrefab, transform.position, rot);
-            beams.Add(beam);
+            GameObject warn = Instantiate(warningLaserPrefab, transform.position, rot);
+            warningList.Add(warn);
         }
 
+        yield return new WaitForSeconds(laserWarningDuration / actionSpeedMultiplier);
+
+        // ===== 2. 预警线 → 伤害线 =====
+        foreach (GameObject warn in warningList)
+        {
+            if (warn == null) continue;
+
+            // 用预警线的旋转生成伤害线
+            GameObject dmg = Instantiate(
+                damageLaserPrefab,
+                transform.position,
+                warn.transform.rotation
+            );
+
+            damageList.Add(dmg);
+
+            Destroy(warn);
+        }
+        warningList.Clear();
+
+        // ===== 3. 旋转伤害线 =====
         float time = 0f;
         float duration = radialSpinDuration / actionSpeedMultiplier;
 
         while (time < duration)
         {
             float deltaAngle = radialSpinSpeed * Time.deltaTime * actionSpeedMultiplier;
-            foreach (GameObject b in beams)
+
+            foreach (GameObject b in damageList)
             {
                 if (b != null)
                 {
                     b.transform.Rotate(0, 0, deltaAngle);
                 }
             }
+
             time += Time.deltaTime;
             yield return null;
         }
 
-        foreach (GameObject b in beams)
+        // ===== 4. 清理 =====
+        foreach (GameObject b in damageList)
         {
-            if (b != null) Destroy(b);
+            if (b != null)
+                Destroy(b);
         }
-        beams.Clear();
+        damageList.Clear();
     }
 
     /// <summary>
@@ -456,6 +496,8 @@ public class Boss2Controller : EnemyBase
     /// </summary>
     private IEnumerator Skill_CraterKnifeRing(float radius)
     {
+        isCasting = true;
+        anim.SetTrigger("isCast2");
         yield return new WaitForSeconds(0.5f);
         if (craterKnifePrefab == null)
         {
@@ -496,6 +538,7 @@ public class Boss2Controller : EnemyBase
                 ck.SetDamageEnabled(false); // 预警阶段不开伤害
                 knives.Add(ck);
             }
+            isCasting = false;
         }
 
         // 预警

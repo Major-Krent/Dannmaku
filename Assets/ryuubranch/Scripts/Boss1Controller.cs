@@ -150,6 +150,7 @@ public class Boss1Controller : EnemyBase
         }
     }
 
+
     private void EnterPhase2()
     {
         currentPhase = BossPhase.Phase2;
