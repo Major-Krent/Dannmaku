@@ -85,14 +85,14 @@ public class Boss2Controller : EnemyBase
         base.Start();              // 初始化 HP 等
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
 
-        screenRayCount = 16;        // 全屏斜线条数
-        screenHalfWidthWorld = 9f;  // 视野半宽(世界坐标)
-        screenHalfHeightWorld = 5f; // 视野半高(世界坐标)
+        screenRayCount = 40;        // 全屏斜线条数
+        screenHalfWidthWorld = 27f;  // 视野半宽(世界坐标)
+        screenHalfHeightWorld = 15f; // 视野半高(世界坐标)
 
         laserWarningDuration = 0.8f; // 预警存在时间
         laserDamageDuration = 1.2f;  // 伤害存在时间
         radialSpinDuration = 2.5f;   // 环形激光旋转时间
-        radialSpinSpeed = 60f;       // 每秒旋转角速度（度）
+        radialSpinSpeed = 35f;       // 每秒旋转角速度（度）
 
         aimTime = 1.0f;
 
@@ -270,12 +270,16 @@ public class Boss2Controller : EnemyBase
                         yield return StartCoroutine(Skill_SlantLasers(45f));
                         break;
                     case 1:
-                        StartCoroutine(Skill_CraterKnifeRing(2));
-                        StartCoroutine(Skill_CraterKnifeRing(5));
-                        yield return StartCoroutine(Skill_CraterKnifeRing(8));
+                        StartCoroutine(Skill_CraterKnifeRing(4));
+                        StartCoroutine(Skill_CraterKnifeRing(8));
+                        StartCoroutine(Skill_CraterKnifeRing(12));
+                        yield return StartCoroutine(Skill_CraterKnifeRing(16));
                         break;
                     case 2:
+                        isCasting = true;
+                        anim.SetTrigger("isCast3");
                         yield return StartCoroutine(Skill_RadialSpinLaser());
+                        isCasting = false;
                         break;
                     case 3:
                         yield return StartCoroutine(Skill_TargetLaser());
@@ -293,11 +297,20 @@ public class Boss2Controller : EnemyBase
                         break;
                     case 1:
                         StartCoroutine(Skill_CraterKnifeRing(3));
-                        yield return new WaitForSeconds(1f);
-                        yield return StartCoroutine(Skill_CraterKnifeRing(6));
+                        yield return new WaitForSeconds(0.8f);
+                        StartCoroutine(Skill_CraterKnifeRing(6));
+                        yield return new WaitForSeconds(0.8f);
+                        StartCoroutine(Skill_CraterKnifeRing(9));
+                        yield return new WaitForSeconds(0.8f);
+                        StartCoroutine(Skill_CraterKnifeRing(12));
+                        yield return new WaitForSeconds(0.8f);
+                        yield return StartCoroutine(Skill_CraterKnifeRing(15));
                         break;
                     case 2:
+                        isCasting = true;
+                        anim.SetTrigger("isCast3");
                         yield return StartCoroutine(Skill_RadialSpinLaser());
+                        isCasting = false;
                         break;
                     case 3:
                         StartCoroutine(Skill_TargetLaser());
@@ -320,16 +333,28 @@ public class Boss2Controller : EnemyBase
                         yield return StartCoroutine(Skill_SlantLasers(180f));
                         break;
                     case 1:
-                        StartCoroutine(Skill_CraterKnifeRing(2));
-                        yield return new WaitForSeconds(1f);
-                        StartCoroutine(Skill_CraterKnifeRing(5));
-                        yield return new WaitForSeconds(1f);
-                        yield return StartCoroutine(Skill_CraterKnifeRing(8));
+                        StartCoroutine(Skill_CraterKnifeRing(3));
+                        yield return new WaitForSeconds(0.6f);
+                        StartCoroutine(Skill_CraterKnifeRing(6));
+                        yield return new WaitForSeconds(0.6f);
+                        StartCoroutine(Skill_CraterKnifeRing(9));
+                        yield return new WaitForSeconds(0.6f);
+                        StartCoroutine(Skill_CraterKnifeRing(12));
+                        yield return new WaitForSeconds(0.6f);
+                        StartCoroutine(Skill_CraterKnifeRing(15));
+                        yield return new WaitForSeconds(0.6f);
+                        StartCoroutine(Skill_CraterKnifeRing(4));
+                        StartCoroutine(Skill_CraterKnifeRing(8));
+                        StartCoroutine(Skill_CraterKnifeRing(12));
+                        yield return StartCoroutine(Skill_CraterKnifeRing(16));
                         break;
                     case 2:
+                        isCasting = true;
+                        anim.SetTrigger("isCast3");
                         StartCoroutine(Skill_RadialSpinLaser());
-                        yield return new WaitForSeconds(0.8f);
+                        yield return new WaitForSeconds(1.2f);
                         yield return StartCoroutine(Skill_RadialSpinLaser());
+                        isCasting = false;
                         break;
                     case 3:
                         StartCoroutine(Skill_TargetLaser());

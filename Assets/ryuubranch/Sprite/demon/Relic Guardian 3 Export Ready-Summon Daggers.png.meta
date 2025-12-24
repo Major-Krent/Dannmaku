@@ -1,0 +1,554 @@
+fileFormatVersion: 2
+guid: 780314675ee947c498ba448f077b6dd2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5863150113685224078
+    second: Relic Guardian 3 Export Ready-Summon Daggers_0
+  - first:
+      213: -2442429293580136904
+    second: Relic Guardian 3 Export Ready-Summon Daggers_1
+  - first:
+      213: 7238849823895327593
+    second: Relic Guardian 3 Export Ready-Summon Daggers_2
+  - first:
+      213: -1358656750964654
+    second: Relic Guardian 3 Export Ready-Summon Daggers_3
+  - first:
+      213: 444445483918316168
+    second: Relic Guardian 3 Export Ready-Summon Daggers_4
+  - first:
+      213: -8650821428085888224
+    second: Relic Guardian 3 Export Ready-Summon Daggers_5
+  - first:
+      213: 2148140612350726035
+    second: Relic Guardian 3 Export Ready-Summon Daggers_6
+  - first:
+      213: 4106867746578592564
+    second: Relic Guardian 3 Export Ready-Summon Daggers_7
+  - first:
+      213: 707376746734594916
+    second: Relic Guardian 3 Export Ready-Summon Daggers_8
+  - first:
+      213: 6699412116633964536
+    second: Relic Guardian 3 Export Ready-Summon Daggers_9
+  - first:
+      213: 4305431672274983815
+    second: Relic Guardian 3 Export Ready-Summon Daggers_10
+  - first:
+      213: 5543863593447479951
+    second: Relic Guardian 3 Export Ready-Summon Daggers_11
+  - first:
+      213: 4438587092358860121
+    second: Relic Guardian 3 Export Ready-Summon Daggers_12
+  - first:
+      213: 2522775325352316795
+    second: Relic Guardian 3 Export Ready-Summon Daggers_13
+  - first:
+      213: 6822206924579112533
+    second: Relic Guardian 3 Export Ready-Summon Daggers_14
+  - first:
+      213: 2213006659152298872
+    second: Relic Guardian 3 Export Ready-Summon Daggers_15
+  - first:
+      213: 2325739559284369918
+    second: Relic Guardian 3 Export Ready-Summon Daggers_16
+  - first:
+      213: -1400561676800547815
+    second: Relic Guardian 3 Export Ready-Summon Daggers_17
+  - first:
+      213: 7703421769849956883
+    second: Relic Guardian 3 Export Ready-Summon Daggers_18
+  - first:
+      213: -745363480456070635
+    second: Relic Guardian 3 Export Ready-Summon Daggers_19
+  - first:
+      213: -3025096439208137099
+    second: Relic Guardian 3 Export Ready-Summon Daggers_20
+  - first:
+      213: 1469690714140979836
+    second: Relic Guardian 3 Export Ready-Summon Daggers_21
+  - first:
+      213: 8131488432377720790
+    second: Relic Guardian 3 Export Ready-Summon Daggers_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8abffec6f71e5150800000000000000
+      internalID: 5863150113685224078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83ec52f7f7fba1ed0800000000000000
+      internalID: -2442429293580136904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9631eafcf8f857460800000000000000
+      internalID: 7238849823895327593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250bcf21f4c2bfff0800000000000000
+      internalID: -1358656750964654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8825af610dcfa2600800000000000000
+      internalID: 444445483918316168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b6a93cebb12f780800000000000000
+      internalID: -8650821428085888224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_6
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f41ce618abfcd10800000000000000
+      internalID: 2148140612350726035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_7
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4337356d4768ef830800000000000000
+      internalID: 4106867746578592564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_8
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bac7f376b11d900800000000000000
+      internalID: 707376746734594916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_9
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff4ae733d719fc50800000000000000
+      internalID: 6699412116633964536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_10
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b9aa67b47ffbb30800000000000000
+      internalID: 4305431672274983815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_11
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a58aac092cfec40800000000000000
+      internalID: 5543863593447479951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_12
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d0fa0a177099d30800000000000000
+      internalID: 4438587092358860121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_13
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7fcebbcac2b20320800000000000000
+      internalID: 2522775325352316795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_14
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5568fb36d095dae50800000000000000
+      internalID: 6822206924579112533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Relic Guardian 3 Export Ready-Summon Daggers_15
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 0
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873c85cd4dd26be10800000000000000
+      internalID: 2213006659152298872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 15b4d95591b5e88449d86108dd785020
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Relic Guardian 3 Export Ready-Summon Daggers_0: 5863150113685224078
+      Relic Guardian 3 Export Ready-Summon Daggers_1: -2442429293580136904
+      Relic Guardian 3 Export Ready-Summon Daggers_10: 4305431672274983815
+      Relic Guardian 3 Export Ready-Summon Daggers_11: 5543863593447479951
+      Relic Guardian 3 Export Ready-Summon Daggers_12: 4438587092358860121
+      Relic Guardian 3 Export Ready-Summon Daggers_13: 2522775325352316795
+      Relic Guardian 3 Export Ready-Summon Daggers_14: 6822206924579112533
+      Relic Guardian 3 Export Ready-Summon Daggers_15: 2213006659152298872
+      Relic Guardian 3 Export Ready-Summon Daggers_2: 7238849823895327593
+      Relic Guardian 3 Export Ready-Summon Daggers_3: -1358656750964654
+      Relic Guardian 3 Export Ready-Summon Daggers_4: 444445483918316168
+      Relic Guardian 3 Export Ready-Summon Daggers_5: -8650821428085888224
+      Relic Guardian 3 Export Ready-Summon Daggers_6: 2148140612350726035
+      Relic Guardian 3 Export Ready-Summon Daggers_7: 4106867746578592564
+      Relic Guardian 3 Export Ready-Summon Daggers_8: 707376746734594916
+      Relic Guardian 3 Export Ready-Summon Daggers_9: 6699412116633964536
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
