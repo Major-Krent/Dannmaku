@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1274196265980307365}
   - component: {fileID: 6367731132315546451}
   - component: {fileID: 4702485417024806288}
+  - component: {fileID: 6625450898058762637}
   m_Layer: 0
   m_Name: Dagger
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 600
   m_Sprite: {fileID: -7538277890735330205, guid: 8d231a9de51fd77409932dc016e25d65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,3 +111,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6625450898058762637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3821966400589503502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0842f37cf37b14bb05f181af20c9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

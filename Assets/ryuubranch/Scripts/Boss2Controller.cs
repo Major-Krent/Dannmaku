@@ -270,7 +270,9 @@ public class Boss2Controller : EnemyBase
                         yield return StartCoroutine(Skill_SlantLasers(45f));
                         break;
                     case 1:
-                        yield return StartCoroutine(Skill_CraterKnifeRing(5));
+                        StartCoroutine(Skill_CraterKnifeRing(2));
+                        StartCoroutine(Skill_CraterKnifeRing(5));
+                        yield return StartCoroutine(Skill_CraterKnifeRing(8));
                         break;
                     case 2:
                         yield return StartCoroutine(Skill_RadialSpinLaser());

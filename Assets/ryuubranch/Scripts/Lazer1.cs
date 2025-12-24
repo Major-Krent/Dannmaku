@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Lazer1 : BulletBase
 {
+    public int damage = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

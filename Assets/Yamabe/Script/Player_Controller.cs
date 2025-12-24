@@ -180,8 +180,21 @@ public class Player_Controller : MonoBehaviour
         if (collision.CompareTag("Enemy_Bullet") && !_isDashing)
         {
             Bullet1 bullet = collision.GetComponent<Bullet1>();
-            TakeDamage(bullet.damage);
-            Destroy(collision.gameObject);
+            if (bullet != null)
+            {
+                TakeDamage(bullet.damage);
+                Destroy(collision.gameObject);
+            }
+        }
+
+        if (collision.CompareTag("Enemy_Bullet") && !_isDashing)
+        {
+
+            Lazer1 lazer = collision.GetComponent<Lazer1>();
+            if (lazer != null)
+            {
+                TakeDamage(lazer.damage);
+            }
         }
     }
 
