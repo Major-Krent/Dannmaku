@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3955242633541056721}
   - component: {fileID: 2498981079951168386}
+  - component: {fileID: 7394967790621698653}
   - component: {fileID: 8855031242852625154}
   - component: {fileID: 764147849192008697}
   - component: {fileID: 8316634224688338135}
@@ -91,6 +92,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7394967790621698653
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2532613487543437968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8855031242852625154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +159,9 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooltime: 1
   _isDashing: 0
+  damageInvincibleTime: 1.5
   firePoint: {fileID: 3955242633541056721}
+  hpBarFill: {fileID: 0}
 --- !u!50 &8316634224688338135
 Rigidbody2D:
   serializedVersion: 5
