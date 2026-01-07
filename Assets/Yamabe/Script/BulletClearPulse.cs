@@ -6,8 +6,16 @@ public class BulletClearPulse : MonoBehaviour
     public float radius = 100.0f;       // 消去する範囲
     public string bulletTag = "Enemy_Bullet"; // 消したい弾のタグ
 
+    [Header("オーディオ設定")]
+    public AudioClip activateSound; 
+    [Range(0f, 1f)]
+    public float soundVolume = 1.0f;
     void Start()
     {
+        if (activateSound != null)
+        {
+            AudioSource.PlayClipAtPoint(activateSound, Camera.main.transform.position, soundVolume);
+        }
         ClearBullets();
 
         // エフェクトが終わる頃にオブジェクトを消す

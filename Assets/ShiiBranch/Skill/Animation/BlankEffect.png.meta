@@ -1,0 +1,483 @@
+fileFormatVersion: 2
+guid: ba16a01a5b70ff54dbf3ab30929d097c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3661504225503932729
+    second: breakEffect 1_0
+  - first:
+      213: -2450957411455268441
+    second: breakEffect 1_1
+  - first:
+      213: -6586661491649991390
+    second: breakEffect 1_2
+  - first:
+      213: -3913129796617463124
+    second: breakEffect 1_3
+  - first:
+      213: -6176939450752537142
+    second: breakEffect 1_4
+  - first:
+      213: 526206412666995901
+    second: breakEffect 1_5
+  - first:
+      213: -6140102258977883207
+    second: breakEffect 1_6
+  - first:
+      213: -4333674526839147336
+    second: breakEffect 1_7
+  - first:
+      213: 5313875226358622511
+    second: breakEffect 1_8
+  - first:
+      213: -8656650874109594725
+    second: breakEffect 1_9
+  - first:
+      213: 3650635910991644507
+    second: breakEffect 1_10
+  - first:
+      213: 1601365759115311768
+    second: breakEffect 1_11
+  - first:
+      213: -8660692587386654293
+    second: breakEffect 1_12
+  - first:
+      213: 7101017998791003996
+    second: breakEffect 1_13
+  - first:
+      213: -3098050629458441025
+    second: breakEffect 1_14
+  - first:
+      213: 8642997911713913948
+    second: breakEffect 1_15
+  - first:
+      213: -8725086890488550374
+    second: breakEffect 1_16
+  - first:
+      213: -5684014865302685561
+    second: breakEffect 1_17
+  - first:
+      213: -7875216375728197074
+    second: breakEffect 1_18
+  - first:
+      213: -5033674876959656105
+    second: breakEffect 1_19
+  - first:
+      213: -3918837869380982107
+    second: breakEffect 1_20
+  - first:
+      213: -4865988271802121675
+    second: breakEffect 1_21
+  - first:
+      213: -8407099025448428754
+    second: breakEffect 1_22
+  - first:
+      213: 7426403222501159857
+    second: breakEffect 1_23
+  - first:
+      213: -2793903937339064897
+    second: breakEffect 1_24
+  - first:
+      213: 1397515412818039002
+    second: breakEffect 1_25
+  - first:
+      213: 5589456127186163912
+    second: breakEffect 1_26
+  - first:
+      213: -6223508881876960787
+    second: breakEffect 1_27
+  - first:
+      213: 2666971640726657477
+    second: breakEffect 1_28
+  - first:
+      213: 2020870236259988657
+    second: breakEffect 1_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: breakEffect 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 290
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb753f8373025d4496dc2803449f3aa
+      internalID: -1835367419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 290
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3cb38e95b53b04c822f00e596fb55a
+      internalID: -1175021717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_2
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 290
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9f2d62208432346b7616c6d635d45d
+      internalID: 522171979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_3
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 290
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20eed5a1a076f714f9cdae88e2d6f7f0
+      internalID: -1130440275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 146
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b5f9ce77ca45148bb2678af9ea50b2
+      internalID: 1708023443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 146
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a746442b4e8b814f80ad550ea2261d6
+      internalID: -1331947442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 146
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba00604e9e52f14a8cc2034c3870618
+      internalID: -936394149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_7
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 146
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0922b43b3f2e0574e83720504d6ede0f
+      internalID: -1716617247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a14c18f76b273748baf37ee4f437594
+      internalID: -1273753699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 2
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ea8e74d89c4b748a375d0a34f1b801
+      internalID: -247173965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91a9b493a739354d83d9289816b0638
+      internalID: 116069845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakEffect 1_11
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 2
+        width: 144
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5d218a60129a944ad0b6cf3c2366c7
+      internalID: 1150753768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cda65b3b408e8ba4fa286e7a5dbb3adc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      breakEffect 1_0: -1835367419
+      breakEffect 1_1: -1175021717
+      breakEffect 1_10: 116069845
+      breakEffect 1_11: 1150753768
+      breakEffect 1_2: 522171979
+      breakEffect 1_3: -1130440275
+      breakEffect 1_4: 1708023443
+      breakEffect 1_5: -1331947442
+      breakEffect 1_6: -936394149
+      breakEffect 1_7: -1716617247
+      breakEffect 1_8: -1273753699
+      breakEffect 1_9: -247173965
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

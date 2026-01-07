@@ -1,0 +1,510 @@
+fileFormatVersion: 2
+guid: 7be97e5dafc2c074f87e5c79706e5d3d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8423013982787293553
+    second: barrierEffect_0
+  - first:
+      213: -3450299763665904185
+    second: barrierEffect_1
+  - first:
+      213: -2095574702163757629
+    second: barrierEffect_2
+  - first:
+      213: 3189311080766041148
+    second: barrierEffect_3
+  - first:
+      213: -7378187791989405947
+    second: barrierEffect_4
+  - first:
+      213: -6356441029767885157
+    second: barrierEffect_5
+  - first:
+      213: -4137831489704285023
+    second: barrierEffect_6
+  - first:
+      213: 3817119835696806508
+    second: barrierEffect_7
+  - first:
+      213: -7848884199007567872
+    second: barrierEffect_8
+  - first:
+      213: -1843218827831732483
+    second: barrierEffect_9
+  - first:
+      213: 9204420085487677651
+    second: barrierEffect_10
+  - first:
+      213: 8132524260721792877
+    second: barrierEffect_11
+  - first:
+      213: 3218555232608741561
+    second: barrierEffect_12
+  - first:
+      213: 565321161323216434
+    second: barrierEffect_13
+  - first:
+      213: -7274946564714811272
+    second: barrierEffect_14
+  - first:
+      213: 6517368802214604381
+    second: barrierEffect_15
+  - first:
+      213: 9026106155296224811
+    second: barrierEffect_16
+  - first:
+      213: -5954194746748923388
+    second: barrierEffect_17
+  - first:
+      213: 5645449957986055865
+    second: barrierEffect_18
+  - first:
+      213: 6316242905432660185
+    second: barrierEffect_19
+  - first:
+      213: -8646314475750604343
+    second: barrierEffect_20
+  - first:
+      213: 479493380471115249
+    second: barrierEffect_21
+  - first:
+      213: 1785745599664837540
+    second: barrierEffect_22
+  - first:
+      213: -4583249604572394957
+    second: barrierEffect_23
+  - first:
+      213: 8081279256955886639
+    second: barrierEffect_24
+  - first:
+      213: -8667114886582677952
+    second: barrierEffect_25
+  - first:
+      213: -8421964179270032095
+    second: barrierEffect_26
+  - first:
+      213: 3405680253049389853
+    second: barrierEffect_27
+  - first:
+      213: -9099671732699534025
+    second: barrierEffect_28
+  - first:
+      213: -1513954860921027229
+    second: barrierEffect_29
+  - first:
+      213: -5032252096370706870
+    second: barrierEffect_30
+  - first:
+      213: -2865313126219680224
+    second: barrierEffect_31
+  - first:
+      213: 3742155982802764549
+    second: barrierEffect_32
+  - first:
+      213: -1510833009307095012
+    second: barrierEffect_33
+  - first:
+      213: -7745224973902671920
+    second: barrierEffect_34
+  - first:
+      213: 7419823642069387343
+    second: barrierEffect_35
+  - first:
+      213: 5535617492064674156
+    second: barrierEffect_36
+  - first:
+      213: 4747459309159277237
+    second: barrierEffect_37
+  - first:
+      213: 3765992986692007604
+    second: barrierEffect_38
+  - first:
+      213: 5208155590175595092
+    second: barrierEffect_39
+  - first:
+      213: 6294827376467664768
+    second: barrierEffect_40
+  - first:
+      213: 1829155153177395947
+    second: barrierEffect_41
+  - first:
+      213: -8011957780415152901
+    second: barrierEffect_42
+  - first:
+      213: -1942398436082719426
+    second: barrierEffect_43
+  - first:
+      213: 3354181861192726066
+    second: barrierEffect_44
+  - first:
+      213: -5245814129266062140
+    second: barrierEffect_45
+  - first:
+      213: 5331164955069969905
+    second: barrierEffect_46
+  - first:
+      213: 8745669656464440314
+    second: barrierEffect_47
+  - first:
+      213: 291691697095670273
+    second: barrierEffect_48
+  - first:
+      213: -6617276439749051663
+    second: barrierEffect_49
+  - first:
+      213: -8507306491310064643
+    second: barrierEffect_50
+  - first:
+      213: -7343305974439434095
+    second: barrierEffect_51
+  - first:
+      213: -2886133579580736217
+    second: barrierEffect_52
+  - first:
+      213: -4579343155339196752
+    second: barrierEffect_53
+  - first:
+      213: 220383616075376464
+    second: barrierEffect_54
+  - first:
+      213: 6290655414958906810
+    second: barrierEffect_55
+  - first:
+      213: -6177655425345263755
+    second: barrierEffect_56
+  - first:
+      213: 7013295362972504533
+    second: barrierEffect_57
+  - first:
+      213: -1443179513250032402
+    second: barrierEffect_58
+  - first:
+      213: 7249384107572351914
+    second: barrierEffect_59
+  - first:
+      213: -3896499527702422576
+    second: barrierEffect_60
+  - first:
+      213: -5916515095063756008
+    second: barrierEffect_61
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: barrierEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4aa707582d824940bd3ee454cecf9f9
+      internalID: -1028002374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_1
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 684
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029946eeb1b32d64c9251f1a366a1131
+      internalID: 100939748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_2
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 684
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5a2acfd5786544e8215b290371a45d
+      internalID: 1204341305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b0dc5a3ad49de4ca5141cbe2daf266
+      internalID: -1409822787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 344
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009feb9b8da33e7498951fe9edf6e1ec
+      internalID: 856352995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_5
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 344
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b8d1640ffb71c4390ca43fd8f04c33
+      internalID: 588606779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93440413ab57f1f42b38a4b25e2aadda
+      internalID: -588051064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_7
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 4
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb67cb98a9a0592478c382ec657c706c
+      internalID: -92172484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barrierEffect_8
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 4
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdca318f05f4a7f4f88040aa11864f8c
+      internalID: -1967014503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0b90be5c94940ff4cbc02ab8d33937c3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      barrierEffect_0: -1028002374
+      barrierEffect_1: 100939748
+      barrierEffect_2: 1204341305
+      barrierEffect_3: -1409822787
+      barrierEffect_4: 856352995
+      barrierEffect_5: 588606779
+      barrierEffect_6: -588051064
+      barrierEffect_7: -92172484
+      barrierEffect_8: -1967014503
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

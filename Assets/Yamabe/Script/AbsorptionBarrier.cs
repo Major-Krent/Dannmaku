@@ -4,12 +4,24 @@ public class AbsorptionBarrier : MonoBehaviour
 {
     [Header("バリア設定")]
     [Tooltip("何発まで防げるか（耐久値）")]
-    public int maxHits = 3;
+    [SerializeField]private int maxHits = 3;
 
     private int currentHits = 0;
+    [Header("オーディオ設定")]
+    [Tooltip("展開時の音")]
+    [SerializeField] private AudioClip deploySound;
+    [Tooltip("被弾時の音")] 
+    public AudioClip hitSound;
+    [Tooltip("破壊時の音")]
+    [SerializeField] private AudioClip breakSound;
+    [SerializeField] private float soundVolume = 1.0f;
 
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        AudioSource.PlayClipAtPoint(deploySound, Camera.main.transform.position, soundVolume);
+        UpdateAlpha();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,10 +42,43 @@ public class AbsorptionBarrier : MonoBehaviour
         Debug.Log("敵の攻撃を吸収しました！");
 
         currentHits++;
+        UpdateAlpha();
         if (currentHits >= maxHits)
         {
             Debug.Log("バリアが壊れました！");
-            Destroy(gameObject);
+            BreakBarrier();
         }
+        else
+        {
+
+            if (hitSound != null)
+            {
+                AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, soundVolume);
+            }
+
+            Debug.Log($"攻撃吸収。残り耐久: {maxHits - currentHits}");
+        }
+    }
+    private void UpdateAlpha()
+    {
+        if (spriteRenderer == null) return;
+
+
+        float alpha = (float)(maxHits - currentHits) / maxHits;
+
+        alpha = Mathf.Max(alpha, 0.3f); 
+
+        Color color = spriteRenderer.color;
+        color.a = alpha;
+        spriteRenderer.color = color;
+    }
+    private void BreakBarrier()
+    {
+        Debug.Log("バリアが壊れました！");
+        if (breakSound != null)
+        {
+            AudioSource.PlayClipAtPoint(hitSound, Camera.main.transform.position, soundVolume);
+        }
+        Destroy(gameObject);
     }
 }
