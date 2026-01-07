@@ -25,8 +25,8 @@ public enum BossPhase
 public class Boss1Controller : EnemyBase
 {
     [Header("フェーズ")]
-    private float phase2Threshold = 0.66f;
-    private float phase3Threshold = 0.33f;
+    private float phase2Threshold = 0.70f;
+    private float phase3Threshold = 0.45f;
     private BossPhase currentPhase = BossPhase.Phase1;
     private Coroutine bossLoopCoroutine;
 

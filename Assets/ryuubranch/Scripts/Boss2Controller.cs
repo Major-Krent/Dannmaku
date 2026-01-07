@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Boss2Controller : EnemyBase
 {
     [Header("フェーズ")]
-    private float phase2Threshold = 0.66f;
-    private float phase3Threshold = 0.33f;
+    private float phase2Threshold = 0.70f;
+    private float phase3Threshold = 0.45f;
     private BossPhase currentPhase = BossPhase.Phase1;
     private Coroutine bossLoopCoroutine;
 
@@ -90,8 +90,8 @@ public class Boss2Controller : EnemyBase
         screenHalfHeightWorld = 15f; // 视野半高(世界坐标)
 
         laserWarningDuration = 0.8f; // 预警存在时间
-        laserDamageDuration = 1.2f;  // 伤害存在时间
-        radialSpinDuration = 2.5f;   // 环形激光旋转时间
+        laserDamageDuration = 2.5f;  // 伤害存在时间
+        radialSpinDuration = 1.2f;   // 环形激光旋转时间
         radialSpinSpeed = 35f;       // 每秒旋转角速度（度）
 
         aimTime = 1.0f;
@@ -450,6 +450,26 @@ public class Boss2Controller : EnemyBase
 
         yield return new WaitForSeconds(laserWarningDuration / actionSpeedMultiplier);
 
+        // ===== 3. 旋转伤害线 =====
+        float time = 0f;
+        float duration = radialSpinDuration / actionSpeedMultiplier;
+
+        while (time < duration)
+        {
+            float deltaAngle = radialSpinSpeed * Time.deltaTime * actionSpeedMultiplier;
+
+            foreach (GameObject b in warningList)
+            {
+                if (b != null)
+                {
+                    b.transform.Rotate(0, 0, deltaAngle);
+                }
+            }
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
         // ===== 2. 预警线 → 伤害线 =====
         foreach (GameObject warn in warningList)
         {
@@ -468,23 +488,24 @@ public class Boss2Controller : EnemyBase
         }
         warningList.Clear();
 
-        // ===== 3. 旋转伤害线 =====
-        float time = 0f;
-        float duration = radialSpinDuration / actionSpeedMultiplier;
+        // ===== 4. 伤害阶段继续旋转 =====
+        float dmgTime = 0f;
+        float dmgDuration = laserDamageDuration / actionSpeedMultiplier;
 
-        while (time < duration)
+        while (dmgTime < dmgDuration)
         {
             float deltaAngle = radialSpinSpeed * Time.deltaTime * actionSpeedMultiplier;
 
-            foreach (GameObject b in damageList)
+            foreach (GameObject d in damageList)
             {
-                if (b != null)
+                if (d != null)
                 {
-                    b.transform.Rotate(0, 0, deltaAngle);
+                    d.transform.position = transform.position;
+                    d.transform.Rotate(0, 0, deltaAngle);
                 }
             }
 
-            time += Time.deltaTime;
+            dmgTime += Time.deltaTime;
             yield return null;
         }
 
@@ -504,18 +525,28 @@ public class Boss2Controller : EnemyBase
     {
         // 预警线，从 Boss 中心出发，朝玩家方向
         GameObject warn = Instantiate(warningLaserPrefab, transform.position, Quaternion.identity);
+        if (player != null)
+        {
+            Vector2 initDir = (player.position - warn.transform.position).normalized;
+            float initAngle = Vector2.SignedAngle(Vector2.right, initDir);
+            warn.transform.rotation = Quaternion.Euler(0f, 0f, initAngle);
+        }
 
         float t = 0f;
+        float rotateSpeed = 5f;
         float aimDuration = aimTime / actionSpeedMultiplier;
 
         while (t < aimDuration)
         {
             if (player != null && warn != null)
             {
-                Vector2 dir = ((Vector2)player.position - (Vector2)transform.position).normalized;
-                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                Vector2 dir = (player.position - warn.transform.position).normalized;
+
+                float angle = Vector2.SignedAngle(warn.transform.right, dir);
+
+                warn.transform.Rotate(0f, 0f, angle * rotateSpeed * Time.deltaTime);
+
                 warn.transform.position = transform.position;
-                warn.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
 
             t += Time.deltaTime;
@@ -553,7 +584,7 @@ public class Boss2Controller : EnemyBase
 
         Vector2 center = transform.position;
 
-        // 根据半径算周长 → 算刀数量
+        // 根据半径算周长算刀数量
         float circumference = 2f * Mathf.PI * radius;
         int count = Mathf.Max(6, Mathf.RoundToInt(circumference / knifeSpacing));
         float angleStep = 360f / count;
@@ -572,7 +603,6 @@ public class Boss2Controller : EnemyBase
 
             Vector2 pos = center + new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)) * radius;
 
-            // 刀朝向圆心
             float lookToCenterAngle = angleDeg + 180f;
             Quaternion rot = Quaternion.Euler(0, 0, lookToCenterAngle);
 
@@ -581,22 +611,19 @@ public class Boss2Controller : EnemyBase
             var ck = knifeObj.GetComponent<CraterKnife>();
             if (ck != null)
             {
-                ck.SetDamageEnabled(false); // 预警阶段不开伤害
+                ck.SetDamageEnabled(false);
                 knives.Add(ck);
             }
             isCasting = false;
         }
 
-        // 预警
         yield return new WaitForSeconds(craterWarningTime);
 
-        // 开伤害
         foreach (var k in knives)
         {
             if (k != null) k.SetDamageEnabled(true);
         }
 
-        // 伤害持续
         yield return new WaitForSeconds(craterDamageTime);
 
         Destroy(ringRoot);
