@@ -779,6 +779,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &243285256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1928938702265504548, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+  m_PrefabInstance: {fileID: 2486068508465358005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394345630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,13 +1093,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2486068508465358006}
     - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
-      propertyPath: playerAttackRate
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
-      propertyPath: damageInvincibleTime
-      value: 0.5
-      objectReference: {fileID: 0}
+      propertyPath: hpBarSlider
+      value: 
+      objectReference: {fileID: 243285256}
     - target: {fileID: 2306250878426551357, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: m_Size.y
       value: 1.1040032
@@ -2844,14 +2851,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2583706611805049906, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583706611805049906, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3328215416540406836, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2859,6 +2858,26 @@ PrefabInstance:
     - target: {fileID: 3328215416540406836, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328215416540406836, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -39.3157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328215416540406836, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328215416540406836, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 26.03218
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463841050480121310, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -15.3917
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463841050480121310, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.9612
       objectReference: {fileID: 0}
     - target: {fileID: 6904552170561559801, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
       propertyPath: m_Name

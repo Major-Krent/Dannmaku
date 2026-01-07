@@ -50,7 +50,7 @@ public class Player_Controller : MonoBehaviour
     private float _nextDashTime = 0.0f;
     private Vector2 moveInput;
     private Camera mainCamera;
-    [SerializeField] private Image hpBarFill;
+    [SerializeField] private Slider hpBarSlider;
     void Start()
     {
         playerCurrentHp = playerHp;
@@ -62,6 +62,8 @@ public class Player_Controller : MonoBehaviour
         //CalculateMoveBounds();
         //---------------------------------------------
         BindCamera();
+        BindUI();
+        UpdateHealthUI();
         SceneManager.sceneLoaded += OnSceneLoaded;
         //---------------------------------------------
     }
@@ -71,9 +73,29 @@ public class Player_Controller : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        playerCurrentHp = playerHp;
         BindCamera();
+        BindUI();
+        UpdateHealthUI();
     }
-
+    private void BindUI()
+    {
+        
+        if (hpBarSlider == null)
+        {
+            
+            GameObject uiObj = GameObject.Find("PlayerHpBar");
+            if (uiObj != null)
+            {
+                hpBarSlider = uiObj.GetComponent<Slider>();
+            }
+            else
+            {
+               
+                Debug.LogWarning("PlayerHpBar‚ðŒ©‚Â‚©‚ç‚È‚¢");
+            }
+        }
+    }
     private void BindCamera()
     {
         mainCamera = Camera.main;
@@ -87,9 +109,9 @@ public class Player_Controller : MonoBehaviour
     }
     private void UpdateHealthUI()
     {
-        if (hpBarFill != null)
+        if (hpBarSlider != null)
         {
-            hpBarFill.fillAmount = Mathf.Clamp01(playerCurrentHp / playerHp);
+            hpBarSlider.value = Mathf.Clamp01(playerCurrentHp / playerHp);
         }
     }
     // Update is called once per frame

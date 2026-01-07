@@ -123,7 +123,7 @@ MonoBehaviour:
   currentFireRate: 0
   isMelee: 0
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
-  playerAttackRate: 0.1
+  playerAttackRate: 0.2
   totalShots: 0
   rangedDamage: 1
   currentRangedDamage: 0
@@ -135,9 +135,9 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooltime: 1
   _isDashing: 0
-  damageInvincibleTime: 1.5
+  damageInvincibleTime: 0.5
   firePoint: {fileID: 7526107158735107950}
-  hpBarFill: {fileID: 0}
+  hpBarSlider: {fileID: 0}
 --- !u!50 &2926539313647924718
 Rigidbody2D:
   serializedVersion: 5

@@ -127,6 +127,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1378088427}
     m_Modifications:
+    - target: {fileID: 4681184211765548162, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
+      propertyPath: m_text
+      value: DEMON
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681184211765548162, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
+      propertyPath: m_fontSize
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681184211765548162, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 40fbbc4e1efb8484d9a93f49f1c7ca38, type: 2}
+    - target: {fileID: 4681184211765548162, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681184211765548162, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3142857572852093890, guid: 40fbbc4e1efb8484d9a93f49f1c7ca38, type: 2}
+    - target: {fileID: 4681184211765548162, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6234334618345046348, guid: cd7e37b613421994a8fc2cac29be571d, type: 3}
       propertyPath: m_Name
       value: IntroPanel
@@ -383,6 +407,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1378088427}
     m_Modifications:
+    - target: {fileID: 262227186232022606, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 262227186232022606, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 262227186232022606, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1566379681362940115, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -479,6 +515,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2583706611805049906, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583706611805049906, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3328215416540406836, guid: 336c6d3a504979948a75d37a6943cafd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
