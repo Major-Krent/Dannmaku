@@ -6,7 +6,7 @@ public class SkillManager : MonoBehaviour
 {
     public static SkillManager Instance { get; private set; }
     [SerializeField] public List<SkillData> skillData=new List<SkillData>();
-
+    private List<SkillData> savedSkillData = new List<SkillData>();
     private Dictionary<SkillData,float> cooldownTime=new Dictionary<SkillData,float>();
 
     private void Awake()
@@ -34,13 +34,34 @@ public class SkillManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        if (scene.name != "Title") 
+        {
+            SaveState();
+        }
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
 
         if (spawnPoint != null)
         {
             transform.position = spawnPoint.transform.position;
         }
+    }
+    public void SaveState()
+    {
+        savedSkillData = new List<SkillData>(skillData);
+        Debug.Log($"[SkillManager] をバックアップした。今のスキル数: {savedSkillData.Count}");
+    }
+
+    public void RestoreState()
+    {
+        skillData = new List<SkillData>(savedSkillData);
+        Debug.Log("[SkillManager] をロードした");
+    }
+
+    public void FullReset()
+    {
+        skillData.Clear();
+        savedSkillData.Clear();
+        cooldownTime.Clear();
     }
     //移動速度倍率
     public float TotalMoveSpeedMultiplier

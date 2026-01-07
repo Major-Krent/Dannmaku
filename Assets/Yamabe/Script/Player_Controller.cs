@@ -214,11 +214,23 @@ public class Player_Controller : MonoBehaviour
             }
         }
     }
-
+    //HPを初期化
+    public void Revive()
+    {
+        playerCurrentHp = playerHp;
+        //animator
+    }
     private void Die()
     {
         Debug.Log("Player die");
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        //ゲームオーバーUIを呼び出す
+        GameOverManager gm = FindFirstObjectByType<GameOverManager>();
+        if (gm != null)
+        {
+            gm.ShowGameOver();
+        }
     }
 
     private IEnumerator PerformRangedAttack()

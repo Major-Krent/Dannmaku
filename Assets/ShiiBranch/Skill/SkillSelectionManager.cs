@@ -18,6 +18,7 @@ public class SkillSelectionManager : MonoBehaviour
 
     private List<SkillData> availableSkillPool;
 
+    private List<SkillData> savedSkillPool;
 
     [Header("Animation")]
     [SerializeField] private float animationSpeed = 15f;
@@ -70,9 +71,29 @@ public class SkillSelectionManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
-        if (scene.name == "Tutorial")
+        if (scene.name == "Title")
         {
             InitializeSkillPool();
+            SavePoolState();
+        }
+        else if (scene.name != "Title") 
+        {
+            SavePoolState();
+        }
+    }
+    public void SavePoolState()
+    {
+        if (availableSkillPool != null)
+        {
+            savedSkillPool = new List<SkillData>(availableSkillPool);
+        }
+    }
+
+    public void RestorePoolState()
+    {
+        if (savedSkillPool != null)
+        {
+            availableSkillPool = new List<SkillData>(savedSkillPool);
         }
     }
     public void TriggerSkillSelection(int amountToPick, bool forceOneAdvanced = false)
