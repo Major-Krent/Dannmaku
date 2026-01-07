@@ -135,6 +135,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooltime: 1
   _isDashing: 0
+  damageInvincibleTime: 1.5
   firePoint: {fileID: 7526107158735107950}
   hpBarFill: {fileID: 0}
 --- !u!50 &2926539313647924718
