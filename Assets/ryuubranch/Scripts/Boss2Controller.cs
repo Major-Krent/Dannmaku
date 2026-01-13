@@ -48,6 +48,13 @@ public class Boss2Controller : EnemyBase
     [Header("狙撃レーザー設定")]
     [SerializeField] private float aimTime;              // 瞄准时间
 
+    [Header("Phase Change Energy Orbs")]
+    [SerializeField] private GameObject energyOrbPrefab;
+    [SerializeField] private int energyOrbCount = 8;
+    [SerializeField] private float orbScatterSpeed = 4f;
+    [SerializeField] private float orbScatterDuration = 0.4f;
+    [SerializeField] private float orbSeekSpeed = 7f;
+
     // ===== 刀围成圆的沟壑技能（只在代码里调参）=====
     private float knifeSpacing = 0.6f;       // 相邻刀“沿圆周”的间隔（世界坐标弧长）
     private float craterWarningTime = 0.6f;  // 预警时间
@@ -639,6 +646,32 @@ public class Boss2Controller : EnemyBase
         }
     }
 
+    private void SpawnEnergyOrbsToPlayer()
+    {
+        if (energyOrbPrefab == null || player == null)
+            return;
+
+        for (int i = 0; i < energyOrbCount; i++)
+        {
+            // ⭐ 注意：生成点 = Boss 本体
+            GameObject orb = Instantiate(
+                energyOrbPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+
+            EnergyOrb energyOrb = orb.GetComponent<EnergyOrb>();
+            if (energyOrb != null)
+            {
+                energyOrb.Init(
+                    player,
+                    orbScatterSpeed,
+                    orbSeekSpeed,
+                    orbScatterDuration
+                );
+            }
+        }
+    }
     protected override void Die()
     {
         if (!isDead)

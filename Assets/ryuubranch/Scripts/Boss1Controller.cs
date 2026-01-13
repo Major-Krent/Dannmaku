@@ -51,6 +51,13 @@ public class Boss1Controller : EnemyBase
     [SerializeField] private float bulletSpeed;              // 现在暂时没用，先留着
     [SerializeField] private AttackPattern[] attackPatterns; // 以后扩展用
 
+    [Header("Phase Change Energy Orbs")]
+    [SerializeField] private GameObject energyOrbPrefab;
+    [SerializeField] private int energyOrbCount = 8;
+    [SerializeField] private float orbScatterSpeed = 4f;
+    [SerializeField] private float orbScatterDuration = 0.4f;
+    [SerializeField] private float orbSeekSpeed = 7f;
+
 
 
 
@@ -154,7 +161,7 @@ public class Boss1Controller : EnemyBase
         // 调整移动速度 & 行动加速倍率
         MoveSpeed = baseMoveSpeed * phase2MoveMul;
         actionSpeedMultiplier = phase2ActionMul;
-
+        SpawnEnergyOrbsToPlayer();
         Debug.Log("Enter Phase 2");
 
         // 如果你想 2 阶段用完全不同的技能循环，可以重启 Loop
@@ -166,7 +173,7 @@ public class Boss1Controller : EnemyBase
 
         MoveSpeed = baseMoveSpeed * phase3MoveMul;
         actionSpeedMultiplier = phase3ActionMul;
-
+        SpawnEnergyOrbsToPlayer();
         Debug.Log("Enter Phase 3");
 
         RestartBossLoop();
@@ -503,6 +510,32 @@ public class Boss1Controller : EnemyBase
         }
     }
 
+    private void SpawnEnergyOrbsToPlayer()
+    {
+        if (energyOrbPrefab == null || player == null)
+            return;
+
+        for (int i = 0; i < energyOrbCount; i++)
+        {
+            // ⭐ 注意：生成点 = Boss 本体
+            GameObject orb = Instantiate(
+                energyOrbPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+
+            EnergyOrb energyOrb = orb.GetComponent<EnergyOrb>();
+            if (energyOrb != null)
+            {
+                energyOrb.Init(
+                    player,
+                    orbScatterSpeed,
+                    orbSeekSpeed,
+                    orbScatterDuration
+                );
+            }
+        }
+    }
 
 
     protected override void Die()
