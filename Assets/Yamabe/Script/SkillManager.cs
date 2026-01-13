@@ -131,8 +131,10 @@ public class SkillManager : MonoBehaviour
             float ratio = 0f;
             foreach (var skill in skillData)
             {
-                if (skill.Type == SkillType.StatAdjustment)
-                    ratio += skill.LifestealRatio; 
+                if (skill.LifestealRatio > 0)
+                {
+                    ratio += skill.LifestealRatio;
+                }
             }
             return ratio;
         }

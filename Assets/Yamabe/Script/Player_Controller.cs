@@ -213,7 +213,16 @@ public class Player_Controller : MonoBehaviour
         }
         StartCoroutine(BecomeInvincible(damageInvincibleTime));
     }
+    public void Heal(float amount)
+    {
+        playerCurrentHp += amount;
 
+        if (playerCurrentHp > playerHp)
+        {
+            playerCurrentHp = playerHp;
+        }
+        UpdateHealthUI();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy_Bullet") && !_isDashing)
@@ -296,7 +305,7 @@ public class Player_Controller : MonoBehaviour
 
     private IEnumerator PerformMeleeAttack()
     {
-        float lifeSteel;
+        float lifeSteel = skillManager.TotalLifestealRatio;
         currentMeleeDamage = meleeDamage * skillManager.TotalDamageMultiplier;
         totalShots = 1 + skillManager.TotalExtraAttack;
 
@@ -306,7 +315,7 @@ public class Player_Controller : MonoBehaviour
             MeleeAttack meleeScript = meleeAttack.GetComponent<MeleeAttack>();
             if (meleeScript != null)
             {
-                meleeScript.Initialize(currentMeleeDamage, 0);
+                meleeScript.Initialize(currentMeleeDamage, lifeSteel);
             }
             if (totalShots > 1)
             {

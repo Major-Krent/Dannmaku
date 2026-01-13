@@ -18,6 +18,11 @@ public class SelectionManager : MonoBehaviour
         GameContext.SelectedCharacter = selectedCard.characterType;
         Debug.Log($"{selectedCard.characterType}");
 
+        if (SkillManager.Instance != null)
+        {
+            Destroy(SkillManager.Instance.gameObject);
+        }
+
         SceneMana sceneMana = FindFirstObjectByType<SceneMana>();
 
         if (sceneMana != null)

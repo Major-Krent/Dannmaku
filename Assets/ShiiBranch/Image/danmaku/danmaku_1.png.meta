@@ -1,19 +1,34 @@
 fileFormatVersion: 2
-guid: 6d05ed06b48e35f43b87aec3bdc003af
+guid: 66ae38ffe2e459540913ed5129bf6b4c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5966621866309598838
-    second: Fall_0
+      213: -8470513161308567838
+    second: danmaku_1_0
   - first:
-      213: -2069157278089061004
-    second: Fall_1
+      213: -6955325779538931819
+    second: danmaku_1_1
   - first:
-      213: 6596617931644657277
-    second: Fall_2
+      213: 4271773877415238244
+    second: danmaku_1_2
   - first:
-      213: 7514022213351704123
-    second: Fall_3
+      213: 6637928113429430145
+    second: danmaku_1_3
+  - first:
+      213: -3575183417669691939
+    second: danmaku_1_4
+  - first:
+      213: 6784438707368670550
+    second: danmaku_1_5
+  - first:
+      213: 5986141354672239118
+    second: danmaku_1_6
+  - first:
+      213: 2573910403117165810
+    second: danmaku_1_7
+  - first:
+      213: -5479535902151995932
+    second: danmaku_1_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,89 +124,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fall_0
+      name: danmaku_1_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 64
-        width: 28
-        height: 21
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a81c98d660d423da0800000000000000
-      internalID: -5966621866309598838
+      spriteID: 5f50245080c1b664fa942e8728351d98
+      internalID: -1063610752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_1
+      name: danmaku_1_1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 64
-        width: 28
-        height: 21
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 47d561f1b60e843e0800000000000000
-      internalID: -2069157278089061004
+      spriteID: d8b5c1d9484b3c547bcad2bfcbee697d
+      internalID: 585184218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_2
+      name: danmaku_1_2
       rect:
         serializedVersion: 2
-        x: 342
-        y: 64
-        width: 28
-        height: 21
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d7ed6a6fe05eb8b50800000000000000
-      internalID: 6596617931644657277
+      spriteID: de8af1256949c604799b550d41d28b06
+      internalID: 1168551840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_3
+      name: danmaku_1_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 64
-        width: 28
-        height: 21
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b36093d546b274860800000000000000
-      internalID: 7514022213351704123
+      spriteID: 05a6565f34b7ed64d9944aac1982a25f
+      internalID: 1230463411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: danmaku_1_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256fc718eb6ec7b46b37761cf0bd12ab
+      internalID: 1720304517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: danmaku_1_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81d9bef8f510ab4a9af283e85dfe351
+      internalID: 547196933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: danmaku_1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bf1b157dd014147b9b819abc4ebe3a
+      internalID: -907131222
       vertices: []
       indices: 
       edges: []
@@ -200,7 +281,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e4d155bce6265c645a63310e1dfd35a3
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +291,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fall_0: -5966621866309598838
-      Fall_1: -2069157278089061004
-      Fall_2: 6596617931644657277
-      Fall_3: 7514022213351704123
+      danmaku_1_0: -1063610752
+      danmaku_1_1: 585184218
+      danmaku_1_2: 1168551840
+      danmaku_1_3: 1230463411
+      danmaku_1_4: 1720304517
+      danmaku_1_5: 547196933
+      danmaku_1_6: -907131222
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

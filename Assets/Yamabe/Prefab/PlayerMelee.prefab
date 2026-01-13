@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2926539313647924718}
   - component: {fileID: 2306250878426551357}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerMelee
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   currentSpeed: 0
-  playerHp: 10
-  playerCurrentHp: 20000
+  playerHp: 20
+  playerCurrentHp: 0
   currentFireRate: 0
-  isMelee: 0
+  isMelee: 1
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
   playerAttackRate: 0.2
   totalShots: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   currentRangedDamage: 0
   attackPrefab: {fileID: 2852790785251541904, guid: f8f5dd3ca9a0ffb4a8beb4cf7eb412d2, type: 3}
   meleeAttackCooldown: 0.5
-  meleeDamage: 0
+  meleeDamage: 3
   currentMeleeDamage: 0
   dashSpeed: 15
   dashDuration: 0.2

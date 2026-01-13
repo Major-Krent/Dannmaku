@@ -6,9 +6,12 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] float damage = 10;
     [SerializeField] float attackLifetime = 0.2f;
     [SerializeField] float lifestealRatio = 0;
+
+    private Player_Controller ownerPlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ownerPlayer = GetComponentInParent<Player_Controller>();
         Destroy(gameObject, attackLifetime);
     }
 
@@ -20,10 +23,21 @@ public class MeleeAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemy"))
+        EnemyBase enemy = collision.GetComponent<EnemyBase>();
+        if (enemy != null)
         {
-            Boss1Controller boss1Controller = collision.GetComponent<Boss1Controller>();
-            boss1Controller.TakeDamage(damage);
+            enemy.TakeDamage(damage);
+            TryLifesteal();
         }
     }
+    private void TryLifesteal()
+    {
+        if (lifestealRatio > 0 && ownerPlayer != null)
+        {
+            float healAmount = damage * lifestealRatio;
+            ownerPlayer.Heal(healAmount); 
+           Debug.Log($"‹zŒŒ: {healAmount}");
+        }
+    }
+
 }

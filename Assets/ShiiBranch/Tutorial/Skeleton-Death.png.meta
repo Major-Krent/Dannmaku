@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 6d05ed06b48e35f43b87aec3bdc003af
+guid: 66af7ec99b8739249849fd77d5d79603
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5966621866309598838
-    second: Fall_0
+      213: -6446014624654344547
+    second: Skeleton-Death_0
   - first:
-      213: -2069157278089061004
-    second: Fall_1
+      213: 3109186938332489462
+    second: Skeleton-Death_1
   - first:
-      213: 6596617931644657277
-    second: Fall_2
+      213: -3761059524881590778
+    second: Skeleton-Death_2
   - first:
-      213: 7514022213351704123
-    second: Fall_3
+      213: -5862458259485764450
+    second: Skeleton-Death_3
+  - first:
+      213: -8722540506807829175
+    second: Skeleton-Death_4
+  - first:
+      213: 2538235334328061978
+    second: Skeleton-Death_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fall_0
+      name: Skeleton-Death_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 64
+        x: 42
+        y: 42
         width: 28
-        height: 21
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a81c98d660d423da0800000000000000
-      internalID: -5966621866309598838
+      spriteID: d9e3180f9d72b86a0800000000000000
+      internalID: -6446014624654344547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_1
+      name: Skeleton-Death_1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 64
-        width: 28
-        height: 21
+        x: 140
+        y: 42
+        width: 25
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47d561f1b60e843e0800000000000000
-      internalID: -2069157278089061004
+      spriteID: 6f6a7971c0d062b20800000000000000
+      internalID: 3109186938332489462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_2
+      name: Skeleton-Death_2
       rect:
         serializedVersion: 2
-        x: 342
-        y: 64
-        width: 28
-        height: 21
+        x: 165
+        y: 45
+        width: 10
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7ed6a6fe05eb8b50800000000000000
-      internalID: 6596617931644657277
+      spriteID: 60655500a480ecbc0800000000000000
+      internalID: -3761059524881590778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_3
+      name: Skeleton-Death_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 64
-        width: 28
-        height: 21
+        x: 240
+        y: 42
+        width: 26
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +196,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b36093d546b274860800000000000000
-      internalID: 7514022213351704123
+      spriteID: e94dbcc064d54aea0800000000000000
+      internalID: -5862458259485764450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton-Death_4
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 43
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d73c08f9f43f680800000000000000
+      internalID: -8722540506807829175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton-Death_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 42
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1018f2a69f993320800000000000000
+      internalID: 2538235334328061978
       vertices: []
       indices: 
       edges: []
@@ -210,10 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fall_0: -5966621866309598838
-      Fall_1: -2069157278089061004
-      Fall_2: 6596617931644657277
-      Fall_3: 7514022213351704123
+      Skeleton-Death_0: -6446014624654344547
+      Skeleton-Death_1: 3109186938332489462
+      Skeleton-Death_2: -3761059524881590778
+      Skeleton-Death_3: -5862458259485764450
+      Skeleton-Death_4: -8722540506807829175
+      Skeleton-Death_5: 2538235334328061978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

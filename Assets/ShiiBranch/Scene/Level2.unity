@@ -1485,9 +1485,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: skillData.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e79f645906dee042babec49f5fb85a1, type: 2}
+    - target: {fileID: -4724348213320898960, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: 'skillData.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 443995243185174230, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
+      propertyPath: isMelee
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1415261371682587877, guid: 5711ae96e6cc09b4ab670b74e3849540, type: 3}
       propertyPath: rangedDamage
