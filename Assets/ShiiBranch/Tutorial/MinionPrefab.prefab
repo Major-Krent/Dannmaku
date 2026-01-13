@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4977875, y: 1.2913387, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1313212629643749207}
   m_Father: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: -1984506825430022774, guid: 71953a5027fa682498d5b406080d96a5, type: 3}
+  m_Sprite: {fileID: -7854738478779454800, guid: c5d76e7964f8f5140a107f42c68ccef6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 2
   stopDistance: 3
-  bulletPrefab: {fileID: 3942600575781802857, guid: 46079831985e75c4799713b623cf4090, type: 3}
+  bulletPrefab: {fileID: 3942600575781802857, guid: 11a6708626bfef440ba2e0b2db4852a2, type: 3}
   firePoint: {fileID: 1313212629643749207}
   attackInterval: 2
   bulletSpeed: 5

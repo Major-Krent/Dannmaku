@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 6269b82fee1bb7441816f9e9ae78e22c
+guid: 32904b381fa407d418332b5661f611b1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 303854554312539980
-    second: Skeleton-Idle_0
+      213: 3267733624926472503
+    second: Slime-Death_0
   - first:
-      213: -7969776883741174648
-    second: Skeleton-Idle_1
+      213: 3762848702586534502
+    second: Slime-Death_1
   - first:
-      213: 2794140543023437591
-    second: Skeleton-Idle_2
+      213: -5406139641365456231
+    second: Slime-Death_2
   - first:
-      213: 2312121367507405550
-    second: Skeleton-Idle_3
-  - first:
-      213: 2762021949432706632
-    second: Skeleton-Idle_4
-  - first:
-      213: -7311285497288995999
-    second: Skeleton-Idle_5
+      213: -7174126916544593411
+    second: Slime-Death_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton-Idle_0
+      name: Slime-Death_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 42
-        width: 28
-        height: 17
+        x: 36
+        y: 39
+        width: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4ffe257b12873400800000000000000
-      internalID: 303854554312539980
+      spriteID: 739875e2b62595d20800000000000000
+      internalID: 3267733624926472503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton-Idle_1
+      name: Slime-Death_1
       rect:
         serializedVersion: 2
-        x: 142
-        y: 42
-        width: 28
-        height: 17
+        x: 136
+        y: 39
+        width: 24
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 884dc71662aa56190800000000000000
-      internalID: -7969776883741174648
+      spriteID: 66ab53565f2583430800000000000000
+      internalID: 3762848702586534502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton-Idle_2
+      name: Slime-Death_2
       rect:
         serializedVersion: 2
-        x: 242
-        y: 42
-        width: 28
-        height: 18
+        x: 237
+        y: 39
+        width: 23
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 717dd671508c6c620800000000000000
-      internalID: 2794140543023437591
+      spriteID: 99a114e93a889f4b0800000000000000
+      internalID: -5406139641365456231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton-Idle_3
+      name: Slime-Death_3
       rect:
         serializedVersion: 2
-        x: 342
-        y: 42
-        width: 28
-        height: 18
+        x: 336
+        y: 39
+        width: 24
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,52 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eea8ed3322e461020800000000000000
-      internalID: 2312121367507405550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton-Idle_4
-      rect:
-        serializedVersion: 2
-        x: 442
-        y: 42
-        width: 28
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 846b4c5445ca45620800000000000000
-      internalID: 2762021949432706632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton-Idle_5
-      rect:
-        serializedVersion: 2
-        x: 542
-        y: 42
-        width: 28
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 16bcf9ab398198a90800000000000000
-      internalID: -7311285497288995999
+      spriteID: df18acd5491607c90800000000000000
+      internalID: -7174126916544593411
       vertices: []
       indices: 
       edges: []
@@ -260,12 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skeleton-Idle_0: 303854554312539980
-      Skeleton-Idle_1: -7969776883741174648
-      Skeleton-Idle_2: 2794140543023437591
-      Skeleton-Idle_3: 2312121367507405550
-      Skeleton-Idle_4: 2762021949432706632
-      Skeleton-Idle_5: -7311285497288995999
+      Slime-Death_0: 3267733624926472503
+      Slime-Death_1: 3762848702586534502
+      Slime-Death_2: -5406139641365456231
+      Slime-Death_3: -7174126916544593411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

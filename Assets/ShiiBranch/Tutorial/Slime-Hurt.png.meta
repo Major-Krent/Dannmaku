@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: d1ee8c38afbafad438134d7373529ae1
+guid: edff1d6fc3bb2a8408eb44cbe240e239
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6777940647977485059
-    second: Skeleton-Block_0
+      213: -7749777930331861276
+    second: Slime-Hurt_0
   - first:
-      213: -3500688462857162803
-    second: Skeleton-Block_1
+      213: -8746592011375269112
+    second: Slime-Hurt_1
   - first:
-      213: -7221624802196553505
-    second: Skeleton-Block_2
+      213: 4191326187784098674
+    second: Slime-Hurt_2
   - first:
-      213: -1022539800141740461
-    second: Skeleton-Block_3
+      213: 5317551540973683370
+    second: Slime-Hurt_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton-Block_0
+      name: Slime-Hurt_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 42
-        width: 28
-        height: 17
+        x: 36
+        y: 39
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3030167bb15101e50800000000000000
-      internalID: 6777940647977485059
+      spriteID: 4ee486e4802437490800000000000000
+      internalID: -7749777930331861276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton-Block_1
+      name: Slime-Hurt_1
       rect:
         serializedVersion: 2
-        x: 146
-        y: 42
-        width: 24
-        height: 17
+        x: 136
+        y: 39
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dcf2716f36e0b6fc0800000000000000
-      internalID: -3500688462857162803
+      spriteID: 80b25b638ecdd9680800000000000000
+      internalID: -8746592011375269112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton-Block_2
+      name: Slime-Hurt_2
       rect:
         serializedVersion: 2
-        x: 246
-        y: 42
-        width: 24
-        height: 17
+        x: 236
+        y: 39
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd08ce31182a7cb90800000000000000
-      internalID: -7221624802196553505
+      spriteID: 273d9a016f49a2a30800000000000000
+      internalID: 4191326187784098674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton-Block_3
+      name: Slime-Hurt_3
       rect:
         serializedVersion: 2
-        x: 346
-        y: 42
-        width: 24
-        height: 17
+        x: 336
+        y: 39
+        width: 25
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3564adb28753fc1f0800000000000000
-      internalID: -1022539800141740461
+      spriteID: aa24192f3fcbbc940800000000000000
+      internalID: 5317551540973683370
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skeleton-Block_0: 6777940647977485059
-      Skeleton-Block_1: -3500688462857162803
-      Skeleton-Block_2: -7221624802196553505
-      Skeleton-Block_3: -1022539800141740461
+      Slime-Hurt_0: -7749777930331861276
+      Slime-Hurt_1: -8746592011375269112
+      Slime-Hurt_2: 4191326187784098674
+      Slime-Hurt_3: 5317551540973683370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
