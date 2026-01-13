@@ -741,7 +741,7 @@ public class Boss2Controller : EnemyBase
 
         // 移除血条
         Destroy(healthSlider.gameObject);
-
+        base.Die();
         // 最终销毁 Boss
         //Destroy(gameObject);
     }
