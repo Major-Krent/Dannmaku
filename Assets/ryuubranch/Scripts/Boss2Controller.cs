@@ -743,7 +743,7 @@ public class Boss2Controller : EnemyBase
         Destroy(healthSlider.gameObject);
 
         // 最终销毁 Boss
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     public void OnDeathAnimationFinished()
     {
