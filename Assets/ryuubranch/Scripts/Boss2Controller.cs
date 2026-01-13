@@ -55,6 +55,12 @@ public class Boss2Controller : EnemyBase
     [SerializeField] private float orbScatterDuration = 0.4f;
     [SerializeField] private float orbSeekSpeed = 7f;
 
+    [Header("Death Effect")]
+    [SerializeField] private float deathFlashDuration = 3f;
+    [SerializeField] private float deathFlashInterval = 0.15f;
+
+    private SpriteRenderer spriteRenderer;
+
     // ===== 刀围成圆的沟壑技能（只在代码里调参）=====
     private float knifeSpacing = 0.6f;       // 相邻刀“沿圆周”的间隔（世界坐标弧长）
     private float craterWarningTime = 0.6f;  // 预警时间
@@ -67,7 +73,7 @@ public class Boss2Controller : EnemyBase
     private Rigidbody2D rb;
     private bool isDie = false;
     private bool isDead = false;
-    private bool isCasting=false;
+    private bool isCasting = false;
 
     public Slider healthSlider;
 
@@ -102,6 +108,12 @@ public class Boss2Controller : EnemyBase
         radialSpinSpeed = 35f;       // 每秒旋转角速度（度）
 
         aimTime = 1.0f;
+
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        base.Start();
+        ResetSkillCycle();
 
     }
 
@@ -186,7 +198,7 @@ public class Boss2Controller : EnemyBase
         // 调整移动速度 & 行动加速倍率
         MoveSpeed = baseMoveSpeed * phase2MoveMul;
         actionSpeedMultiplier = phase2ActionMul;
-
+        SpawnEnergyOrbsToPlayer();
         Debug.Log("Enter Phase 2");
 
         // 如果你想 2 阶段用完全不同的技能循环，可以重启 Loop
@@ -198,7 +210,7 @@ public class Boss2Controller : EnemyBase
 
         MoveSpeed = baseMoveSpeed * phase3MoveMul;
         actionSpeedMultiplier = phase3ActionMul;
-
+        SpawnEnergyOrbsToPlayer();
         Debug.Log("Enter Phase 3");
 
         RestartBossLoop();
@@ -379,7 +391,7 @@ public class Boss2Controller : EnemyBase
     /// </summary>
     private IEnumerator Skill_SlantLasers(float angleDeg)
     {
-        isCasting=true;
+        isCasting = true;
         anim.SetTrigger("isCast1");
         // 射线方向（用来确定旋转角度）
         float rad = angleDeg * Mathf.Deg2Rad;
@@ -672,23 +684,98 @@ public class Boss2Controller : EnemyBase
             }
         }
     }
-    protected override void Die()
+
+    private void ClearAllEnemyObjects()
     {
-        if (!isDead)
+        string[] tags =
         {
-            SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
+        "Enemy_Bullet",
+        "Enemy_Warn"
+
+    };
+
+        foreach (string tag in tags)
+        {
+            GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
+            foreach (GameObject obj in objs)
+            {
+                Destroy(obj);
+            }
         }
+    }
+    private IEnumerator DeathFlashRoutine()
+    {
+        float t = 0f;
+        bool isRed = false;
+
+        while (t < deathFlashDuration)
+        {
+            isRed = !isRed;
+            spriteRenderer.color = isRed ? Color.red : Color.white;
+
+            yield return new WaitForSeconds(deathFlashInterval);
+            t += deathFlashInterval;
+        }
+
+        spriteRenderer.color = Color.white;
+    }
+    private IEnumerator DeathSequence()
+    {
+        // 红白闪烁 3 秒
+        yield return StartCoroutine(DeathFlashRoutine());
+
+        // 播放死亡动画
+        anim.SetTrigger("isDying");
+
+        // 等动画播放完（推荐用 Animation Event，先给安全值）
+        yield return new WaitForSeconds(2.5f);
+
+        // 弹出技能选择卡片
+        SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
+
+        // 通知战斗管理器
         if (BossBattleManager.Instance != null)
         {
             BossBattleManager.Instance.OnBossDefeated();
         }
-        isDead = true;
+
+        // 移除血条
         Destroy(healthSlider.gameObject);
-        base.Die();
-        anim.SetTrigger("isDie");
-        StopAllCoroutines();
-        isChasing = false;
+
+        // 最终销毁 Boss
+        Destroy(gameObject);
+    }
+    public void OnDeathAnimationFinished()
+    {
+        SkillSelectionManager.Instance.TriggerSkillSelection(3, true);
+
+        if (BossBattleManager.Instance != null)
+            BossBattleManager.Instance.OnBossDefeated();
+
+        Destroy(gameObject);
     }
 
+    protected override void Die()
+    {
+        if (isDead) return;
+        isDead = true;
 
+        // 1️⃣ 停止一切行为
+        StopAllCoroutines();
+        isChasing = false;
+        isCasting = false;
+        isDie = true;
+
+        // 2️⃣ 清场
+        ClearAllEnemyObjects();
+
+        // 3️⃣ 关闭碰撞 & 刚体
+        if (rb != null) rb.linearVelocity = Vector2.zero;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        // 4️⃣ 启动死亡演出流程
+        StartCoroutine(DeathSequence());
+
+    }
 }

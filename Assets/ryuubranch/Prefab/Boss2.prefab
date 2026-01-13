@@ -125,6 +125,13 @@ MonoBehaviour:
   radialSpinDuration: 2.5
   radialSpinSpeed: 60
   aimTime: 1
+  energyOrbPrefab: {fileID: 5390523543233658620, guid: 601d0852a9dda0d4aa1b2ebce6f4d4e4, type: 3}
+  energyOrbCount: 8
+  orbScatterSpeed: 4
+  orbScatterDuration: 0.4
+  orbSeekSpeed: 7
+  deathFlashDuration: 3
+  deathFlashInterval: 0.15
   craterKnifePrefab: {fileID: 3821966400589503502, guid: 40c8eb3d17a2656428f5e2d81d36a2e5, type: 3}
   healthSlider: {fileID: 0}
 --- !u!50 &2571204123394536580

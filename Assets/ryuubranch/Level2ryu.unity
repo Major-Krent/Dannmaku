@@ -396,6 +396,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1794546160}
+    - target: {fileID: 4411706446575350855, guid: 40db5d2c2c0b49a4fa7f3fc79cd29791, type: 3}
+      propertyPath: energyOrbPrefab
+      value: 
+      objectReference: {fileID: 5390523543233658620, guid: 601d0852a9dda0d4aa1b2ebce6f4d4e4, type: 3}
     - target: {fileID: 6645682180204050929, guid: 40db5d2c2c0b49a4fa7f3fc79cd29791, type: 3}
       propertyPath: m_Name
       value: Boss2
@@ -613,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 405873273}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 4.5, z: -10}
+  m_LocalPosition: {x: -7.2222233, y: 6.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
