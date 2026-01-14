@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5407e68bd1bdc945b51b68ff0564853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 5
+  currentHP: 10
   player: {fileID: 0}
   moveSpeed: 2
   stopDistance: 3
@@ -198,6 +198,7 @@ MonoBehaviour:
   firePoint: {fileID: 1313212629643749207}
   attackInterval: 2
   bulletSpeed: 5
+  hp: 10
 --- !u!1 &7784086636111723877
 GameObject:
   m_ObjectHideFlags: 0

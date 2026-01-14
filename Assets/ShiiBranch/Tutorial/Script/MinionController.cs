@@ -21,7 +21,7 @@ public class MinionController : EnemyBase
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
-        HP = 30f;
+        HP = 10f;
         currentHP = HP;
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.isTrigger = true;
