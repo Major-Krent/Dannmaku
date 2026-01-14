@@ -44,7 +44,7 @@ public class Player_Controller : MonoBehaviour
     private SkillManager skillManager;
     private Rigidbody2D rb;
     private Collider2D col;
-    //private Animator animator;
+    private Animator animator;
     private float shotTime;
     private float nextFireTime = 0.0f;
     private float nextAttackTime = 0.0f;
@@ -60,7 +60,7 @@ public class Player_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         mainCamera = Camera.main;
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         //CalculateMoveBounds();
         //---------------------------------------------
         BindCamera();
@@ -119,6 +119,7 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleFlip();
         if (!_isDashing)
         {
             MovePlayer();
@@ -150,14 +151,14 @@ public class Player_Controller : MonoBehaviour
         moveInput = new Vector2(moveX, moveY).normalized;
         currentSpeed = playerSpeed * skillManager.TotalMoveSpeedMultiplier;
         rb.linearVelocity = moveInput * currentSpeed;
-        /*if(moveInput.magnitude>0.1f)
+        if(moveInput.magnitude>0.1f)
         {
             animator.SetBool("Walk", true);
         }
         else
         {
             animator.SetBool("Walk", false);
-        }*/
+        }
     }
 
     private void Dash()
@@ -203,9 +204,11 @@ public class Player_Controller : MonoBehaviour
 
     void MeleeAttack()
     {
+        
         currentFireRate = meleeAttackCooldown / Mathf.Max(skillManager.TotalAttackARateMultiplier);
         if (Input.GetMouseButton(0) && Time.time > nextAttackTime)
         {
+            
             Debug.Log("埼玉！！");
             nextAttackTime = Time.time + currentFireRate;
             StartCoroutine(PerformMeleeAttack());
@@ -214,6 +217,7 @@ public class Player_Controller : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        animator.Play("TakeDamage");
         if (_isInvincible) return;
         playerCurrentHp -= damage;
         UpdateHealthUI();
@@ -263,6 +267,7 @@ public class Player_Controller : MonoBehaviour
     }
     private void Die()
     {
+        animator.Play("Die");
         Debug.Log("Player die");
         //Destroy(gameObject);
 
@@ -276,6 +281,7 @@ public class Player_Controller : MonoBehaviour
 
     private IEnumerator PerformRangedAttack()
     {
+        animator.Play("RangeAttack");
         currentRangedDamage = rangedDamage * skillManager.TotalDamageMultiplier;
         totalShots = 1 + skillManager.TotalExtraAttack;
 
@@ -321,6 +327,7 @@ public class Player_Controller : MonoBehaviour
 
         for (int i = 0; i < totalShots; i++)
         {
+            animator.Play("MeleeAttack");
             GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
             MeleeAttack meleeScript = meleeAttack.GetComponent<MeleeAttack>();
             if (meleeScript != null)
@@ -339,5 +346,23 @@ public class Player_Controller : MonoBehaviour
         _isInvincible = true;
         yield return new WaitForSeconds(duration);
         _isInvincible = false;
+    }
+
+    void HandleFlip()
+    {
+        // マウスのワールド座標を取得
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        // プレイヤーの右側にマウスがあるかチェック
+        if (mousePos.x > transform.position.x)
+        {
+            // 右向き（元のサイズ）
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            // 左向き（Xをマイナスにして反転）
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 }
