@@ -44,6 +44,7 @@ public class Player_Controller : MonoBehaviour
     private SkillManager skillManager;
     private Rigidbody2D rb;
     private Collider2D col;
+    //private Animator animator;
     private float shotTime;
     private float nextFireTime = 0.0f;
     private float nextAttackTime = 0.0f;
@@ -59,6 +60,7 @@ public class Player_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         mainCamera = Camera.main;
+        //animator = GetComponent<Animator>();
         //CalculateMoveBounds();
         //---------------------------------------------
         BindCamera();
@@ -148,6 +150,14 @@ public class Player_Controller : MonoBehaviour
         moveInput = new Vector2(moveX, moveY).normalized;
         currentSpeed = playerSpeed * skillManager.TotalMoveSpeedMultiplier;
         rb.linearVelocity = moveInput * currentSpeed;
+        /*if(moveInput.magnitude>0.1f)
+        {
+            animator.SetBool("Walk", true);
+        }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }*/
     }
 
     private void Dash()
