@@ -4,12 +4,7 @@ using System.Collections;
 public class MinionController : EnemyBase
 {
     [SerializeField] protected float moveSpeed = 2.0f;
-    [SerializeField] private float stopDistance = 3.0f;
-
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float attackInterval = 2.0f; 
-    [SerializeField] private float bulletSpeed = 5.0f;
+    [SerializeField] private float stopDistance = 1.2f;
 
     private Rigidbody2D rb;
     private Animator anim; 
@@ -20,14 +15,24 @@ public class MinionController : EnemyBase
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 0f;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.isTrigger = false;
+        }
         HP = 10f;
         currentHP = HP;
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.isTrigger = true;
+        if (player == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) player = p.transform;
+        }
         base.Start();
 
-        StartCoroutine(AttackRoutine());
     }
 
     // Update is called once per frame
@@ -50,43 +55,17 @@ public class MinionController : EnemyBase
             if (dir.x > 0) transform.localScale = new Vector3(1, 1, 1);
             else if (dir.x < 0) transform.localScale = new Vector3(-1, 1, 1);
 
-            transform.position += (Vector3)dir * moveSpeed * Time.deltaTime;
+            Vector2 newPos = rb.position + dir * moveSpeed * Time.deltaTime;
+            rb.MovePosition(newPos);
             if (anim != null) anim.SetBool("isWalking", true);
         }
+        else
         {
+            rb.linearVelocity = Vector2.zero;
             if (anim != null) anim.SetBool("isWalking", false);
         }
     }
-    private IEnumerator AttackRoutine()
-    {
 
-        yield return new WaitForSeconds(1.0f);
-
-        while (!isDead)
-        {
-            if (player != null && Vector2.Distance(transform.position, player.position) < 15f)
-            {
-                ShootAtPlayer();
-            }
-            yield return new WaitForSeconds(attackInterval);
-        }
-    }
-
-    private void ShootAtPlayer()
-    {
-        if (isDead) return;
-        if (bulletPrefab == null || firePoint == null || player == null) return;
-
-        Vector2 dir = (player.position - firePoint.position).normalized;
-
-        GameObject obj = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-
-        BulletBase bullet = obj.GetComponent<BulletBase>();
-        if (bullet != null)
-        {
-            bullet.Init(dir, bulletSpeed);
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -119,13 +98,14 @@ public class MinionController : EnemyBase
         {
             anim.SetTrigger("Die");
         }
-
+        rb.linearVelocity = Vector2.zero;
+        rb.isKinematic = true;
         StartCoroutine(DestroyAfterDelay());
 
         Collider2D col = GetComponent<Collider2D>();
         if (col) col.enabled = false;
 
-        Destroy(gameObject, 0.5f);
+        StartCoroutine(DestroyAfterDelay());
 
         base.Die();
     }
