@@ -51,6 +51,7 @@ public class Player_Controller : MonoBehaviour
     private float _nextDashTime = 0.0f;
     private Vector2 moveInput;
     private Camera mainCamera;
+    private bool isDie=false;
     [SerializeField] private Slider hpBarSlider;
     void Start()
     {
@@ -119,21 +120,23 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleFlip();
-        if (!_isDashing)
+        if (!isDie)
         {
-            MovePlayer();
+            HandleFlip();
+            if (!_isDashing)
+            {
+                MovePlayer();
+            }
+            Dash();
+            if (isMelee)
+            {
+                MeleeAttack();
+            }
+            else
+            {
+                ShootBullet();
+            }
         }
-        Dash();
-        if (isMelee)
-        {
-            MeleeAttack();
-        }
-        else
-        {
-            ShootBullet();
-        }
-
     }
     void LateUpdate()
     {
@@ -217,15 +220,18 @@ public class Player_Controller : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        animator.Play("TakeDamage");
-        if (_isInvincible) return;
-        playerCurrentHp -= damage;
-        UpdateHealthUI();
-        if (playerCurrentHp < 0)
+        if (!isDie)
         {
-            Die();
+            animator.Play("TakeDamage");
+            if (_isInvincible) return;
+            playerCurrentHp -= damage;
+            UpdateHealthUI();
+            if (playerCurrentHp < 0)
+            {
+                Die();
+            }
+            StartCoroutine(BecomeInvincible(damageInvincibleTime));
         }
-        StartCoroutine(BecomeInvincible(damageInvincibleTime));
     }
     public void Heal(float amount)
     {
@@ -269,6 +275,7 @@ public class Player_Controller : MonoBehaviour
     {
         animator.Play("Die");
         Debug.Log("Player die");
+        isDie = true;
         //Destroy(gameObject);
 
         //ゲームオーバーUIを呼び出す
