@@ -80,6 +80,8 @@ public class Player_Controller : MonoBehaviour
         BindCamera();
         BindUI();
         UpdateHealthUI();
+        isDie = false;
+        animator.Play("Idle");
     }
     private void BindUI()
     {
