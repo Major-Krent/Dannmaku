@@ -7,6 +7,7 @@ public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private int nextSceneIndex = 2;
     private bool isTransitioning = false;
+    public SceneMana sceneMana;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnCharacterSelected(CharacterCard selectedCard)
     {

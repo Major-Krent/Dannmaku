@@ -5,11 +5,10 @@ using System.Collections;
 public class SceneMana : MonoBehaviour
 {
     [SerializeField] private CanvasGroup fadeCanvasGroup;
-    [SerializeField] private float fadeDuration = 2.0f;
-
+    [SerializeField] private float fadeDuration = 1.0f;
 
     private bool isTransitioning = false;
-
+    public bool CanInteract => !isTransitioning;
     void Start()
     {
         fadeCanvasGroup.alpha = 1;
@@ -18,10 +17,35 @@ public class SceneMana : MonoBehaviour
     }
     public void LoadLevelByIndex(int sceneIndex)
     {
-        if (isTransitioning) return;
+        StartCoroutine(WaitAndLoad(sceneIndex));
+    }
+    private IEnumerator WaitAndLoad(int sceneIndex)
+    {
+        while (isTransitioning && fadeCanvasGroup.alpha > 0)
+        {
+            yield return null;
+        }
+
         StartCoroutine(FadeOutAndLoad(sceneIndex));
     }
+    IEnumerator FadeIn()
+    {
+        isTransitioning = true;
+        fadeCanvasGroup.blocksRaycasts = true;
+        fadeCanvasGroup.alpha = 1;
 
+        float timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            fadeCanvasGroup.alpha = Mathf.Lerp(1, 0, timer / fadeDuration);
+            yield return null;
+        }
+        fadeCanvasGroup.alpha = 0;
+        fadeCanvasGroup.blocksRaycasts = false;
+
+        isTransitioning = false;
+    }
     IEnumerator FadeOutAndLoad(int sceneIndex)
     {
         isTransitioning = true;
@@ -44,24 +68,8 @@ public class SceneMana : MonoBehaviour
         else
         {
             Debug.LogError($"ƒV[ƒ“‚ª‚ ‚è‚Ü‚¹‚ñ");
+            isTransitioning = false;
         }
     }
-    IEnumerator FadeIn()
-    {
-        isTransitioning = true;
-        fadeCanvasGroup.blocksRaycasts = true;
-        fadeCanvasGroup.alpha = 1;
-
-        float timer = 0;
-        while (timer < fadeDuration)
-        {
-            timer += Time.deltaTime;
-            fadeCanvasGroup.alpha = Mathf.Lerp(1, 0, timer / fadeDuration);
-            yield return null;
-        }
-        fadeCanvasGroup.alpha = 0;
-        fadeCanvasGroup.blocksRaycasts = false;
-
-        isTransitioning = false;
-    }
+   
 }
