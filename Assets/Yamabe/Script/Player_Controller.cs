@@ -35,7 +35,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float dashSpeed = 15.0f;
     [SerializeField] float dashDuration = 0.2f;
     [SerializeField] float dashCooltime = 1.0f;
-    [SerializeField] private bool _isDashing = false;
+    [SerializeField] public bool _isDashing = false;
     [Header("ñ≥ìGéûä‘ê›íË")]
     [SerializeField] float damageInvincibleTime = 1.5f;
     private bool _isInvincible = false;
@@ -320,7 +320,7 @@ public class Player_Controller : MonoBehaviour
             BulletController bulletScript = bullet.GetComponent<BulletController>();
             if (bulletScript != null)
             {
-                bulletScript.Initialize(currentRangedDamage);
+                bulletScript.Initialize(currentRangedDamage,skillManager.HomingShot);
             }
             if (totalShots > 1)
             {

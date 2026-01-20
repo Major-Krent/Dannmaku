@@ -54,6 +54,8 @@ public class SkillData : ScriptableObject
 
     [Header("自動攻撃・新しいスキル")]
     [SerializeField] private GameObject _effectPrefab; //バリア、追跡弾のPrefab
+    [SerializeField] private bool _isHomingShot;
+    [SerializeField] private bool _isChargeAttack;
 
     [SerializeField, Tooltip("クールダウン時間（秒),0の場合はクールダウンなし。")]
     private float _cooldownDuration;//-= Time.deltaTime
@@ -76,4 +78,6 @@ public class SkillData : ScriptableObject
     public float CooldownDuration => _cooldownDuration;
     public SkillData NextLevelSkill => _nextLevelSkill;
     public SkillCompatibility Compatibility => _compatibility;
+    public bool IsHomingShot=> _isHomingShot;
+    public bool IsChargeAttack=> _isChargeAttack;
 }

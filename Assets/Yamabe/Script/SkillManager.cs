@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class SkillManager : MonoBehaviour
 {
@@ -137,6 +138,38 @@ public class SkillManager : MonoBehaviour
                 }
             }
             return ratio;
+        }
+    }
+
+    public bool HomingShot
+    {
+        get
+        {
+            bool flag = false;
+            foreach (var skill in skillData)
+            {
+                if (skill.IsHomingShot) 
+                {
+                    flag = true;
+                }
+            }
+            return flag;
+        }
+    }
+
+    public bool ChargeAttack
+    {
+        get
+        {
+            bool flag = false;
+            foreach (var skill in skillData)
+            {
+                if (skill.IsChargeAttack)
+                {
+                    flag = true;
+                }
+            }
+            return flag;
         }
     }
 

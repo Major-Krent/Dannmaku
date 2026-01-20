@@ -25,9 +25,10 @@ public class BulletController : MonoBehaviour
     private Vector2 _moveDirection;
     private float _lifestealRatio;
 
-    public void Initialize(float _damage)
+    public void Initialize(float _damage,bool _homing)
     {
         this.damage = _damage;
+        this.enableHoming = _homing;
         _moveDirection = transform.up;
     }
 

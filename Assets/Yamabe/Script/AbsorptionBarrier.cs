@@ -15,10 +15,13 @@ public class AbsorptionBarrier : MonoBehaviour
     [Tooltip("îjâÛéûÇÃâπ")]
     [SerializeField] private AudioClip breakSound;
     [SerializeField] private float soundVolume = 1.0f;
+    
 
     private SpriteRenderer spriteRenderer;
+    private Player_Controller controller;
     void Start()
     {
+        controller = GetComponentInParent<Player_Controller>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         AudioSource.PlayClipAtPoint(deploySound, Camera.main.transform.position, soundVolume);
         UpdateAlpha();
@@ -27,7 +30,7 @@ public class AbsorptionBarrier : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // "EnemyBullet"ÅiìGÇÃíeÅjÇ…ìñÇΩÇ¡ÇΩèÍçá
-        if (collision.CompareTag("Enemy_Bullet"))
+        if (collision.CompareTag("Enemy_Bullet")&&!controller._isDashing)
         {
             AbsorbAttack(collision.gameObject);
         }
