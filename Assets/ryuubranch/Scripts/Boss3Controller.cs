@@ -111,7 +111,7 @@ public class Boss3Controller : EnemyBase
 
         rangedWindup = 0.33f;
         rangedRecover = 0.22f;
-        lightEggSpeed = 14f;
+        lightEggSpeed = 30f;
 
         separationDashSpeed = 12f;
         separationDashTime = 0.18f;
