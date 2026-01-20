@@ -278,14 +278,15 @@ public class Player_Controller : MonoBehaviour
         animator.Play("Die");
         Debug.Log("Player die");
         isDie = true;
+        rb.linearVelocity = new(0f, 0f);
         //Destroy(gameObject);
 
         //ゲームオーバーUIを呼び出す
-        GameOverManager gm = FindFirstObjectByType<GameOverManager>();
+        /*GameOverManager gm = FindFirstObjectByType<GameOverManager>();
         if (gm != null)
         {
             gm.ShowGameOver();
-        }
+        }*/
     }
 
     private IEnumerator PerformRangedAttack()
