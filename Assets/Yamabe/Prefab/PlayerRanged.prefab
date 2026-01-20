@@ -125,7 +125,7 @@ MonoBehaviour:
   currentFireRate: 0
   isMelee: 0
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
-  playerAttackRate: 0.2
+  playerAttackRate: 0.5
   totalShots: 0
   rangedDamage: 1
   currentRangedDamage: 0
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443995243185174230}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 3666765154405282171}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 1.22, z: 0}
+  m_LocalPosition: {x: 0.58, y: 1.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

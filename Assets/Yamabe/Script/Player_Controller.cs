@@ -282,11 +282,11 @@ public class Player_Controller : MonoBehaviour
         //Destroy(gameObject);
 
         //ゲームオーバーUIを呼び出す
-        /*GameOverManager gm = FindFirstObjectByType<GameOverManager>();
+        GameOverManager gm = FindFirstObjectByType<GameOverManager>();
         if (gm != null)
         {
             gm.ShowGameOver();
-        }*/
+        }
     }
 
     private IEnumerator PerformRangedAttack()

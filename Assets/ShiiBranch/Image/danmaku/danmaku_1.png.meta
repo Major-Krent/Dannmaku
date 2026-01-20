@@ -11,24 +11,6 @@ TextureImporter:
   - first:
       213: 4271773877415238244
     second: danmaku_1_2
-  - first:
-      213: 6637928113429430145
-    second: danmaku_1_3
-  - first:
-      213: -3575183417669691939
-    second: danmaku_1_4
-  - first:
-      213: 6784438707368670550
-    second: danmaku_1_5
-  - first:
-      213: 5986141354672239118
-    second: danmaku_1_6
-  - first:
-      213: 2573910403117165810
-    second: danmaku_1_7
-  - first:
-      213: -5479535902151995932
-    second: danmaku_1_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f50245080c1b664fa942e8728351d98
-      internalID: -1063610752
+      spriteID: a5436f19329157641ae600067d6c1b85
+      internalID: 1753497083
       vertices: []
       indices: 
       edges: []
@@ -161,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8b5c1d9484b3c547bcad2bfcbee697d
-      internalID: 585184218
+      spriteID: a800c5a4cbd5f2d40b6eab6b6be6acf6
+      internalID: 1514911656
       vertices: []
       indices: 
       edges: []
@@ -183,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8af1256949c604799b550d41d28b06
-      internalID: 1168551840
+      spriteID: 37cf3ff63077df545b77f5324c0e67c4
+      internalID: 225809785
       vertices: []
       indices: 
       edges: []
@@ -205,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05a6565f34b7ed64d9944aac1982a25f
-      internalID: 1230463411
+      spriteID: 49b467b4db41ccd4597a71fc520c3255
+      internalID: 1606944533
       vertices: []
       indices: 
       edges: []
@@ -227,8 +209,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 256fc718eb6ec7b46b37761cf0bd12ab
-      internalID: 1720304517
+      spriteID: 2f3b1f9a276d210418690fc27ddb9694
+      internalID: -1175371822
       vertices: []
       indices: 
       edges: []
@@ -249,8 +231,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b81d9bef8f510ab4a9af283e85dfe351
-      internalID: 547196933
+      spriteID: da59e062d973e8340ab48bdd88ccbada
+      internalID: -243399524
       vertices: []
       indices: 
       edges: []
@@ -271,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10bf1b157dd014147b9b819abc4ebe3a
-      internalID: -907131222
+      spriteID: dc30961d3b742c443b396db78ce47fa9
+      internalID: 2110115557
       vertices: []
       indices: 
       edges: []
@@ -281,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e4d155bce6265c645a63310e1dfd35a3
+    spriteID: a0f9d1e86c68f7b4c9b1b5a5b8ef3a1b
     internalID: 0
     vertices: []
     indices: 
@@ -291,13 +273,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      danmaku_1_0: -1063610752
-      danmaku_1_1: 585184218
-      danmaku_1_2: 1168551840
-      danmaku_1_3: 1230463411
-      danmaku_1_4: 1720304517
-      danmaku_1_5: 547196933
-      danmaku_1_6: -907131222
+      danmaku_1_0: 1753497083
+      danmaku_1_1: 1514911656
+      danmaku_1_2: 225809785
+      danmaku_1_3: 1606944533
+      danmaku_1_4: -1175371822
+      danmaku_1_5: -243399524
+      danmaku_1_6: 2110115557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,6 +7,7 @@ public class GameOverManager : MonoBehaviour
     [SerializeField]private GameObject gameOverPanel;
     [Header("アニメーション")]
     [SerializeField] private float fadeDuration = 1.0f;
+    [SerializeField] private float delayBeforeGameOver = 3.0f;
     private CanvasGroup canvasGroup;
     private void Awake()
     {
@@ -40,12 +41,19 @@ public class GameOverManager : MonoBehaviour
     }
     public void ShowGameOver()
     {
+        StartCoroutine(GameOverSequence());
+    }
+    private IEnumerator GameOverSequence()
+    {
+        yield return new WaitForSeconds(delayBeforeGameOver);
         gameOverPanel.SetActive(true);
         if (canvasGroup != null) canvasGroup.alpha = 0f;
         StartCoroutine(FadeInCoroutine());
+
     }
     private IEnumerator FadeInCoroutine()
     {
+
         Time.timeScale = 0f;
         float timer = 0f;
         while (timer < fadeDuration)
