@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class EnemyBase : MonoBehaviour
     [Header("PlayeréQè∆")]
     [SerializeField] protected Transform player;
 
+    protected SpriteRenderer sprite;
+    [SerializeField] protected Color hitColor = Color.red;
+    [SerializeField] protected float flashDuration = 0.1f;
+    [SerializeField] protected int flashCount = 2;
 
+    private Color originalColor;
+    private Coroutine hitFlashCo;
 
 
 
@@ -18,6 +25,12 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Start()
     {
         currentHP = HP;
+
+        if (sprite == null)
+            sprite = GetComponentInChildren<SpriteRenderer>();
+
+        if (sprite != null)
+            originalColor = sprite.color;
     }
 
     private void OnEnable()
@@ -75,10 +88,37 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         currentHP -= damage;
+        PlayHitFlash();
+
         if (currentHP < 0)
         {
             Die();
         }
+    }
+
+    protected void PlayHitFlash()
+    {
+        if (sprite == null) return;
+
+        if (hitFlashCo != null)
+            StopCoroutine(hitFlashCo);
+
+        hitFlashCo = StartCoroutine(HitFlashCoroutine());
+    }
+
+    private IEnumerator HitFlashCoroutine()
+    {
+        for (int i = 0; i < flashCount; i++)
+        {
+            sprite.color = hitColor;
+            yield return new WaitForSeconds(flashDuration);
+
+            sprite.color = originalColor;
+            yield return new WaitForSeconds(flashDuration);
+        }
+
+        sprite.color = originalColor;
+        hitFlashCo = null;
     }
 
     protected virtual void Die()
