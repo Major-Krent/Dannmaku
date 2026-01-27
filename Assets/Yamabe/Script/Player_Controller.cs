@@ -36,9 +36,14 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float dashDuration = 0.2f;
     [SerializeField] float dashCooltime = 1.0f;
     [SerializeField] public bool _isDashing = false;
-    [Header("無敵時間設定")]
+    [Header("被ダメージ設定")]
     [SerializeField] float damageInvincibleTime = 1.5f;
+    [SerializeField] float flashInterval = 0.1f;
+    [SerializeField] Color damageColor = Color.red;
+
     private bool _isInvincible = false;
+    private SpriteRenderer _spriteRenderer;
+    private Color _defaultColor=Color.white;
 
     [SerializeField] Transform firePoint;
     private SkillManager skillManager;
@@ -62,6 +67,11 @@ public class Player_Controller : MonoBehaviour
         col = GetComponent<Collider2D>();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if(_spriteRenderer != null)
+        {
+            _defaultColor=_spriteRenderer.color;
+        }
         //CalculateMoveBounds();
         //---------------------------------------------
         BindCamera();
@@ -224,7 +234,6 @@ public class Player_Controller : MonoBehaviour
     {
         if (!isDie)
         {
-            animator.Play("TakeDamage");
             if (_isInvincible) return;
             playerCurrentHp -= damage;
             UpdateHealthUI();
@@ -233,6 +242,7 @@ public class Player_Controller : MonoBehaviour
                 Die();
             }
             StartCoroutine(BecomeInvincible(damageInvincibleTime));
+            StartCoroutine(DamageFlashRoutine());
         }
     }
     public void Heal(float amount)
@@ -356,6 +366,27 @@ public class Player_Controller : MonoBehaviour
         _isInvincible = true;
         yield return new WaitForSeconds(duration);
         _isInvincible = false;
+    }
+
+    private IEnumerator DamageFlashRoutine()
+    {
+        float timer = 0f;
+
+        while (timer < damageInvincibleTime)
+        {
+            // 赤くする
+            _spriteRenderer.color = damageColor;
+            yield return new WaitForSeconds(flashInterval);
+
+            // 元の色に戻す（または透明度を下げる）
+            _spriteRenderer.color = _defaultColor;
+            yield return new WaitForSeconds(flashInterval);
+
+            timer += flashInterval * 2;
+        }
+
+        // 最後に確実に元の色に戻し、無敵を解除
+        _spriteRenderer.color = _defaultColor;
     }
 
     void HandleFlip()
