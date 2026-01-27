@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -441,8 +442,21 @@ public class Boss3Controller : EnemyBase
     {
         if (loopCo != null) StopCoroutine(loopCo);
         rb.linearVelocity = Vector2.zero;
+        // 1️⃣ 停止一切行为
+        StopAllCoroutines();
+
+        // 3️⃣ 关闭碰撞 & 刚体
+        if (rb != null) rb.linearVelocity = Vector2.zero;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
         anim?.SetTrigger("isDie");
         base.Die();
+    }
+
+    protected void DestroyBoss()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

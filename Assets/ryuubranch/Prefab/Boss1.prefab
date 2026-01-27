@@ -105,6 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   player: {fileID: 0}
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.1
+  flashCount: 2
   MoveSpeed: 0.8
   actionSpeedMultiplier: 1
   phase1MoveMul: 1
