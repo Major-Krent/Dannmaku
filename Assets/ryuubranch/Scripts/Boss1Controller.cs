@@ -84,7 +84,7 @@ public class Boss1Controller : EnemyBase
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
         bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
         baseMoveSpeed = MoveSpeed;
-        HP = 500f;
+        HP = 350f;
         currentHP = HP;
         healthSlider.maxValue = HP;
         healthSlider.value = currentHP;
@@ -548,6 +548,8 @@ public class Boss1Controller : EnemyBase
         {
             BossBattleManager.Instance.OnBossDefeated();
         }
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
         isDead = true;
         Destroy(healthSlider.gameObject);
         base.Die();
