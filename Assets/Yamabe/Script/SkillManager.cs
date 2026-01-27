@@ -234,7 +234,7 @@ public class SkillManager : MonoBehaviour
     {
         if(skill.EffectPrefab!=null)
         {
-            Instantiate(skill.EffectPrefab,transform.position,transform.rotation,transform);
+            Instantiate(skill.EffectPrefab,transform.position + new Vector3(0, 1.1f, 0), transform.rotation,transform);
 
         }
     }

@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: 4ba20c076fc3a4d408fd10ae118f285c
+guid: 91922ef00e0fd5b4eb765fdeaa079d75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4010647431465188124
-    second: Knight-Walk_0
+      213: -1398481107835275646
+    second: Swordsman-Attack01_0
   - first:
-      213: -6508145933316665992
-    second: Knight-Walk_1
+      213: -6129625801759632709
+    second: Swordsman-Attack01_1
   - first:
-      213: -49913018130623038
-    second: Knight-Walk_2
+      213: 4196667117923748116
+    second: Swordsman-Attack01_2
   - first:
-      213: 239361134242471897
-    second: Knight-Walk_3
+      213: -7123142496116452435
+    second: Swordsman-Attack01_3
   - first:
-      213: -4407603120092265080
-    second: Knight-Walk_4
+      213: 761415504712278719
+    second: Swordsman-Attack01_4
   - first:
-      213: -6974482058892260834
-    second: Knight-Walk_5
+      213: -5823981665686509807
+    second: Swordsman-Attack01_5
   - first:
-      213: 3126080148506214700
-    second: Knight-Walk_6
-  - first:
-      213: -7098415636228387845
-    second: Knight-Walk_7
+      213: 189638783745283997
+    second: Swordsman-Attack01_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,57 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Knight-Walk_0
+      name: Swordsman-Attack01_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 40
-        width: 38
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e44f2019615758c0800000000000000
-      internalID: -4010647431465188124
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight-Walk_1
-      rect:
-        serializedVersion: 2
-        x: 139
-        y: 40
-        width: 38
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 87dc14a51cb6ea5a0800000000000000
-      internalID: -6508145933316665992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight-Walk_2
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 40
-        width: 38
-        height: 32
+        x: 41
+        y: 39
+        width: 42
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,108 +133,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c518acdf5cae4ff0800000000000000
-      internalID: -49913018130623038
+      spriteID: 286326687d8979ce0800000000000000
+      internalID: -1398481107835275646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Knight-Walk_3
+      name: Swordsman-Attack01_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 39
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb25c083fc13feaa0800000000000000
+      internalID: -6129625801759632709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman-Attack01_2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 39
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4194864428e8d3a30800000000000000
+      internalID: 4196667117923748116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman-Attack01_3
       rect:
         serializedVersion: 2
         x: 339
-        y: 40
-        width: 38
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9df9e83fea1625300800000000000000
-      internalID: 239361134242471897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight-Walk_4
-      rect:
-        serializedVersion: 2
-        x: 439
-        y: 40
-        width: 38
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8854ff3905c05d2c0800000000000000
-      internalID: -4407603120092265080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight-Walk_5
-      rect:
-        serializedVersion: 2
-        x: 539
-        y: 40
-        width: 38
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e1a44631589a53f90800000000000000
-      internalID: -6974482058892260834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight-Walk_6
-      rect:
-        serializedVersion: 2
-        x: 639
-        y: 40
-        width: 38
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c210d171551126b20800000000000000
-      internalID: 3126080148506214700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Knight-Walk_7
-      rect:
-        serializedVersion: 2
-        x: 739
-        y: 40
-        width: 38
-        height: 32
+        y: 39
+        width: 42
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +199,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfb478e769c5d7d90800000000000000
-      internalID: -7098415636228387845
+      spriteID: da35d7ac3a3852d90800000000000000
+      internalID: -7123142496116452435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman-Attack01_4
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 39
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2a9dc0e57119a00800000000000000
+      internalID: 761415504712278719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman-Attack01_5
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 39
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1172e56288f0d2fa0800000000000000
+      internalID: -5823981665686509807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman-Attack01_6
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 39
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9756c4187bb1a200800000000000000
+      internalID: 189638783745283997
       vertices: []
       indices: 
       edges: []
@@ -300,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e9d49313c2129904eb077f89f3752e87
+    spriteID: 4459c73d26b238a4fa9a268a76eb1979
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Knight-Walk_0: -4010647431465188124
-      Knight-Walk_1: -6508145933316665992
-      Knight-Walk_2: -49913018130623038
-      Knight-Walk_3: 239361134242471897
-      Knight-Walk_4: -4407603120092265080
-      Knight-Walk_5: -6974482058892260834
-      Knight-Walk_6: 3126080148506214700
-      Knight-Walk_7: -7098415636228387845
+      Swordsman-Attack01_0: -1398481107835275646
+      Swordsman-Attack01_1: -6129625801759632709
+      Swordsman-Attack01_2: 4196667117923748116
+      Swordsman-Attack01_3: -7123142496116452435
+      Swordsman-Attack01_4: 761415504712278719
+      Swordsman-Attack01_5: -5823981665686509807
+      Swordsman-Attack01_6: 189638783745283997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

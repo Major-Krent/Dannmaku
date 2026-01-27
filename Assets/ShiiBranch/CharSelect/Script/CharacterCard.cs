@@ -10,7 +10,7 @@ public class CharacterCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] private float smoothTime = 0.1f;
     public GameContext.CharacterType characterType;  //0:‹ß1:‰“
 
-    public Animator charAnimator;
+    [SerializeField] private Animator charAnimator;
     [SerializeField] private SelectionManager manager;  
 
     private Vector3 originalScale;
