@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class UniquePetController : MonoBehaviour
+public class PetController : MonoBehaviour
 {
     [Header("追従設定")]
-    [SerializeField] private Transform playerTransform; // プレイヤーのTransform
-    [SerializeField] private Vector3 offset = new Vector3(-1f, 1f, 0f); // プレイヤーとの位置関係
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Vector3 offset = new Vector3(-1f, 1f, 0f);
     [SerializeField] private float followSpeed = 5f;
-    [SerializeField] private float floatingAmplitude = 0.2f; // ふわふわ揺れる幅
-    [SerializeField] private float floatingFrequency = 2f;  // ふわふわ揺れる速さ
+    [SerializeField] private float floatingAmplitude = 0.2f;
+    [SerializeField] private float floatingFrequency = 2f;
 
     [Header("攻撃設定")]
     [SerializeField] private GameObject bulletPrefab;
@@ -20,9 +20,7 @@ public class UniquePetController : MonoBehaviour
 
     void Start()
     {
-        // プレイヤーが未設定なら親から取得
         if (playerTransform == null) playerTransform = transform.parent;
-        // 親子関係を解除して、追従ロジックで動かす（親子だと動きが硬いため）
         transform.SetParent(null);
     }
 
@@ -36,13 +34,10 @@ public class UniquePetController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        // プレイヤーの目標位置を計算
         Vector3 targetPos = playerTransform.position + offset;
 
-        // ふわふわした動きを追加
         targetPos.y += Mathf.Sin(Time.time * floatingFrequency) * floatingAmplitude;
 
-        // スムーズに移動
         transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
     }
 
@@ -86,14 +81,6 @@ public class UniquePetController : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, angle));
 
-        // 既存の BulletController を使用
         BulletController bc = bullet.GetComponent<BulletController>();
-    }
-
-    // 索敵範囲をエディタ上で見えるようにする（デバッグ用）
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

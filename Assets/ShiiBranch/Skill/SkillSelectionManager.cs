@@ -65,8 +65,38 @@ public class SkillSelectionManager : MonoBehaviour
     /// </summary>
     public void InitializeSkillPool()
     {
-        availableSkillPool = new List<SkillData>(masterSkillList);
-        Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
+        availableSkillPool = new List<SkillData>();
+
+        GameContext.CharacterType currentType = GameContext.SelectedCharacter;
+        foreach (var skill in masterSkillList)
+        {
+            bool isCompatible = false;
+
+            switch (skill.Compatibility)
+            {
+                case SkillCompatibility.Universal:
+                    //通用
+                    isCompatible = true;
+                    break;
+
+                case SkillCompatibility.MeleeOnly:
+                    //近距離限定
+                    if (currentType == GameContext.CharacterType.Melee)
+                        isCompatible = true;
+                    break;
+
+                case SkillCompatibility.RangedOnly:
+                    //遠距離限定
+                    if (currentType == GameContext.CharacterType.Ranged)
+                        isCompatible = true;
+                    break;
+            }
+            if (isCompatible)
+            {
+                availableSkillPool.Add(skill);
+            }
+            Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
+        }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
