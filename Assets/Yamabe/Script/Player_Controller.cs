@@ -35,15 +35,21 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] float dashSpeed = 15.0f;
     [SerializeField] float dashDuration = 0.2f;
     [SerializeField] float dashCooltime = 1.0f;
-    [SerializeField] public bool _isDashing = false;
+    [SerializeField] public bool isDashing = false;
+
     [Header("被ダメージ設定")]
     [SerializeField] float damageInvincibleTime = 1.5f;
     [SerializeField] float flashInterval = 0.1f;
     [SerializeField] Color damageColor = Color.red;
 
-    private bool _isInvincible = false;
-    private SpriteRenderer _spriteRenderer;
-    private Color _defaultColor=Color.white;
+    [Header("チャージ設定")]
+    [SerializeField] private float maxChargeTime = 1.0f; 
+    private float currentChargeTimer = 0f;
+    private bool isCharging = false;
+
+    private bool isInvincible = false;
+    private SpriteRenderer spriteRenderer;
+    private Color defaultColor=Color.white;
 
     [SerializeField] Transform firePoint;
     private SkillManager skillManager;
@@ -53,7 +59,7 @@ public class Player_Controller : MonoBehaviour
     private float shotTime;
     private float nextFireTime = 0.0f;
     private float nextAttackTime = 0.0f;
-    private float _nextDashTime = 0.0f;
+    private float nextDashTime = 0.0f;
     private Vector2 moveInput;
     private Camera mainCamera;
     private bool isDie=false;
@@ -67,10 +73,10 @@ public class Player_Controller : MonoBehaviour
         col = GetComponent<Collider2D>();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        if(_spriteRenderer != null)
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(spriteRenderer != null)
         {
-            _defaultColor=_spriteRenderer.color;
+            defaultColor=spriteRenderer.color;
         }
         //CalculateMoveBounds();
         //---------------------------------------------
@@ -135,7 +141,7 @@ public class Player_Controller : MonoBehaviour
         if (!isDie)
         {
             HandleFlip();
-            if (!_isDashing)
+            if (!isDashing)
             {
                 MovePlayer();
             }
@@ -178,7 +184,7 @@ public class Player_Controller : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _nextDashTime)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > nextDashTime)
         {
             StartCoroutine(PerformDash());
         }
@@ -186,8 +192,8 @@ public class Player_Controller : MonoBehaviour
 
     private IEnumerator PerformDash()
     {
-        _isDashing = true;
-        _nextDashTime = Time.time + dashCooltime;
+        isDashing = true;
+        nextDashTime = Time.time + dashCooltime;
 
         float startTime = Time.time;
         Vector2 dashDirection = moveInput;
@@ -203,17 +209,50 @@ public class Player_Controller : MonoBehaviour
             yield return null;
         }
         rb.linearVelocity = Vector2.zero;
-        _isDashing = false;
+        isDashing = false;
     }
 
     void ShootBullet()
     {
-        currentFireRate = playerAttackRate / Mathf.Max(skillManager.TotalAttackARateMultiplier);
-        if (Input.GetMouseButton(0) && Time.time > nextFireTime)
+        if (skillManager.ChargeAttack)
         {
-            nextFireTime = Time.time + currentFireRate;
-            StartCoroutine(PerformRangedAttack());
+            if(Input.GetMouseButtonDown(0))
+            {
+                isCharging = true;
+                currentChargeTimer = 0f;
+            }
 
+            if(Input.GetMouseButton(0))
+            {
+                currentChargeTimer+=Time.deltaTime; ;
+            }
+
+            if(Input.GetMouseButtonUp(0))
+            {
+                float chargeRatio = Mathf.Clamp01(currentChargeTimer / maxChargeTime);
+
+                if(chargeRatio>=0.5f)
+                {
+                    StartCoroutine(PerformChargedAttack(chargeRatio));
+                }
+                else
+                {
+                    StartCoroutine(PerformRangedAttack());
+                }
+
+                isCharging=false;
+                currentChargeTimer=0f;
+            }
+        }
+        else
+        {
+            currentFireRate = playerAttackRate / Mathf.Max(skillManager.TotalAttackARateMultiplier);
+            if (Input.GetMouseButton(0) && Time.time > nextFireTime)
+            {
+                nextFireTime = Time.time + currentFireRate;
+                StartCoroutine(PerformRangedAttack());
+
+            }
         }
     }
 
@@ -234,7 +273,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (!isDie)
         {
-            if (_isInvincible) return;
+            if (isInvincible) return;
             playerCurrentHp -= damage;
             UpdateHealthUI();
             if (playerCurrentHp < 0)
@@ -257,7 +296,7 @@ public class Player_Controller : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy_Bullet") && !_isDashing)
+        if (collision.CompareTag("Enemy_Bullet") && !isDashing)
         {
             Bullet1 bullet = collision.GetComponent<Bullet1>();
             if (bullet != null)
@@ -267,7 +306,7 @@ public class Player_Controller : MonoBehaviour
             }
         }
 
-        if (collision.CompareTag("Enemy_Bullet") && !_isDashing)
+        if (collision.CompareTag("Enemy_Bullet") && !isDashing)
         {
 
             Lazer1 lazer = collision.GetComponent<Lazer1>();
@@ -361,11 +400,50 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
+    private IEnumerator PerformChargedAttack(float ratio)
+    {
+        animator.Play("RangeAttack");
+        totalShots = 1 + skillManager.TotalExtraAttack;
+        float chargeDamageMultiplier = 1f + (ratio * 2f);
+        float finalDamage = (rangedDamage * skillManager.TotalDamageMultiplier) * chargeDamageMultiplier;
+        for (int i = 0; i < totalShots; i++)
+        {
+            Vector3 mouseScreenPos = Input.mousePosition;
+            mouseScreenPos.z = mainCamera.nearClipPlane;
+            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
+            Vector2 direction = (new Vector2(mouseWorldPos.x, mouseWorldPos.y) - (Vector2)firePoint.position).normalized;
+
+            if (direction == Vector2.zero)
+            {
+                direction = Vector2.up;
+            }
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle - 90f);
+
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
+
+            // 弾の大きさをチャージ量に合わせて大きくする
+            bullet.transform.localScale *= (3f + ratio);
+
+            BulletController bulletScript = bullet.GetComponent<BulletController>();
+            if (bulletScript != null)
+            {
+                bulletScript.Initialize(finalDamage, skillManager.HomingShot);
+            }
+
+            if (totalShots > 1)
+            {
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+    }
+
     private IEnumerator BecomeInvincible(float duration)
     {
-        _isInvincible = true;
+        isInvincible = true;
         yield return new WaitForSeconds(duration);
-        _isInvincible = false;
+        isInvincible = false;
     }
 
     private IEnumerator DamageFlashRoutine()
@@ -375,18 +453,18 @@ public class Player_Controller : MonoBehaviour
         while (timer < damageInvincibleTime)
         {
             // 赤くする
-            _spriteRenderer.color = damageColor;
+            spriteRenderer.color = damageColor;
             yield return new WaitForSeconds(flashInterval);
 
             // 元の色に戻す（または透明度を下げる）
-            _spriteRenderer.color = _defaultColor;
+            spriteRenderer.color = defaultColor;
             yield return new WaitForSeconds(flashInterval);
 
             timer += flashInterval * 2;
         }
 
         // 最後に確実に元の色に戻し、無敵を解除
-        _spriteRenderer.color = _defaultColor;
+        spriteRenderer.color = defaultColor;
     }
 
     void HandleFlip()

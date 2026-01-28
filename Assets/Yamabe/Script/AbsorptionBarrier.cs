@@ -29,8 +29,7 @@ public class AbsorptionBarrier : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // "EnemyBullet"i“G‚Ì’ej‚É“–‚½‚Á‚½ê‡
-        if (collision.CompareTag("Enemy_Bullet")&&!controller._isDashing)
+        if (collision.CompareTag("Enemy_Bullet")&&!controller.isDashing)
         {
             AbsorbAttack(collision.gameObject);
         }
@@ -38,11 +37,7 @@ public class AbsorptionBarrier : MonoBehaviour
 
     private void AbsorbAttack(GameObject enemyBullet)
     {
-        // 1. “G‚Ì’e‚ğ”j‰ó‚·‚é
         Destroy(enemyBullet);
-
-        // 2. ƒGƒtƒFƒNƒg‚âƒƒO
-        Debug.Log("“G‚ÌUŒ‚‚ğ‹zû‚µ‚Ü‚µ‚½I");
 
         currentHits++;
         UpdateAlpha();
