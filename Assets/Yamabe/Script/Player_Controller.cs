@@ -47,6 +47,9 @@ public class Player_Controller : MonoBehaviour
     private float currentChargeTimer = 0f;
     private bool isCharging = false;
 
+    [Header("UIê›íË")]
+    [SerializeField] private Slider chargeSlider;
+
     private bool isInvincible = false;
     private SpriteRenderer spriteRenderer;
     private Color defaultColor=Color.white;
@@ -63,6 +66,8 @@ public class Player_Controller : MonoBehaviour
     private Vector2 moveInput;
     private Camera mainCamera;
     private bool isDie=false;
+    private bool isBarrierActive = false;
+    private BarrierController _activeBarrier;
     [SerializeField] private Slider hpBarSlider;
     void Start()
     {
@@ -77,6 +82,10 @@ public class Player_Controller : MonoBehaviour
         if(spriteRenderer != null)
         {
             defaultColor=spriteRenderer.color;
+        }
+        if(chargeSlider != null)
+        {
+            chargeSlider.gameObject.SetActive(false);
         }
         //CalculateMoveBounds();
         //---------------------------------------------
@@ -98,6 +107,10 @@ public class Player_Controller : MonoBehaviour
         UpdateHealthUI();
         isDie = false;
         animator.Play("Idle");
+    }
+    public void RegisterBarrier(BarrierController barrier)
+    {
+        _activeBarrier = barrier;
     }
     private void BindUI()
     {
@@ -220,11 +233,19 @@ public class Player_Controller : MonoBehaviour
             {
                 isCharging = true;
                 currentChargeTimer = 0f;
+
+                chargeSlider.gameObject.SetActive(true);
+                chargeSlider.value = 0f;
             }
 
             if(Input.GetMouseButton(0))
             {
-                currentChargeTimer+=Time.deltaTime; ;
+                currentChargeTimer+=Time.deltaTime;
+                float ratio = Mathf.Clamp01(currentChargeTimer / maxChargeTime);
+                if (chargeSlider!=null)
+                {
+                    chargeSlider.value=ratio;
+                }
             }
 
             if(Input.GetMouseButtonUp(0))
@@ -242,6 +263,10 @@ public class Player_Controller : MonoBehaviour
 
                 isCharging=false;
                 currentChargeTimer=0f;
+                if(chargeSlider!=null)
+                {
+                    chargeSlider.gameObject.SetActive(false);
+                }
             }
         }
         else
@@ -267,10 +292,23 @@ public class Player_Controller : MonoBehaviour
             nextAttackTime = Time.time + currentFireRate;
             StartCoroutine(PerformMeleeAttack());
         }
+    } 
+
+    public void SetBarrierActive(bool isActive)
+    {
+        isBarrierActive=isActive;
     }
 
     public void TakeDamage(float damage)
     {
+        if(_activeBarrier!=null&&!isDashing)
+        {
+            _activeBarrier.OnShieldHit();
+            return;
+        }
+        {
+            return;
+        }
         if (!isDie)
         {
             if (isInvincible) return;
