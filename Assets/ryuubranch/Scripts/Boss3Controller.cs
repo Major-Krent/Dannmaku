@@ -141,11 +141,11 @@ public class Boss3Controller : EnemyBase
 
     private void OnEnable()
     {
-        if (meleeCollider == null)
-        {
-            Debug.Log("meleenull");
-            meleeCollider = GetComponentInChildren<Collider2D>();
-        }
+        //if (meleeCollider == null)
+        //{
+        //    Debug.Log("meleenull");
+        //    meleeCollider = GetComponentInChildren<Collider2D>();
+        //}
         sideOffsetX = 0.5f;
 
         roamSpeed = 9f;
@@ -557,7 +557,7 @@ public class Boss3Controller : EnemyBase
     private IEnumerator Wait()
     {
         isActing = true;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(2f);
         SkillSelectionManager.Instance.TriggerSkillSelection(3);
