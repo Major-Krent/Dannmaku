@@ -559,6 +559,7 @@ public class Boss3Controller : EnemyBase
         roamSpeed = 0;
         chaseSpeedDuringAction = 0;
         rollSpeed = 0;
+        anim?.SetTrigger("isStop");
 
         yield return new WaitForSeconds(2f);
         SkillSelectionManager.Instance.TriggerSkillSelection(3);
