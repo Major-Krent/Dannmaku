@@ -7,6 +7,16 @@ public class Boss3Controller : EnemyBase
 {
     private enum ActionType { Melee, Ranged }
 
+    private float phase2Threshold = 0.70f;
+    private float phase3Threshold = 0.45f;
+    private BossPhase currentPhase = BossPhase.Phase1;
+    public enum BossPhase
+    {
+        Phase1, // 100% ~ 66%
+        Phase2, // 66% ~ 33%
+        Phase3  // 33% ~ 0
+    }
+
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
@@ -64,7 +74,6 @@ public class Boss3Controller : EnemyBase
     [SerializeField] private float meleeStartDistance;
     [SerializeField] private float meleeRecover;
     [SerializeField] private float meleeStopDistance;
-    [SerializeField] private Collider2D meleeCollider;
     [SerializeField] private float sideOffsetX;   // 站到玩家左右多远
     [SerializeField] private float sideAlignTolerance = 0.15f;
 
@@ -79,6 +88,15 @@ public class Boss3Controller : EnemyBase
     [SerializeField] private float separationDashSpeed;
     [SerializeField] private float separationDashTime;
 
+    [Header("Phase Change Energy Orbs")]
+    [SerializeField] private GameObject energyOrbPrefab;
+    [SerializeField] private int energyOrbCount = 8;
+    [SerializeField] private float orbScatterSpeed = 4f;
+    [SerializeField] private float orbScatterDuration = 0.4f;
+    [SerializeField] private float orbSeekSpeed = 7f;
+
+    public Boss3Melee boss3melee;
+    Collider2D meleeCollider;
 
     private bool isActing =false;
     protected override void Start()
@@ -86,11 +104,48 @@ public class Boss3Controller : EnemyBase
         base.Start();
         if (!rb) rb = GetComponent<Rigidbody2D>();
         if (!anim) anim = GetComponent<Animator>();
+        meleeCollider = boss3melee.GetComponent<Collider2D>();
         PickNewRoamTarget();
+    }
+
+    private void UpdatePhaseByHP()
+    {
+        float hpPercent = currentHP / HP; // 0~1
+
+        // 注意顺序：先判断第三阶段，再判断第二阶段
+        if (hpPercent <= phase3Threshold && currentPhase != BossPhase.Phase3)
+        {
+            EnterPhase3();
+        }
+        else if (hpPercent <= phase2Threshold && currentPhase == BossPhase.Phase1)
+        {
+            // 只允许从 1 -> 2（避免 3 再回 2）
+            EnterPhase2();
+        }
+    }
+
+    private void EnterPhase2()
+    {
+        currentPhase = BossPhase.Phase2;
+
+        SpawnEnergyOrbsToPlayer();
+        Debug.Log("Enter Phase 2");
+    }
+    private void EnterPhase3()
+    {
+        currentPhase = BossPhase.Phase3;
+
+        SpawnEnergyOrbsToPlayer();
+        Debug.Log("Enter Phase 3");
     }
 
     private void OnEnable()
     {
+        if (meleeCollider == null)
+        {
+            Debug.Log("meleenull");
+            meleeCollider = GetComponentInChildren<Collider2D>();
+        }
         sideOffsetX = 0.5f;
 
         roamSpeed = 9f;
@@ -112,7 +167,7 @@ public class Boss3Controller : EnemyBase
 
         rangedWindup = 0.33f;
         rangedRecover = 0.22f;
-        lightEggSpeed = 30f;
+        lightEggSpeed = 20f;
 
         separationDashSpeed = 12f;
         separationDashTime = 0.18f;
@@ -140,6 +195,7 @@ public class Boss3Controller : EnemyBase
     protected override void Update()
     {
         base.Update();
+        UpdatePhaseByHP();
         if (healthSlider) healthSlider.value = currentHP;
     }
 
@@ -363,6 +419,7 @@ public class Boss3Controller : EnemyBase
 
     public void OpenHitBox()
     {
+        Debug.Log("open");
         if (meleeCollider) meleeCollider.enabled = true;
     }
 
@@ -467,13 +524,48 @@ public class Boss3Controller : EnemyBase
             TakeDamage(bullet.damage);
             Destroy(collision.gameObject);
         }
-        if (collision.CompareTag("Player"))
+    }
+
+    private void SpawnEnergyOrbsToPlayer()
+    {
+        StartCoroutine(Wait());
+        if (energyOrbPrefab == null || player == null)
+            return;
+
+        for (int i = 0; i < energyOrbCount; i++)
         {
-            Player_Controller playerCtrl = collision.GetComponent<Player_Controller>();
-            if (playerCtrl != null)
+            // ⭐ 注意：生成点 = Boss 本体
+            GameObject orb = Instantiate(
+                energyOrbPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+
+            EnergyOrb energyOrb = orb.GetComponent<EnergyOrb>();
+            if (energyOrb != null)
             {
-                playerCtrl.TakeDamage(1f); // 这里写你想要的伤害值
+                energyOrb.Init(
+                    player,
+                    orbScatterSpeed,
+                    orbSeekSpeed,
+                    orbScatterDuration
+                );
             }
         }
     }
+
+    private IEnumerator Wait()
+    {
+        isActing = true;
+        rb.velocity = Vector2.zero;
+
+        yield return new WaitForSeconds(2f);
+        SkillSelectionManager.Instance.TriggerSkillSelection(3);
+        yield return new WaitForSeconds(1f);
+        isActing = false;
+
+        if (loopCo != null) StopCoroutine(loopCo);
+        loopCo = StartCoroutine(BossLoop());
+    }
+
 }
