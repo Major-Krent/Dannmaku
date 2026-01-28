@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9214897546262748773}
   m_Layer: 8
   m_Name: BossMelee
-  m_TagString: Enemy_Bullet
+  m_TagString: Enemy_Warn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1203697795423668905}
   m_Layer: 6
   m_Name: Boss3
-  m_TagString: Enemy_Warn
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
