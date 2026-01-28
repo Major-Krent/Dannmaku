@@ -66,7 +66,7 @@ public class SkillSelectionManager : MonoBehaviour
     public void InitializeSkillPool()
     {
         availableSkillPool = new List<SkillData>();
-
+        HashSet<SkillData> checkSet = new HashSet<SkillData>();//------------------
         GameContext.CharacterType currentType = GameContext.SelectedCharacter;
         foreach (var skill in masterSkillList)
         {
@@ -94,8 +94,18 @@ public class SkillSelectionManager : MonoBehaviour
             if (isCompatible)
             {
                 availableSkillPool.Add(skill);
+                if (checkSet.Contains(skill))//--------------------------
+                {
+                    Debug.LogError($"スキル重複: {skill.SkillName}");
+                }
+                else
+                {
+                    checkSet.Add(skill);
+                }//-----------------------------------------------------
             }
             Debug.Log($"スキルプールを初期化しました。利用可能なスキル数: {availableSkillPool.Count}");
+            foreach (var s in availableSkillPool) Debug.Log($"全部のスキル: {s.SkillName}");
+
         }
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -106,7 +116,7 @@ public class SkillSelectionManager : MonoBehaviour
             InitializeSkillPool();
             SavePoolState();
         }
-        else if (scene.name != "Title") 
+        else
         {
             SavePoolState();
         }
@@ -208,11 +218,19 @@ public class SkillSelectionManager : MonoBehaviour
             availableSkillPool.Remove(chosenSkill);
             Debug.Log($"スキル「{chosenSkill.SkillName}」を選択。プールから削除しました。残りスキル数: {availableSkillPool.Count}");
         }
+        else
+        {
+            Debug.LogError($"失敗 {chosenSkill.SkillName}！もうRemoveした");
+        }
         //上位スキルがあるかどうかをチェックする
         if (chosenSkill.NextLevelSkill != null)
         {
             availableSkillPool.Add(chosenSkill.NextLevelSkill);
             Debug.Log($"上位スキル「{chosenSkill.NextLevelSkill.SkillName}」がプールに追加されました！");
+        }
+        if (chosenSkill.NextLevelSkill == chosenSkill)
+        {
+            Debug.LogError($"{chosenSkill.SkillName} の上位スキルは自分");
         }
         if (SkillManager.Instance != null)
         {

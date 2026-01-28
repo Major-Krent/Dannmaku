@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 4115041856191517702}
   fadeDuration: 1
+  delayBeforeGameOver: 3
 --- !u!1 &394988852275947315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1458,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3441897246034957951}
     - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: masterSkillList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
       propertyPath: 'masterSkillList.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
@@ -1464,6 +1469,10 @@ PrefabInstance:
       propertyPath: 'masterSkillList.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
+    - target: {fileID: 5535220422248464213, guid: b6091b549ee749f458179e1437147c48, type: 3}
+      propertyPath: 'masterSkillList.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b276d4991b9dde7428dba64977ff9970, type: 2}
     - target: {fileID: 6061888638968266938, guid: b6091b549ee749f458179e1437147c48, type: 3}
       propertyPath: m_Name
       value: SkillSelectionManager
