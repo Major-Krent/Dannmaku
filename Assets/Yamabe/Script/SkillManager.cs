@@ -182,7 +182,11 @@ public class SkillManager : MonoBehaviour
     {
         foreach( var skill in skillData)
         {
-            if(!cooldownTime.ContainsKey(skill))
+            if (skill.EffectPrefab == null)
+            {
+                continue;
+            }
+            if (!cooldownTime.ContainsKey(skill))
             {
                 cooldownTime[skill] = 0f;
             }
@@ -215,7 +219,7 @@ public class SkillManager : MonoBehaviour
             }
             else if(skill.Type==SkillType.TriggeredAbility)
             {
-                if(Input.GetKeyDown("q"))
+                if(Input.GetKeyDown(KeyCode.Q))
                 {
                     shouldActivtate = true;
                 }
@@ -241,6 +245,10 @@ public class SkillManager : MonoBehaviour
 
     public void AddSkill(SkillData newSkill)
     {
+        if (skillData.Contains(newSkill))
+        {
+            return;
+        }
         SkillData oldSkill = skillData.Find(s => s.NextLevelSkill == newSkill);
         if (oldSkill != null)
         {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
   m_Name: HomingShot
   m_EditorClassIdentifier: 
-  _skillName: HomigShot
+  _skillName: "\u8A98\u5C0E\u5F3E"
   _description: "\u767A\u5C04\u3057\u305F\u5F3E\u304C\u6575\u306B\u8A98\u5C0E\u3059\u308B\u3088\u3046\u306B\u306A\u308B"
   _icon: {fileID: 9013656592470760534, guid: 5849055211b6ed64db70ec4831d7931e, type: 3}
   _type: 1

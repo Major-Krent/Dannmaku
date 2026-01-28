@@ -49,13 +49,15 @@ MonoBehaviour:
   cardContainer: {fileID: 0}
   skillSelectionPanel: {fileID: 0}
   masterSkillList:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: aabedcc7d08d8474386391e84dec654e, type: 2}
   - {fileID: 11400000, guid: 3e929d0570d8a6e48affa941768accb2, type: 2}
   - {fileID: 11400000, guid: c3f4ace1bd9eed149896fb774f09970f, type: 2}
   - {fileID: 11400000, guid: 1e505a1b068ce1c47815b9074978be44, type: 2}
   - {fileID: 11400000, guid: 4001142c46b862648bdda3b191fa771b, type: 2}
   - {fileID: 11400000, guid: 2e79f645906dee042babec49f5fb85a1, type: 2}
+  - {fileID: 11400000, guid: f82ac8311a1bba346a14bcbfd0e037d0, type: 2}
+  - {fileID: 11400000, guid: b9b855fd485b34c4cb71a6e5f5f84845, type: 2}
+  - {fileID: 11400000, guid: b276d4991b9dde7428dba64977ff9970, type: 2}
   animationSpeed: 7
   offScreenYPosition: -1200
   popupSound: {fileID: 0}
