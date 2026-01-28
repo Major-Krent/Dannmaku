@@ -422,7 +422,7 @@ public class Player_Controller : MonoBehaviour
 
         for (int i = 0; i < totalShots; i++)
         {
-            animator.Play("MeleeAttack");
+            animator.Play("MeleeAttack", -1, 0f);
             GameObject meleeAttack = Instantiate(attackPrefab, firePoint.position, firePoint.rotation, transform);
             MeleeAttack meleeScript = meleeAttack.GetComponent<MeleeAttack>();
             if (meleeScript != null)
