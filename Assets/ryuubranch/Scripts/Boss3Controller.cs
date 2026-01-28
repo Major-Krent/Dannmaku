@@ -297,8 +297,7 @@ public class Boss3Controller : EnemyBase
 
     private bool IsInAction()
     {
-        // 你后面如果要扩展动作类型，这里也方便改
-        // 目前：我们不想让翻滚打断动作，所以动作期返回true
+
         return false;
     }
 
@@ -557,12 +556,18 @@ public class Boss3Controller : EnemyBase
     private IEnumerator Wait()
     {
         isActing = true;
-        rb.linearVelocity = Vector2.zero;
+        roamSpeed = 0;
+        chaseSpeedDuringAction = 0;
+        rollSpeed = 0;
 
         yield return new WaitForSeconds(2f);
         SkillSelectionManager.Instance.TriggerSkillSelection(3);
         yield return new WaitForSeconds(1f);
         isActing = false;
+
+        roamSpeed = 9;
+        chaseSpeedDuringAction = 10.5f;
+        rollSpeed = 15;
 
         if (loopCo != null) StopCoroutine(loopCo);
         loopCo = StartCoroutine(BossLoop());
