@@ -109,7 +109,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 178551372622403295, guid: 31e849e9a0f864540a11bfb39f409a7a, type: 3}
   attackRange: 10
   fireRate: 0.8
-  baseDamage: 3
+  baseDamage: 1
 --- !u!95 &1190339971899492290
 Animator:
   serializedVersion: 7

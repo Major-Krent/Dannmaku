@@ -130,7 +130,7 @@ MonoBehaviour:
   currentRangedDamage: 0
   attackPrefab: {fileID: 2852790785251541904, guid: f8f5dd3ca9a0ffb4a8beb4cf7eb412d2, type: 3}
   meleeAttackCooldown: 0.5
-  meleeDamage: 3
+  meleeDamage: 4
   currentMeleeDamage: 0
   dashSpeed: 15
   dashDuration: 0.2

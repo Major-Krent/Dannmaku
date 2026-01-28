@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 2
-  damage: 5
+  damage: 1
   enableHoming: 0
   rotateSpeed: 60
   detectionRadius: 63.9
