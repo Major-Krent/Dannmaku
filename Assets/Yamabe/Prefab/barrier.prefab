@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8158973825205474238}
   - component: {fileID: 7810314365406837918}
+  - component: {fileID: -5291042913840323474}
   - component: {fileID: 8383275783525762367}
   - component: {fileID: 7592372287735121767}
   - component: {fileID: 4286547438698933636}
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8383275783525762367
+--- !u!114 &-5291042913840323474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,6 +100,25 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177516880214301641}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a01e55ae10bdaf46bd8fcb43d29e15f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHits: 3
+  hitInterval: 0.2
+  currentHits: 0
+  deploySound: {fileID: 8300000, guid: 2f288a8e2c9967147a40ad54576978c0, type: 3}
+  hitSound: {fileID: 8300000, guid: a534bfe176e43794889163c58574cde5, type: 3}
+  breakSound: {fileID: 8300000, guid: f18d5cd173d35a74283b385ad1e8dd6f, type: 3}
+  soundVolume: 1
+--- !u!114 &8383275783525762367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177516880214301641}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a96032316db82241b2dc0928f7a76de, type: 3}
   m_Name: 

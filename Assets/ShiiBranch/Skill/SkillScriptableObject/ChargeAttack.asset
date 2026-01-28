@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6446eae29a5baac4aaabd2d644850b92, type: 3}
   m_Name: ChargeAttack
   m_EditorClassIdentifier: 
-  _skillName: 
-  _description: 
-  _icon: {fileID: 0}
-  _type: 0
+  _skillName: "\u30C1\u30E3\u30FC\u30B8\u653B\u6483"
+  _description: "\u9577\u62BC\u3057\u3067\u30C1\u30E3\u30FC\u30B8\u653B\u6483\u304C\u6253\u3066\u308B\u3088\u3046\u306B\u306A\u308B"
+  _icon: {fileID: -2783245508818007376, guid: d75e80ef8e9d9844fbdf0812c875ce92, type: 3}
+  _type: 1
   _tier: 0
   _compatibility: 0
   _moveSpeedMultiplier: 1
@@ -25,6 +25,6 @@ MonoBehaviour:
   _lifestealRatio: 0
   _effectPrefab: {fileID: 0}
   _isHomingShot: 0
-  _isChargeAttack: 0
+  _isChargeAttack: 1
   _cooldownDuration: 0
   _nextLevelSkill: {fileID: 0}
