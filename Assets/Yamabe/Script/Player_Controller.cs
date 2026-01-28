@@ -306,9 +306,7 @@ public class Player_Controller : MonoBehaviour
             _activeBarrier.OnShieldHit();
             return;
         }
-        {
-            return;
-        }
+
         if (!isDie)
         {
             if (isInvincible) return;
