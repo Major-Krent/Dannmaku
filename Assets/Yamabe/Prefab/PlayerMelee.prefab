@@ -135,8 +135,11 @@ MonoBehaviour:
   dashSpeed: 15
   dashDuration: 0.2
   dashCooltime: 1
-  _isDashing: 0
+  isDashing: 0
   damageInvincibleTime: 0.5
+  flashInterval: 0.1
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  maxChargeTime: 1
   firePoint: {fileID: 7526107158735107950}
   hpBarSlider: {fileID: 0}
 --- !u!50 &2926539313647924718

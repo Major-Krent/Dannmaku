@@ -128,7 +128,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 178551372622403295, guid: 071978ff0b7e20b49adc3cf68440a128, type: 3}
   playerAttackRate: 0.5
   totalShots: 0
-  rangedDamage: 1
+  rangedDamage: 2
   currentRangedDamage: 0
   attackPrefab: {fileID: 2852790785251541904, guid: f8f5dd3ca9a0ffb4a8beb4cf7eb412d2, type: 3}
   meleeAttackCooldown: 0.5

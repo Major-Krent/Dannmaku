@@ -209,7 +209,7 @@ MonoBehaviour:
   roamTimeMax: 1.6
   restAfterAction: 0.35
   actionCooldown: 0.7
-  roamSpeed: 9
+  roamSpeed: 8
   roamRepathInterval: 0.3
   roamRadiusAroundPlayer: 6.5
   roamNoiseStrength: 1

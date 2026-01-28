@@ -84,7 +84,7 @@ public class Boss1Controller : EnemyBase
         ResetSkillCycle();         // 初始化技能轮回表 [0,1,2]
         bossLoopCoroutine = StartCoroutine(BossLoop()); // 开始主逻辑
         baseMoveSpeed = MoveSpeed;
-        HP = 350f;
+        HP = 450f;
         currentHP = HP;
         healthSlider.maxValue = HP;
         healthSlider.value = currentHP;
